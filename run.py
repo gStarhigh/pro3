@@ -22,13 +22,6 @@ budget_data = DATA_SHEET.worksheet("tab1")
 account_creds = budget_accounts.get_all_values()
 budget_info = budget_data.get_all_values()
 
-# Classes
-class Expense:
-    def __innit__(self, name, category, transaction, amount):
-        self.name = name
-        self.category = category
-        self.type = transaction
-        self.amount = amount
 
 #Functions
 def get_account_details():
@@ -163,12 +156,13 @@ def get_expenses():
             print(f"You entered: {selected_expense_type}. Choose a number between 1 and {len(expense_categories)}.")
     selected_expense_type = int(selected_expense_type)
     print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
-    #Transaction types
+
 
 def main():
-    #account_name, saved_pin = get_account_details()
-    #budget_month, total_budget = get_budget(account_name, saved_pin)
+    account_name, saved_pin = get_account_details()
+    budget_month, total_budget = get_budget(account_name, saved_pin)
     get_expenses()
+    
 main()
 
 
