@@ -109,11 +109,12 @@ def get_budget(account_name, saved_pin):
         except ValueError:
             print("You must enter numbers.. Please try again")
     print(f"The month for your budget is: {budget_month.capitalize()}, and your total budget is: {total_budget}$")
+    budget_data.append_row([account_name, budget_month.capitalize(), total_budget])
     return budget_month, total_budget    
 
 
 def main():
-    get_account_details()
+    account_name, saved_pin = get_account_details()
     get_budget(account_name, saved_pin)
 main()
 
