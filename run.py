@@ -49,7 +49,7 @@ def get_account_details():
         # Asks the user for the pincode and ensure the length is 4 numbers
         while True:
             account_pin = input("Enter your pincode(4 numbers): ")
-            if len(account_pin) == 4:
+            if len(account_pin) == 4 and account_pin.isnumeric():
                 break
             else:
                 print("The pincode must be 4 numbers. Please try again")
@@ -67,14 +67,16 @@ def get_account_details():
     while True:
         # Compare the stored password with the entered password
         account_pin = input("Enter your pincode(4 numbers): ")
-        account_pin = account_pin.encode("utf-8")
-        if bcrypt.checkpw(account_pin, saved_pin.encode()):
-            print(f"Checking your account name: '{account_name}' with the pincode: '* * * *'..")
-            print("Matched credentials successfully!")
-            break
-        else:
-            print("Incorrect pincode. Please try again.")
-        return account_name, saved_pin
+        if len(account_pin) == 4 and account_pin.isnumeric():
+            account_pin = account_pin.encode("utf-8")
+            if bcrypt.checkpw(account_pin, saved_pin.encode()):
+                print(f"Checking your account name: '{account_name}' with the pincode: '* * * *'..")
+                print("Matched credentials successfully!")
+                break
+            else:
+                print("Incorrect pincode. Please try again.")
+                
+    return account_name, saved_pin
 
 
 
