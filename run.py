@@ -36,9 +36,9 @@ def get_account_details():
     
     # Check if the account name already exists in the sheet
     account_names = [row[0] for row in account_creds]
+    saved_pin = None
     if account_name in account_names:
         print(f"The account name {account_name} was matched against the database. Please continue")
-        saved_pin = None
         for row in account_creds:
             if row[0] == account_name:
                 saved_pin = row[1]
@@ -63,6 +63,7 @@ def get_account_details():
         new_row = [account_name, hashed_pin.decode()]
         budget_accounts.append_row(new_row)
         print(f"New account '{account_name}' was created successfully")
+        saved_pin = hashed_pin.decode()
     
     while True:
         # Compare the stored password with the entered password
@@ -79,6 +80,7 @@ def get_account_details():
             print("The pincode must be 4 numbers, not letters. Please try again.")
                 
     return account_name, saved_pin
+
 
 
 
