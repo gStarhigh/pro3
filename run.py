@@ -19,12 +19,8 @@ DATA_SHEET = GSPREAD_CLIENT.open("budget_data")
 
 budget_accounts = ACCOUNT_SHEET.worksheet("tab1")
 budget_data = DATA_SHEET.worksheet("tab1")
-
 account_creds = budget_accounts.get_all_values()
-#print(account_creds)
-
 budget_info = budget_data.get_all_values()
-#print(budget_info)
 
 #Functions
 def get_account_details():
