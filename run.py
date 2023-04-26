@@ -115,16 +115,22 @@ def get_budget(account_name, saved_pin):
     return budget_month, total_budget    
 
 
-def get_expenses(account_name, budget_month, total_budget):
+def get_expenses():
     """
     Get the type of expense from the user.
     Get the type of expense amount from the user.
     Get the type of transaction method from the user.
     """
+    print("Loading expense inputs...")
+    expense_type = input("Enter expense type: ")
+    expense_amount = float(input("Enter expense amount: "))
+    trans_type = input("Enter transaction type: ")
+    print(f"You have entered {expense_type}, {expense_amount}$ and {trans_type}")
 
 def main():
-    account_name, saved_pin = get_account_details()
-    get_budget(account_name, saved_pin)
+    #account_name, saved_pin = get_account_details()
+    #budget_month, total_budget = get_budget(account_name, saved_pin)
+    get_expenses()
 main()
 
 
