@@ -38,6 +38,11 @@ def get_account_details():
     account_names = [row[0] for row in account_creds]
     if account_name in account_names:
         print(f"The account name {account_name} was matched against the database. Please continue")
+        saved_pin = None
+        for row in account_creds:
+            if row[0] == account_name:
+                saved_pin = row[1]
+                break
     else:
         print(f"The account name: {account_name} was not found, creating a new Account")
         
@@ -59,17 +64,11 @@ def get_account_details():
         budget_accounts.append_row(new_row)
         print(f"New account '{account_name}' was created successfully")
     
-    # Check the stored password
-    stored_pin = None
-    for row in account_creds:
-        if row[0] == account_name:
-            stored_pin = row[1]
-            break
     
     # Compare the stored password with the entered password
     account_pin = input("Enter your pincode(4 numbers): ")
     account_pin = account_pin.encode("utf-8")
-    if bcrypt.checkpw(account_pin, stored_pin.encode()):
+    if bcrypt.checkpw(account_pin, saved_pin.encode()):
         print(f"Checking your account name: '{account_name}' with the pincode: '* * * *'..")
         print("Matched credentials successfully!")
     else:
