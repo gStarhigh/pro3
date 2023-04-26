@@ -123,10 +123,10 @@ def get_expenses():
     """
     #Expense types inputs
     print("Loading expense inputs...")
-    expense_type = input("Enter expense type: ")
+    expense_name = input("Enter expense type: ")
     expense_amount = float(input("Enter expense amount: "))
     trans_type = input("Enter transaction type: ")
-    print(f"You have entered {expense_type}, {expense_amount}$ and {trans_type}")
+    print(f"You have entered {expense_name.capitalize()}, {expense_amount}$ and {trans_type.capitalize()}")
     
     # Expense categories
     expense_categories = [
