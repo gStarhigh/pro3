@@ -141,7 +141,6 @@ def get_expenses():
             break
         else:
             print(f"You must enter the details exactly as follows: 'Debit' or 'Credit'. Please try again")
-    print(f"You have entered {expense_name.capitalize()}, {expense_amount}$ and {trans_type.capitalize()}")
     
     # Expense categories
     expense_categories = [
@@ -163,7 +162,7 @@ def get_expenses():
         else:
             print(f"You entered: {selected_expense_type}. Choose a number between 1 and {len(expense_categories)}.")
     selected_expense_type = int(selected_expense_type)
-    print(f"You have selected: {expense_categories[selected_expense_type-1]}")
+    print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
     #Transaction types
 
 def main():
