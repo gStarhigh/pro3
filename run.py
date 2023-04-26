@@ -24,7 +24,8 @@ budget_info = budget_data.get_all_values()
 
 #Functions
 def get_account_details():
-    """Gets the account name and pincode from the user and
+    """
+    Gets the account name and pincode from the user and
     saves it to the google sheet named budget_accounts after encrypting the pincode.
     If the account name already exists, the pincode must match the saved encrypted pincode.
     If the account is new, the account name and pincode will be appendet to the google sheet.
@@ -83,10 +84,11 @@ def get_account_details():
 
 # Get the budget amount from the user and validate the input
 def get_budget(account_name, saved_pin):
-    """ Get the current date and month from datetime.
-        Get the budget month from the user and validate it against datetime. 
-        Get the budget amount from the user and validate the input. 
-        Saves the budget month and the budget amount to google sheets.
+    """ 
+    Get the current date and month from datetime.
+    Get the budget month from the user and validate it against datetime. 
+    Get the budget amount from the user and validate the input. 
+    Saves the budget month and the budget amount to google sheets.
     """
     current_month = datetime.date.today().strftime("%B")
     next_month = (datetime.date.today() + datetime.timedelta(days=31)).strftime("%B")
@@ -112,6 +114,13 @@ def get_budget(account_name, saved_pin):
     budget_data.append_row([account_name, budget_month.capitalize(), total_budget])
     return budget_month, total_budget    
 
+
+def get_expenses(account_name, budget_month, total_budget):
+    """
+    Get the type of expense from the user.
+    Get the type of expense amount from the user.
+    Get the type of transaction method from the user.
+    """
 
 def main():
     account_name, saved_pin = get_account_details()
