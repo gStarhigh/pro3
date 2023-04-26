@@ -41,8 +41,14 @@ def get_account_details():
     else:
         print(f"The account name: {account_name} was not found, creating a new Account")
         
-        # Store the password
-        account_pin = input("Enter your pincode(4 numbers): ")
+        # Asks the user for the pincode and ensure the length is 4 numbers
+        while True:
+            account_pin = input("Enter your pincode(4 numbers): ")
+            if len(account_pin) == 4:
+                break
+            else:
+                print("The pincode must be 4 numbers. Please try again")
+        
         # Encode the pincode
         account_pin = account_pin.encode("utf-8")
         # Encrypt the stored pincode
