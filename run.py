@@ -24,8 +24,14 @@ print(account_creds)
 budget_info = budget_data.get_all_values()
 print(budget_info)
 
+#Functions
+def get_account_details():
+    """Gets the account name and pincode from the user and
+    saves it to the google sheet named budget_accounts
+    """
+    
 
-# Get account name and pincode from the user and validate the input
+
 
 # Get the budget amount from the user and validate the input
 
