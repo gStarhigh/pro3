@@ -112,11 +112,11 @@ def get_budget(account_name, saved_pin):
         except ValueError:
             print("You must enter numbers.. Please try again")
     print(f"The month for your budget is: {budget_month.capitalize()}, and your total budget is: {total_budget}$")
-    budget_data.append_row([account_name, budget_month.capitalize(), total_budget])
+    #budget_data.append_row([account_name, budget_month.capitalize(), total_budget])
     return budget_month, total_budget    
 
 
-def get_expenses():
+def get_expenses(account_name, budget_month, total_budget):
     """
     Get the type of expense from the user.
     Get the type of expense amount from the user.
@@ -156,12 +156,14 @@ def get_expenses():
             print(f"You entered: {selected_expense_type}. Choose a number between 1 and {len(expense_categories)}.")
     selected_expense_type = int(selected_expense_type)
     print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
-
+    row_count = len(budget_data.get_all_values()) # get the number of rows in the worksheet
+    new_row = [account_name, budget_month, total_budget, expense_name, expense_amount, trans_type]
+    budget_data.append_row(new_row, value_input_option="USER_ENTERED")
 
 def main():
     account_name, saved_pin = get_account_details()
     budget_month, total_budget = get_budget(account_name, saved_pin)
-    get_expenses()
+    get_expenses(account_name, budget_month, total_budget)
     
 main()
 
