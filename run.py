@@ -22,6 +22,14 @@ budget_data = DATA_SHEET.worksheet("tab1")
 account_creds = budget_accounts.get_all_values()
 budget_info = budget_data.get_all_values()
 
+# Classes
+class Expense:
+    def __innit__(self, name, category, transaction, amount):
+        self.name = name
+        self.category = category
+        self.type = transaction
+        self.amount = amount
+
 #Functions
 def get_account_details():
     """
@@ -123,9 +131,16 @@ def get_expenses():
     """
     #Expense types inputs
     print("Loading expense inputs...")
-    expense_name = input("Enter expense type: ")
+    expense_name = input("Enter expense name: ")
     expense_amount = float(input("Enter expense amount: "))
-    trans_type = input("Enter transaction type: ")
+    while True:
+        trans_type = input("Enter transaction type Debit or Credit: ")
+        if trans_type == "Debit":
+            break
+        elif trans_type == "Credit":
+            break
+        else:
+            print(f"You must enter the details exactly as follows: 'Debit' or 'Credit'. Please try again")
     print(f"You have entered {expense_name.capitalize()}, {expense_amount}$ and {trans_type.capitalize()}")
     
     # Expense categories
