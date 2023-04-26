@@ -137,6 +137,13 @@ def get_expenses():
         "Savings"
     ]
     
+    while True:
+        print("Select a expense type: ")
+        for i, expense_type in enumerate(expense_categories):
+            print(f" {i + 1}. {expense_type}")
+        value_range = f"[1 - {len(expense_categories)}]"
+        selected_expense_type = input(f"Enter a Expense number between {value_range}: ")
+        break
     #Transaction types
 
 def main():
