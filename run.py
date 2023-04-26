@@ -83,6 +83,9 @@ def get_account_details():
 
 # Get the budget amount from the user and validate the input
 def get_budget():
+    current_month = datetime.date.today().strftime("%B")
+    next_month = (datetime.date.today() + datetime.timedelta(days=31)).strftime("%B")
+    valid_months = [current_month, next_month]
     budget_month = input("Enter the month for the budget: ")
     print(budget_month)
     while True:
