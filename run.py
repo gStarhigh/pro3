@@ -64,16 +64,17 @@ def get_account_details():
         budget_accounts.append_row(new_row)
         print(f"New account '{account_name}' was created successfully")
     
-    
-    # Compare the stored password with the entered password
-    account_pin = input("Enter your pincode(4 numbers): ")
-    account_pin = account_pin.encode("utf-8")
-    if bcrypt.checkpw(account_pin, saved_pin.encode()):
-        print(f"Checking your account name: '{account_name}' with the pincode: '* * * *'..")
-        print("Matched credentials successfully!")
-    else:
-        print("Incorrect pincode. Please try again.")
-        return get_account_details()
+    while True:
+        # Compare the stored password with the entered password
+        account_pin = input("Enter your pincode(4 numbers): ")
+        account_pin = account_pin.encode("utf-8")
+        if bcrypt.checkpw(account_pin, saved_pin.encode()):
+            print(f"Checking your account name: '{account_name}' with the pincode: '* * * *'..")
+            print("Matched credentials successfully!")
+            break
+        else:
+            print("Incorrect pincode. Please try again.")
+        return account_name, saved_pin
 
 
 
