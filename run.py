@@ -32,35 +32,44 @@ def get_account_details():
     """
     print("Welcome")
     account_name = input("Enter your account name: ")
-    print(f"Checking your account name'{account_name}'..")
+    print(f"Checking your account name '{account_name}'..")
     
-    # Check if the account name already exist in the sheet
+    # Check if the account name already exists in the sheet
     account_names = [row[0] for row in account_creds]
     if account_name in account_names:
         print(f"The account name {account_name} was matched against the database. Please continue")
     else:
         print(f"The account name: {account_name} was not found, creating a new Account")
         
-        # Append the account name and hashed pincode to the sheet if the user does not already exist
-        new_row = [account_name, hashed_pin_str]
-        budget_accounts.append_row(new_row)
-        print(f"New account '{account_name}' was created successfully")
-        
         # Store the password
-        account_pin = (input("Enter your pincode(4 numbers): "))
+        account_pin = input("Enter your pincode(4 numbers): ")
         # Encode the pincode
         account_pin = account_pin.encode("utf-8")
         # Encrypt the stored pincode
         hashed_pin = bcrypt.hashpw(account_pin, bcrypt.gensalt(10))
-        hashed_pin_str = hashed_pin.decode("utf-8")
         
-        # Checks if the users pincode matches the saved pincode
-        
-        
+        # Append the account name and hashed pincode to the sheet if the user does not already exist
+        new_row = [account_name, hashed_pin.decode()]
+        budget_accounts.append_row(new_row)
+        print(f"New account '{account_name}' was created successfully")
     
-    print(f"Checking your account name: '{account_name}' with the pincode: '* * * *'.. - test")
-    print(f"{hashed_pin} This is the hashed pincode -test")
-    print("Matched credentials successfully!")
+    # Check the stored password
+    stored_pin = None
+    for row in account_creds:
+        if row[0] == account_name:
+            stored_pin = row[1]
+            break
+    
+    # Compare the stored password with the entered password
+    account_pin = input("Enter your pincode(4 numbers): ")
+    account_pin = account_pin.encode("utf-8")
+    if bcrypt.checkpw(account_pin, stored_pin.encode()):
+        print(f"Checking your account name: '{account_name}' with the pincode: '* * * *'..")
+        print("Matched credentials successfully!")
+    else:
+        print("Incorrect pincode. Please try again.")
+        return get_account_details()
+
 
 
 get_account_details()
