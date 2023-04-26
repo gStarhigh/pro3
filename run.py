@@ -82,7 +82,12 @@ def get_account_details():
     return account_name, saved_pin
 
 # Get the budget amount from the user and validate the input
-def get_budget():
+def get_budget(account_name, saved_pin):
+    """ Get the current date and month from datetime.
+        Get the budget month from the user and validate it against datetime. 
+        Get the budget amount from the user and validate the input. 
+        Saves the budget month and the budget amount to google sheets.
+    """
     current_month = datetime.date.today().strftime("%B")
     next_month = (datetime.date.today() + datetime.timedelta(days=31)).strftime("%B")
     valid_months = [current_month, next_month]
@@ -108,8 +113,8 @@ def get_budget():
 
 
 def main():
-    #get_account_details()
-    get_budget()
+    get_account_details()
+    get_budget(account_name, saved_pin)
 main()
 
 
