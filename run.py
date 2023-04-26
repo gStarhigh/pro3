@@ -25,7 +25,9 @@ budget_info = budget_data.get_all_values()
 #Functions
 def get_account_details():
     """Gets the account name and pincode from the user and
-    saves it to the google sheet named budget_accounts
+    saves it to the google sheet named budget_accounts after encrypting the pincode.
+    If the account name already exists, the pincode must match the saved encrypted pincode.
+    If the account is new, the account name and pincode will be appendet to the google sheet.
     """
     print("Welcome")
     account_name = input("Enter your account name: ")
