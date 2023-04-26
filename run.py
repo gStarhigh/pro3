@@ -86,8 +86,16 @@ def get_budget():
     current_month = datetime.date.today().strftime("%B")
     next_month = (datetime.date.today() + datetime.timedelta(days=31)).strftime("%B")
     valid_months = [current_month, next_month]
-    budget_month = input("Enter the month for the budget: ")
-    print(budget_month)
+    print(f"You can only choose from these options: {valid_months}")
+    
+    while True:
+        budget_month = input("Enter the month for the budget: ")
+        if budget_month.capitalize() in valid_months:
+            print(budget_month.capitalize())
+            break
+        else:
+            print(f"You can only choose from either {current_month} or {next_month}. Please try again.")
+        
     while True:
         try:
             total_budget = int(input("Enter your total budget: "))
@@ -95,7 +103,7 @@ def get_budget():
             break
         except ValueError:
             print("You must enter numbers.. Please try again")
-    print(f"The month for your budget is: {budget_month}, and your total budget is: {total_budget}$")
+    print(f"The month for your budget is: {budget_month.capitalize()}, and your total budget is: {total_budget}$")
     return budget_month, total_budget    
 
 
