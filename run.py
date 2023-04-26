@@ -64,6 +64,7 @@ def get_account_details():
         budget_accounts.append_row(new_row)
         print(f"New account '{account_name}' was created successfully")
         saved_pin = hashed_pin.decode()
+        return account_name, saved_pin
     
     while True:
         # Compare the stored password with the entered password
