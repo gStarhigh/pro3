@@ -84,8 +84,10 @@ def get_account_details():
 
 
 
-
-get_account_details()
+def main():
+    get_account_details()
+    
+main()
 
 # Get the budget amount from the user and validate the input
 
