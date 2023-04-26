@@ -146,7 +146,7 @@ def get_expenses():
         if selected_expense_type.isnumeric() and int(selected_expense_type) in range(1, len(expense_categories)+1):
             break
         else:
-            print(f"You entered: {selected_expense_type}. Choose a number between 1 and 5.")
+            print(f"You entered: {selected_expense_type}. Choose a number between 1 and {len(expense_categories)}.")
     selected_expense_type = int(selected_expense_type)
     print(f"You have selected: {expense_categories[selected_expense_type-1]}")
     #Transaction types
