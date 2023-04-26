@@ -19,19 +19,25 @@ budget_accounts = ACCOUNT_SHEET.worksheet("tab1")
 budget_data = DATA_SHEET.worksheet("tab1")
 
 account_creds = budget_accounts.get_all_values()
-print(account_creds)
+#print(account_creds)
 
 budget_info = budget_data.get_all_values()
-print(budget_info)
+#print(budget_info)
 
 #Functions
 def get_account_details():
     """Gets the account name and pincode from the user and
     saves it to the google sheet named budget_accounts
     """
+    print("Welcome")
+    account_name = input("Enter your account name: ")
+    print(f"Checking your account name'{account_name}'..")
     
+    account_pin = input("Enter your pincode(4 numbers): ")
+    print(f"Checking your account name: '{account_name}' with the pincode:'{account_pin}'..")
+    print("Matched credentials successfully!")
 
-
+get_account_details()
 
 # Get the budget amount from the user and validate the input
 
