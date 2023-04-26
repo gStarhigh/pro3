@@ -41,6 +41,11 @@ def get_account_details():
     else:
         print(f"The account name: {account_name} was not found, creating a new Account")
         
+        # Append the account name and hashed pincode to the sheet if the user does not already exist
+        new_row = [account_name, hashed_pin_str]
+        budget_accounts.append_row(new_row)
+        print(f"New account '{account_name}' was created successfully")
+        
         # Store the password
         account_pin = (input("Enter your pincode(4 numbers): "))
         # Encode the pincode
@@ -49,10 +54,9 @@ def get_account_details():
         hashed_pin = bcrypt.hashpw(account_pin, bcrypt.gensalt(10))
         hashed_pin_str = hashed_pin.decode("utf-8")
         
-        # Append the account name and hashed pincode to the sheet if the user does not already exist
-        new_row = [account_name, hashed_pin_str]
-        budget_accounts.append_row(new_row)
-        print(f"New account '{account_name}' was created successfully")
+        # Checks if the users pincode matches the saved pincode
+        
+        
     
     print(f"Checking your account name: '{account_name}' with the pincode: '* * * *'.. - test")
     print(f"{hashed_pin} This is the hashed pincode -test")
