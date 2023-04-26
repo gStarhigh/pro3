@@ -75,6 +75,8 @@ def get_account_details():
                 break
             else:
                 print("Incorrect pincode. Please try again.")
+        else:
+            print("The pincode must be 4 numbers, not letters. Please try again.")
                 
     return account_name, saved_pin
 
