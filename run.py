@@ -143,7 +143,12 @@ def get_expenses():
             print(f" {i + 1}. {expense_type}")
         value_range = f"[1 - {len(expense_categories)}]"
         selected_expense_type = input(f"Enter a Expense number between {value_range}: ")
-        break
+        if selected_expense_type.isnumeric() and int(selected_expense_type) in range(1, len(expense_categories)+1):
+            break
+        else:
+            print(f"You entered: {selected_expense_type}. Choose a number between 1 and 5.")
+    selected_expense_type = int(selected_expense_type)
+    print(f"You have selected: {expense_categories[selected_expense_type-1]}")
     #Transaction types
 
 def main():
