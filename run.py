@@ -25,3 +25,13 @@ budget_info = budget_data.get_all_values()
 print(budget_info)
 
 
+# Get account name and pincode from the user and validate the input
+
+# Get the budget amount from the user and validate the input
+
+# Get the type of expense from the user and validate the input
+
+# Get the type of transaction, debit or credit from the user and validate the input
+
+# Get the amount of the expense from the user and validate the input and check if the amount left in the budget is more than 0
+
