@@ -81,14 +81,22 @@ def get_account_details():
                 
     return account_name, saved_pin
 
-
+# Get the budget amount from the user and validate the input
+def get_budget():
+    while True:
+        try:
+            total_budget = int(input("Enter your total budget: "))
+            print(total_budget)
+            break
+        except ValueError:
+            print("You must enter numbers.. Please try again")
+    return total_budget
 
 def main():
-    get_account_details()
-    
+    #get_account_details()
+    get_budget()
 main()
 
-# Get the budget amount from the user and validate the input
 
 # Get the type of expense from the user and validate the input
 
