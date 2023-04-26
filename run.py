@@ -83,6 +83,8 @@ def get_account_details():
 
 # Get the budget amount from the user and validate the input
 def get_budget():
+    budget_month = input("Enter the month for the budget: ")
+    print(budget_month)
     while True:
         try:
             total_budget = int(input("Enter your total budget: "))
@@ -90,7 +92,9 @@ def get_budget():
             break
         except ValueError:
             print("You must enter numbers.. Please try again")
-    return total_budget
+    print(f"The month for your budget is: {budget_month}, and your total budget is: {total_budget}$")
+    return budget_month, total_budget    
+
 
 def main():
     #get_account_details()
