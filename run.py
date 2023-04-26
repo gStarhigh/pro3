@@ -121,11 +121,23 @@ def get_expenses():
     Get the type of expense amount from the user.
     Get the type of transaction method from the user.
     """
+    #Expense types inputs
     print("Loading expense inputs...")
     expense_type = input("Enter expense type: ")
     expense_amount = float(input("Enter expense amount: "))
     trans_type = input("Enter transaction type: ")
     print(f"You have entered {expense_type}, {expense_amount}$ and {trans_type}")
+    
+    # Expense categories
+    expense_categories = [
+        "Household",
+        "Food",
+        "Transportation",
+        "Other",
+        "Savings"
+    ]
+    
+    #Transaction types
 
 def main():
     #account_name, saved_pin = get_account_details()
