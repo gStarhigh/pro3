@@ -170,9 +170,8 @@ def main():
 main()
 
 
-# Get the type of expense from the user and validate the input
+# Need to loop the program after the user has entered all information and ask if the user wants to add another item.
 
-# Get the type of transaction, debit or credit from the user and validate the input
-
-# Get the amount of the expense from the user and validate the input and check if the amount left in the budget is more than 0
-
+# When the user no longer wants to add an item, display all entered items for the month the user has chosen and 
+# how much the user has left of their budget, and how much that is left per day, calculated from the actual day to the end of the month.
+# Need to match all entered items with the username and the month to display the correct data, and not data from another account.
