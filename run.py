@@ -120,10 +120,17 @@ def get_budget(account_name, saved_pin):
 
 def get_expenses(account_name, budget_month, total_budget):
     """
-    Get the type of expense from the user.
-    Get the type of expense amount from the user.
-    Get the type of transaction method from the user.
+    Objective: Get the type, amount and transaction method from the user and save them all to the
+    Google sheet. 
+    
+    Steps:
+    1. Get the type of expense from the user.
+    2. Get the type of expense amount from the user.
+    3. Get the type of transaction method from the user.
+    4. Save the entered data to the worksheet: budget_data
+    5. Ask the user if they want to add another expense.
     """
+    
     #Expense types inputs
     print("Loading expense inputs...")
     
