@@ -129,13 +129,13 @@ def get_expenses(account_name, budget_month, total_budget):
     expense_name = input("Enter expense name: \n")
     expense_amount = float(input("Enter expense amount: \n"))
     while True:
-        trans_type = input("Enter transaction type Debit or Credit: \n")
-        if trans_type == "Debit":
+        trans_type = input("Enter transaction type 'debit' or 'credit': \n")
+        if trans_type == "debit":
             break
-        elif trans_type == "Credit":
+        elif trans_type == "credit":
             break
         else:
-            print(f"You must enter the details exactly as follows: 'Debit' or 'Credit'. Please try again")
+            print(f"You must enter the details exactly as follows: 'debit' or 'credit'. Please try again")
     
     # Expense categories
     expense_categories = [
