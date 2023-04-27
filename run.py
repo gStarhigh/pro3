@@ -153,7 +153,7 @@ def get_expenses(account_name, budget_month, total_budget):
             else:
                 print(f"You must enter the details exactly as follows: 'debit' or 'credit'. Please try again")
         
-        # Expense categories
+        # A list of the different expense categories for the user to choose from.
         expense_categories = [
             "Household",
             "Food",
@@ -162,6 +162,7 @@ def get_expenses(account_name, budget_month, total_budget):
             "Savings"
         ]
         
+        # Get the expense type from the user, using a while loop to make sure the input is correct.
         while True:
             print("Select a expense type: ")
             for i, expense_type in enumerate(expense_categories):
@@ -179,12 +180,17 @@ def get_expenses(account_name, budget_month, total_budget):
         row_count = len(budget_data.get_all_values()) # get the number of rows in the worksheet
         new_row = [account_name, budget_month.capitalize(), total_budget, expense_name.capitalize(), expense_amount, trans_type.capitalize()]
         budget_data.append_row(new_row, value_input_option="USER_ENTERED")
+        
         # Ask the user if they want to add another expense
         add_another = input("Do you want to add another expense? (y/n)\n")
         if add_another.lower() == "n":
             break
 
+
 def main():
+    """
+    A main function to call all functions of the program.
+    """
     account_name, saved_pin = get_account_details()
     budget_month, total_budget = get_budget(account_name, saved_pin)
     get_expenses(account_name, budget_month, total_budget)
