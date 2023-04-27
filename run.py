@@ -198,7 +198,7 @@ def main():
 main()
 
 
-# Need to loop the program after the user has entered all information and ask if the user wants to add another item.
+# One way to solve the budget input to the google sheet, is to take the length of items added for each month and divide it, to get the "real" budget.
 
 # When the user no longer wants to add an item, display all entered items for the month the user has chosen and 
 # how much the user has left of their budget, and how much that is left per day, calculated from the actual day to the end of the month.
