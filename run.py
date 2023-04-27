@@ -126,41 +126,49 @@ def get_expenses(account_name, budget_month, total_budget):
     """
     #Expense types inputs
     print("Loading expense inputs...")
-    expense_name = input("Enter expense name: \n")
-    expense_amount = float(input("Enter expense amount: \n"))
     while True:
-        trans_type = input("Enter transaction type 'debit' or 'credit': \n")
-        if trans_type == "debit":
+        
+        expense_name = input("Enter expense name: \n")
+        expense_amount = float(input("Enter expense amount: \n"))
+        while True:
+            trans_type = input("Enter transaction type 'debit' or 'credit': \n")
+            if trans_type == "debit":
+                break
+            elif trans_type == "credit":
+                break
+            else:
+                print(f"You must enter the details exactly as follows: 'debit' or 'credit'. Please try again")
+        
+        # Expense categories
+        expense_categories = [
+            "Household",
+            "Food",
+            "Transportation",
+            "Other",
+            "Savings"
+        ]
+        
+        while True:
+            print("Select a expense type: ")
+            for i, expense_type in enumerate(expense_categories):
+                print(f" {i + 1}. {expense_type}")
+            value_range = f"[1 - {len(expense_categories)}]"
+            selected_expense_type = input(f"Enter a Expense number between {value_range}: \n")
+            if selected_expense_type.isnumeric() and int(selected_expense_type) in range(1, len(expense_categories)+1):
+                break
+            else:
+                print(f"You entered: {selected_expense_type}. Choose a number between 1 and {len(expense_categories)}.")
+        selected_expense_type = int(selected_expense_type)
+        print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
+        
+        # Saving the entered data to the worksheet. 
+        row_count = len(budget_data.get_all_values()) # get the number of rows in the worksheet
+        new_row = [account_name, budget_month.capitalize(), total_budget, expense_name.capitalize(), expense_amount, trans_type.capitalize()]
+        budget_data.append_row(new_row, value_input_option="USER_ENTERED")
+        # Ask the user if they want to add another expense
+        add_another = input("Do you want to add another expense? (y/n)\n")
+        if add_another.lower() == "n":
             break
-        elif trans_type == "credit":
-            break
-        else:
-            print(f"You must enter the details exactly as follows: 'debit' or 'credit'. Please try again")
-    
-    # Expense categories
-    expense_categories = [
-        "Household",
-        "Food",
-        "Transportation",
-        "Other",
-        "Savings"
-    ]
-    
-    while True:
-        print("Select a expense type: ")
-        for i, expense_type in enumerate(expense_categories):
-            print(f" {i + 1}. {expense_type}")
-        value_range = f"[1 - {len(expense_categories)}]"
-        selected_expense_type = input(f"Enter a Expense number between {value_range}: \n")
-        if selected_expense_type.isnumeric() and int(selected_expense_type) in range(1, len(expense_categories)+1):
-            break
-        else:
-            print(f"You entered: {selected_expense_type}. Choose a number between 1 and {len(expense_categories)}.")
-    selected_expense_type = int(selected_expense_type)
-    print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
-    row_count = len(budget_data.get_all_values()) # get the number of rows in the worksheet
-    new_row = [account_name, budget_month.capitalize(), total_budget, expense_name.capitalize(), expense_amount, trans_type.capitalize()]
-    budget_data.append_row(new_row, value_input_option="USER_ENTERED")
 
 def main():
     account_name, saved_pin = get_account_details()
