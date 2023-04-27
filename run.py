@@ -31,7 +31,9 @@ def get_account_details():
     If the account name already exists, the pincode must match the saved encrypted pincode.
     If the account is new, the account name and pincode will be appendet to the google sheet.
     """
-    print("Welcome")
+    print("Welcome to your Monthly budget application. \n")
+    print("If you are a first time user, choose an account name, it must be unique. \n")
+    print("If you are a returning user, please enter your existing account name below. \n")
     account_name = input("Enter your account name: \n")
     print(f"Checking your account name '{account_name}'..")
     
