@@ -136,8 +136,14 @@ def get_expenses(account_name, budget_month, total_budget):
     
     # Using a while loop to ask the user to add expenses until they no longer want to add more.
     while True:
+        
+        # Get the name of the expense from the user.
         expense_name = input("Enter expense name: \n")
+        
+        # Get the amount of the expense from the user.
         expense_amount = float(input("Enter expense amount: \n"))
+        
+        # Get the transaction type from the user using a while loop to ensure that the user enters a valid option.
         while True:
             trans_type = input("Enter transaction type 'debit' or 'credit': \n")
             if trans_type == "debit":
