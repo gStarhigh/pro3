@@ -126,8 +126,9 @@ def get_expenses(account_name, budget_month, total_budget):
     """
     #Expense types inputs
     print("Loading expense inputs...")
+    
+    # Using a while loop to ask the user to add expenses until they no longer want to add more.
     while True:
-        
         expense_name = input("Enter expense name: \n")
         expense_amount = float(input("Enter expense amount: \n"))
         while True:
