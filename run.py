@@ -159,7 +159,7 @@ def get_expenses(account_name, budget_month, total_budget):
     selected_expense_type = int(selected_expense_type)
     print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
     row_count = len(budget_data.get_all_values()) # get the number of rows in the worksheet
-    new_row = [account_name, budget_month.capitalize(), total_budget, expense_name.capitalize(), expense_amount, trans_type]
+    new_row = [account_name, budget_month.capitalize(), total_budget, expense_name.capitalize(), expense_amount, trans_type.capitalize()]
     budget_data.append_row(new_row, value_input_option="USER_ENTERED")
 
 def main():
