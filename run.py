@@ -32,7 +32,7 @@ def get_account_details():
     If the account is new, the account name and pincode will be appendet to the google sheet.
     """
     print("Welcome")
-    account_name = input("Enter your account name: ")
+    account_name = input("Enter your account name: \n")
     print(f"Checking your account name '{account_name}'..")
     
     # Check if the account name already exists in the sheet
@@ -49,7 +49,7 @@ def get_account_details():
         
         # Asks the user for the pincode and ensure the length is 4 numbers
         while True:
-            account_pin = input("Enter your pincode(4 numbers): ")
+            account_pin = input("Enter your pincode(4 numbers): \n")
             if len(account_pin) == 4 and account_pin.isnumeric():
                 break
             else:
@@ -69,7 +69,7 @@ def get_account_details():
     
     while True:
         # Compare the stored password with the entered password
-        account_pin = input("Enter your pincode(4 numbers): ")
+        account_pin = input("Enter your pincode(4 numbers): \n")
         if len(account_pin) == 4 and account_pin.isnumeric():
             account_pin = account_pin.encode("utf-8")
             if bcrypt.checkpw(account_pin, saved_pin.encode()):
@@ -97,7 +97,7 @@ def get_budget(account_name, saved_pin):
     print(f"You can only choose from these options: {valid_months}")
     
     while True:
-        budget_month = input("Enter the month for the budget: ")
+        budget_month = input("Enter the month for the budget: \n")
         if budget_month.capitalize() in valid_months:
             print(budget_month.capitalize())
             break
@@ -106,7 +106,7 @@ def get_budget(account_name, saved_pin):
         
     while True:
         try:
-            total_budget = int(input("Enter your total budget: "))
+            total_budget = int(input("Enter your total budget: \n"))
             print(total_budget)
             break
         except ValueError:
@@ -124,10 +124,10 @@ def get_expenses(account_name, budget_month, total_budget):
     """
     #Expense types inputs
     print("Loading expense inputs...")
-    expense_name = input("Enter expense name: ")
-    expense_amount = float(input("Enter expense amount: "))
+    expense_name = input("Enter expense name: \n")
+    expense_amount = float(input("Enter expense amount: \n"))
     while True:
-        trans_type = input("Enter transaction type Debit or Credit: ")
+        trans_type = input("Enter transaction type Debit or Credit: \n")
         if trans_type == "Debit":
             break
         elif trans_type == "Credit":
@@ -149,7 +149,7 @@ def get_expenses(account_name, budget_month, total_budget):
         for i, expense_type in enumerate(expense_categories):
             print(f" {i + 1}. {expense_type}")
         value_range = f"[1 - {len(expense_categories)}]"
-        selected_expense_type = input(f"Enter a Expense number between {value_range}: ")
+        selected_expense_type = input(f"Enter a Expense number between {value_range}: \n")
         if selected_expense_type.isnumeric() and int(selected_expense_type) in range(1, len(expense_categories)+1):
             break
         else:
