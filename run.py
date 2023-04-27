@@ -175,3 +175,9 @@ main()
 # When the user no longer wants to add an item, display all entered items for the month the user has chosen and 
 # how much the user has left of their budget, and how much that is left per day, calculated from the actual day to the end of the month.
 # Need to match all entered items with the username and the month to display the correct data, and not data from another account.
+
+# Need to get: 
+# todays date, 
+# calculate what was paid on credit to display how much credit must be paid by the end of the month,
+# Calculate how much of the budget is left in total
+# Calulate how much of the budget is left per day to the end of the month. 
