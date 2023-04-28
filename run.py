@@ -3,6 +3,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 import bcrypt
 import datetime
+import calendar
 
 #Scope
 SCOPE = [
@@ -264,6 +265,7 @@ def calculate_budget(account_name, valid_months, budget_month):
     total_debit = 0
     total_credit = 0
     total_budget = 0
+    left_per_day = 0
     
     # Loop through the valid_budget_rows and get the total budget.
     for row in valid_budget_rows:
@@ -280,20 +282,30 @@ def calculate_budget(account_name, valid_months, budget_month):
         if row[5] == "Credit":
             total_credit += float(row[4])    
     
-    print(f"Your Total Budget is: {total_budget} \n" 
-          f"Total debit: {total_debit}$ and total credit: {total_credit}$")
-    
     # Calculate how much the user has left
     total_left = total_budget - total_debit
+    print(f"total left {total_left}")
     
     # Get the number of days left in the month
+    today_date = datetime.date.today()
+    days_in_month = calendar.monthrange(today_date.year, today_date.month)[1]
+    remaining_days = days_in_month - today_date.day
+    print(f" dagar kvar: {remaining_days}")
     
+    # Calculate how much money the user have left including the credit.
+    money_left = total_left - total_debit - total_debit
     
     # Calculate how much the user has each day
+    left_per_day = money_left / remaining_days
+    print(f"left per day {left_per_day}")
     
-    
-    # Calculate how much the user has to save to afford the credit payments.
-    credit_to_pay = total_credit - total_left
+    # Print the information to the user:
+    print(f"Your Total Budget is: {total_budget}$")
+    print(f"Total Debit: {total_debit}$")
+    print(f"Total Credit: {total_credit}$")
+    print(f"You have {left_per_day}$ left per day this month")
+    print(f"You need to save {total_credit}$ to afford the credit \n"
+        f"at the end of the month")
     
 def main():
     """
