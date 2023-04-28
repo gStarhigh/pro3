@@ -127,7 +127,7 @@ def get_budget(account_name, saved_pin):
             print("You must enter numbers.. Please try again")
     print(f"The month for your budget is: {budget_month.capitalize()},")
     print(f"and your total budget is: {total_budget}$")
-    return budget_month, total_budget, valid_months   
+    return budget_month, total_budget, valid_months
 
 
 def get_expenses(account_name, budget_month, total_budget):
@@ -221,7 +221,7 @@ def get_expenses(account_name, budget_month, total_budget):
             trans_type.capitalize(), today_date
 
 
-def calculate_budget(account_name, valid_months):
+def calculate_budget(account_name, valid_months, budget_month):
     """
     Objective: Calculate the remaining budget for the user.
     
@@ -261,6 +261,33 @@ def calculate_budget(account_name, valid_months):
             return
     
     
+    # find all expenses in the sheet with trans_type "debit" or "credit"
+    debit_total = 0
+    credit_total = 0
+    for row in budget_info:
+        trans_type, _, amount, _, _, _ = row
+        if trans_type.lower() == "debit":
+            debit_total += float(amount)
+        elif trans_type.lower() == "credit":
+            credit_total += float(amount)
+
+    # compare the totals to the budget amount and print the result
+    if debit_total > total_budget:
+        print(f"You have exceeded your budget of {total_budget}$ for {budget_month.capitalize()}.")
+        print(f"You have spent {debit_total}$ on expenses with trans_type 'debit'.")
+    else:
+        print(f"You have not exceeded your budget of {total_budget}$ for {budget_month.capitalize()}.")
+        print(f"You have spent {debit_total}$ on expenses with trans_type 'debit'.")
+
+    if credit_total > total_budget:
+        print(f"You have exceeded your budget of {total_budget}$ for {budget_month.capitalize()}.")
+        print(f"You have spent {credit_total}$ on expenses with trans_type 'credit'.")
+    else:
+        print(f"You have not exceeded your budget of {total_budget}$ for {budget_month.capitalize()}.")
+        print(f"You have spent {credit_total}$ on expenses with trans_type 'credit'.")
+
+
+
 
 def main():
     """
@@ -269,7 +296,7 @@ def main():
     account_name, saved_pin = get_account_details()
     budget_month, total_budget, valid_months = get_budget(account_name, saved_pin)
     get_expenses(account_name, budget_month, total_budget)
-    calculate_budget(account_name, valid_months)
+    calculate_budget(account_name, valid_months, budget_month)
     
 # Run the main function
 main()
