@@ -263,15 +263,15 @@ def calculate_budget(account_name, valid_months, budget_month):
     total_debit = 0
     total_credit = 0
     
-    for row in budget_rows:
+    for row in valid_budget_rows:
         if row[5] == "Debit":
             total_debit += float(row[4])
     print(f"Total debit: {total_debit}$")
     
-    for row in budget_rows:
+    for row in valid_budget_rows:
         if row[5] == "Credit":
             total_credit += float(row[4])
-    print(f"Total debit: {total_credit}$")        
+    print(f"Total credit: {total_credit}$")        
     
     print(f"Total debit: {total_debit}$ and total credit: {total_credit}$")       
             
