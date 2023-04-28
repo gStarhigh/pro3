@@ -114,7 +114,7 @@ def get_budget(account_name, saved_pin):
         except ValueError:
             print("You must enter numbers.. Please try again")
     print(f"The month for your budget is: {budget_month.capitalize()}, and your total budget is: {total_budget}$")
-    #budget_data.append_row([account_name, budget_month.capitalize(), total_budget])
+    # budget_data.append_row([account_name, budget_month.capitalize(), total_budget])
     return budget_month, total_budget    
 
 
@@ -131,7 +131,7 @@ def get_expenses(account_name, budget_month, total_budget):
     5. Ask the user if they want to add another expense.
     """
     
-    #Expense types inputs
+    # Expense types inputs
     print("Loading expense inputs...")
     
     # Using a while loop to ask the user to add expenses until they no longer want to add more.
