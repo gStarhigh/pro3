@@ -216,6 +216,9 @@ def get_expenses(account_name, budget_month, total_budget):
         add_another = input("Do you want to add another expense? (y/n)\n")
         if add_another.lower() == "n":
             break
+    return account_name, budget_month.capitalize(), total_budget,\
+            expense_name.capitalize(), expense_amount, \
+            trans_type.capitalize(), today_date
 
 
 def main():
