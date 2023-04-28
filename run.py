@@ -142,7 +142,7 @@ def get_expenses(account_name, budget_month, total_budget):
     4. Save the entered data to the worksheet: budget_data
     5. Ask the user if they want to add another expense.
     """
-    
+    today_date = datetime.date.today().strftime("%Y-%m-%d")
     # Expense types inputs
     print("Loading expense inputs...")
     
@@ -208,7 +208,8 @@ def get_expenses(account_name, budget_month, total_budget):
         # Get the number of rows in the worksheet
         row_count = len(budget_data.get_all_values())
         new_row = [account_name, budget_month.capitalize(), total_budget,\
-            expense_name.capitalize(), expense_amount, trans_type.capitalize()]
+            expense_name.capitalize(), expense_amount, \
+            trans_type.capitalize(), today_date]
         budget_data.append_row(new_row, value_input_option="USER_ENTERED")
         
         # Ask the user if they want to add another expense
