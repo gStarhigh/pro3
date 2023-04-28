@@ -114,8 +114,8 @@ def get_budget(account_name, saved_pin):
             print(budget_month.capitalize())
             break
         else:
-            print(f"You can only choose from either {current_month} "
-                  "or {next_month}. Please try again.")
+            print(f"You can only choose from either {current_month} or {next_month}. "
+                  "Please try again.")
         
     while True:
         try:
@@ -124,8 +124,7 @@ def get_budget(account_name, saved_pin):
             break
         except ValueError:
             print("You must enter numbers.. Please try again")
-    print(f"The month for your budget is: {budget_month.capitalize()}, "
-          "and your total budget is: {total_budget}$")
+    print(f"The month for your budget is: {budget_month.capitalize()}, and your total budget is: {total_budget}$")
     return budget_month, total_budget    
 
 
@@ -193,9 +192,7 @@ def get_expenses(account_name, budget_month, total_budget):
                       "'debit' or 'credit'. Please try again")
         
         # Prints the entered information for the user to see.
-        print(f"You have entered {expense_name.capitalize()} at "
-              "{expense_amount}$, with {trans_type.capitalize()} and "
-              "category {expense_categories[selected_expense_type-1]}")
+        print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
         
         # Saving the entered data to the worksheet. 
         # Get the number of rows in the worksheet
