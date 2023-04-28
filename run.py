@@ -27,9 +27,12 @@ budget_info = budget_data.get_all_values()
 def get_account_details():
     """
     Gets the account name and pincode from the user and
-    saves it to the google sheet named budget_accounts after encrypting the pincode.
-    If the account name already exists, the pincode must match the saved encrypted pincode.
-    If the account is new, the account name and pincode will be appendet to the google sheet.
+    saves it to the google sheet named budget_accounts
+    after encrypting the pincode.
+    If the account name already exists, the pincode must match
+    the saved encrypted pincode.
+    If the account is new, the account name and pincode will be
+    appended to the google sheet.
     """
     print("Welcome to your Monthly budget application. \n")
     print("If you are a first time user, choose an account name, it must be unique. \n")
@@ -62,7 +65,8 @@ def get_account_details():
         # Encrypt the stored pincode
         hashed_pin = bcrypt.hashpw(account_pin, bcrypt.gensalt(10))
         
-        # Append the account name and hashed pincode to the sheet if the user does not already exist
+        # Append the account name and hashed pincode to the sheet
+        # if the user does not already exist
         new_row = [account_name, hashed_pin.decode()]
         budget_accounts.append_row(new_row)
         print(f"New account '{account_name}' was created successfully")
@@ -114,14 +118,13 @@ def get_budget(account_name, saved_pin):
         except ValueError:
             print("You must enter numbers.. Please try again")
     print(f"The month for your budget is: {budget_month.capitalize()}, and your total budget is: {total_budget}$")
-    # budget_data.append_row([account_name, budget_month.capitalize(), total_budget])
     return budget_month, total_budget    
 
 
 def get_expenses(account_name, budget_month, total_budget):
     """
-    Objective: Get the type, amount and transaction method from the user and save them all to the
-    Google sheet. 
+    Objective: Get the type, amount and transaction method
+    from the user and save them all to the Google sheet. 
     
     Steps:
     1. Get the type of expense from the user.
@@ -134,10 +137,12 @@ def get_expenses(account_name, budget_month, total_budget):
     # Expense types inputs
     print("Loading expense inputs...")
     
-    # Using a while loop to ask the user to add expenses until they no longer want to add more.
+    # Using a while loop to ask the user to add expenses until
+    # they no longer want to add more.
     while True:
         
-        # A list of the different expense categories for the user to choose from.
+        # A list of the different expense categories for
+        # the user to choose from.
         expense_categories = [
             "Household",
             "Food",
@@ -146,7 +151,8 @@ def get_expenses(account_name, budget_month, total_budget):
             "Savings"
         ]
         
-        # Get the expense type from the user, using a while loop to make sure the input is correct.
+        # Get the expense type from the user, using a while loop
+        # to make sure the input is correct.
         while True:
             print("Select a expense type: ")
             for i, expense_type in enumerate(expense_categories):
@@ -165,7 +171,8 @@ def get_expenses(account_name, budget_month, total_budget):
         # Get the amount of the expense from the user.
         expense_amount = float(input("Enter expense amount: \n"))
         
-        # Get the transaction type from the user using a while loop to ensure that the user enters a valid option.
+        # Get the transaction type from the user using a while loop to
+        # ensure that the user enters a valid option.
         while True:
             trans_type = input("Enter transaction type 'debit' or 'credit': \n")
             if trans_type == "debit":
@@ -179,7 +186,8 @@ def get_expenses(account_name, budget_month, total_budget):
         print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
         
         # Saving the entered data to the worksheet. 
-        row_count = len(budget_data.get_all_values()) # get the number of rows in the worksheet
+        # Get the number of rows in the worksheet
+        row_count = len(budget_data.get_all_values())
         new_row = [account_name, budget_month.capitalize(), total_budget, expense_name.capitalize(), expense_amount, trans_type.capitalize()]
         budget_data.append_row(new_row, value_input_option="USER_ENTERED")
         
