@@ -260,23 +260,30 @@ def calculate_budget(account_name, valid_months, budget_month):
                 f"{valid_months}")
             return
     
+    # Set the total debit and Credit
     total_debit = 0
     total_credit = 0
+    total_budget = 0
     
+    # Loop through the valid_budget_rows and get the total budget.
+    for row in valid_budget_rows:
+            total_budget += float(row[2])
+            break
+    
+    # Loop through the valid_budget_rows and sum up all debit expense amounts.
     for row in valid_budget_rows:
         if row[5] == "Debit":
             total_debit += float(row[4])
-    print(f"Total debit: {total_debit}$")
     
+    # Loop through the valid_budget_rows and sum up all credit expense amounts.
     for row in valid_budget_rows:
         if row[5] == "Credit":
-            total_credit += float(row[4])
-    print(f"Total credit: {total_credit}$")        
+            total_credit += float(row[4])    
     
-    print(f"Total debit: {total_debit}$ and total credit: {total_credit}$")       
+    print(f"Your Total Budget is: {total_budget} \n" 
+          f"Total debit: {total_debit}$ and total credit: {total_credit}$")
             
     
-
 def main():
     """
     A main function to call all functions of the program.
