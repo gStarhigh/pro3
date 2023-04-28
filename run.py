@@ -260,34 +260,22 @@ def calculate_budget(account_name, valid_months, budget_month):
                 f"{valid_months}")
             return
     
+    total_debit = 0
+    total_credit = 0
     
-    # find all expenses in the sheet with trans_type "debit" or "credit"
-    debit_total = 0
-    credit_total = 0
-    for row in budget_info:
-        trans_type, _, amount, _, _, _ = row
-        if trans_type.lower() == "debit":
-            debit_total += float(amount)
-        elif trans_type.lower() == "credit":
-            credit_total += float(amount)
-
-    # compare the totals to the budget amount and print the result
-    if debit_total > total_budget:
-        print(f"You have exceeded your budget of {total_budget}$ for {budget_month.capitalize()}.")
-        print(f"You have spent {debit_total}$ on expenses with trans_type 'debit'.")
-    else:
-        print(f"You have not exceeded your budget of {total_budget}$ for {budget_month.capitalize()}.")
-        print(f"You have spent {debit_total}$ on expenses with trans_type 'debit'.")
-
-    if credit_total > total_budget:
-        print(f"You have exceeded your budget of {total_budget}$ for {budget_month.capitalize()}.")
-        print(f"You have spent {credit_total}$ on expenses with trans_type 'credit'.")
-    else:
-        print(f"You have not exceeded your budget of {total_budget}$ for {budget_month.capitalize()}.")
-        print(f"You have spent {credit_total}$ on expenses with trans_type 'credit'.")
-
-
-
+    for row in budget_rows:
+        if row[5] == "Debit":
+            total_debit += float(row[4])
+    print(f"Total debit: {total_debit}$")
+    
+    for row in budget_rows:
+        if row[5] == "Credit":
+            total_credit += float(row[4])
+    print(f"Total debit: {total_credit}$")        
+    
+    print(f"Total debit: {total_debit}$ and total credit: {total_credit}$")       
+            
+    
 
 def main():
     """
