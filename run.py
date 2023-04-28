@@ -104,7 +104,8 @@ def get_budget(account_name, saved_pin):
     Saves the budget month and the budget amount to google sheets.
     """
     current_month = datetime.date.today().strftime("%B")
-    next_month = (datetime.date.today() + datetime.timedelta(days=31)).strftime("%B")
+    today = datetime.date.today()
+    next_month = (today + datetime.timedelta(days=31)).strftime("%B")
     valid_months = [current_month, next_month]
     print(f"You can only choose from these options: {valid_months}")
     
