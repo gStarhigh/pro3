@@ -285,4 +285,8 @@ main()
 # todays date, 
 # calculate what was paid on credit to display how much credit must be paid by the end of the month,
 # Calculate how much of the budget is left in total
-# Calulate how much of the budget is left per day to the end of the month. 
+# Calulate how much of the budget is left per day to the end of the month.
+
+# New idea: Before the expenses, make the user choose to either enter
+# an expense, or see the budget. Maybe they only want to see earlier data and
+# not add new data. 
