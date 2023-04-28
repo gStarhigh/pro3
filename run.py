@@ -248,10 +248,11 @@ def calculate_budget(account_name, valid_months):
         elif display_month.capitalize() in valid_months:
             budget_rows = budget_data.get_all_values()
             valid_budget_rows = [row for row in budget_rows \
-                if row[0] == account_name and row[1] == display_month.capitalize()]
+                if row[0] == account_name and \
+                    row[1] == display_month.capitalize()]
             if not valid_budget_rows:
-                print(f"Sorry, there is no data for {account_name} in the month: "
-                    f"{display_month}")
+                print(f"Sorry, there is no data for {account_name} "
+                      f"in the month:{display_month}")
             else:
                 break
         else:
@@ -269,6 +270,8 @@ def main():
     budget_month, total_budget, valid_months = get_budget(account_name, saved_pin)
     get_expenses(account_name, budget_month, total_budget)
     calculate_budget(account_name, valid_months)
+    
+# Run the main function
 main()
 
 
