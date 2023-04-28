@@ -137,22 +137,6 @@ def get_expenses(account_name, budget_month, total_budget):
     # Using a while loop to ask the user to add expenses until they no longer want to add more.
     while True:
         
-        # Get the name of the expense from the user.
-        expense_name = input("Enter expense name: \n")
-        
-        # Get the amount of the expense from the user.
-        expense_amount = float(input("Enter expense amount: \n"))
-        
-        # Get the transaction type from the user using a while loop to ensure that the user enters a valid option.
-        while True:
-            trans_type = input("Enter transaction type 'debit' or 'credit': \n")
-            if trans_type == "debit":
-                break
-            elif trans_type == "credit":
-                break
-            else:
-                print(f"You must enter the details exactly as follows: 'debit' or 'credit'. Please try again")
-        
         # A list of the different expense categories for the user to choose from.
         expense_categories = [
             "Household",
@@ -174,6 +158,23 @@ def get_expenses(account_name, budget_month, total_budget):
             else:
                 print(f"You entered: {selected_expense_type}. Choose a number between 1 and {len(expense_categories)}.")
         selected_expense_type = int(selected_expense_type)
+        
+        # Get the name of the expense from the user.
+        expense_name = input("Enter expense name: \n")
+        
+        # Get the amount of the expense from the user.
+        expense_amount = float(input("Enter expense amount: \n"))
+        
+        # Get the transaction type from the user using a while loop to ensure that the user enters a valid option.
+        while True:
+            trans_type = input("Enter transaction type 'debit' or 'credit': \n")
+            if trans_type == "debit":
+                break
+            elif trans_type == "credit":
+                break
+            else:
+                print(f"You must enter the details exactly as follows: 'debit' or 'credit'. Please try again")
+        
         print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
         
         # Saving the entered data to the worksheet. 
