@@ -127,7 +127,7 @@ def get_budget(account_name, saved_pin):
             print("You must enter numbers.. Please try again")
     print(f"The month for your budget is: {budget_month.capitalize()},")
     print(f"and your total budget is: {total_budget}$")
-    return budget_month, total_budget    
+    return budget_month, total_budget, valid_months   
 
 
 def get_expenses(account_name, budget_month, total_budget):
@@ -221,7 +221,7 @@ def get_expenses(account_name, budget_month, total_budget):
             trans_type.capitalize(), today_date
 
 
-def calculate_budget():
+def calculate_budget(account_name, valid_months):
     """
     Objective: Calculate the remaining budget for the user.
     
@@ -231,15 +231,17 @@ def calculate_budget():
     3. Display budget left in total, per day and how much
     credit is left to pay.
     """
+    print(f"Choose the month you want to display your budget for:")
+    print(f"You can choose between: {valid_months}")
 
 def main():
     """
     A main function to call all functions of the program.
     """
     account_name, saved_pin = get_account_details()
-    budget_month, total_budget = get_budget(account_name, saved_pin)
+    budget_month, total_budget, valid_months = get_budget(account_name, saved_pin)
     get_expenses(account_name, budget_month, total_budget)
-    
+    calculate_budget(account_name, valid_months)
 main()
 
 
