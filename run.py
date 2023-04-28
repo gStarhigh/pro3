@@ -175,6 +175,7 @@ def get_expenses(account_name, budget_month, total_budget):
             else:
                 print(f"You must enter the details exactly as follows: 'debit' or 'credit'. Please try again")
         
+        # Prints the entered information for the user to see.
         print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
         
         # Saving the entered data to the worksheet. 
