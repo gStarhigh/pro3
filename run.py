@@ -282,7 +282,15 @@ def calculate_budget(account_name, valid_months, budget_month):
     
     print(f"Your Total Budget is: {total_budget} \n" 
           f"Total debit: {total_debit}$ and total credit: {total_credit}$")
-            
+    
+    # Calculate how much the user has left
+    
+    # Get the number of days left in the month
+    
+    # Calculate how much the user has each day
+    
+    # Calculate how much the user has to save to afford the credit payments.
+    
     
 def main():
     """
