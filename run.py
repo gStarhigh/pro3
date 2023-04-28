@@ -115,8 +115,8 @@ def get_budget(account_name, saved_pin):
             print(budget_month.capitalize())
             break
         else:
-            print(f"You can only choose from either {current_month} or {next_month}. "
-                  "Please try again.")
+            print(f"You can only choose from either {current_month} "
+                  f" or {next_month}. Please try again.")
         
     while True:
         try:
@@ -167,13 +167,17 @@ def get_expenses(account_name, budget_month, total_budget):
             for i, expense_type in enumerate(expense_categories):
                 print(f" {i + 1}. {expense_type}")
             value_range = f"[1 - {len(expense_categories)}]"
-            selected_expense_type = input(f"Enter a Expense number between {value_range}: \n")
-            if selected_expense_type.isnumeric() and int(selected_expense_type) \
+            selected_expense_type = input(f"Enter a Expense number "
+                                          f"between {value_range}: \n")
+            if selected_expense_type.isnumeric() and \
+            int(selected_expense_type) \
                 in range(1, len(expense_categories)+1):
                 break
             else:
                 print(f"You entered: {selected_expense_type}. "
-                      "Choose a number between 1 and {len(expense_categories)}.")
+                      f"Choose a number between 1 and "
+                      f"{len(expense_categories)}.")
+                
         selected_expense_type = int(selected_expense_type)
         
         # Get the name of the expense from the user.
@@ -185,7 +189,8 @@ def get_expenses(account_name, budget_month, total_budget):
         # Get the transaction type from the user using a while loop to
         # ensure that the user enters a valid option.
         while True:
-            trans_type = input("Enter transaction type 'debit' or 'credit': \n")
+            trans_type = input("Enter transaction type "
+                               "'debit' or 'credit': \n")
             if trans_type == "debit":
                 break
             elif trans_type == "credit":
@@ -195,7 +200,9 @@ def get_expenses(account_name, budget_month, total_budget):
                       "'debit' or 'credit'. Please try again")
         
         # Prints the entered information for the user to see.
-        print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
+        print(f"You have entered {expense_name.capitalize()} at "
+              f"{expense_amount}$, with {trans_type.capitalize()} and "
+              f"category {expense_categories[selected_expense_type-1]}")
         
         # Saving the entered data to the worksheet. 
         # Get the number of rows in the worksheet
