@@ -231,8 +231,19 @@ def calculate_budget(account_name, valid_months):
     3. Display budget left in total, per day and how much
     credit is left to pay.
     """
+    print(f"All done {account_name}, You can now display your budget!\n")
     print(f"Choose the month you want to display your budget for:")
-    print(f"You can choose between: {valid_months}")
+    print(f"You can choose between: {valid_months}\n")
+    while True:
+        display_month = input("Enter the month you want to see: \n")
+        if display_month.capitalize() in valid_months:
+            break
+        else:
+            print(f"That month does not exist. Make sure you choose between "
+                  f"{valid_months}")
+    
+    
+    
 
 def main():
     """
