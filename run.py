@@ -221,6 +221,17 @@ def get_expenses(account_name, budget_month, total_budget):
             trans_type.capitalize(), today_date
 
 
+def calculate_budget():
+    """
+    Objective: Calculate the remaining budget for the user.
+    
+    Steps:
+    1. Match the users data to the month and date
+    2. Calculate the remaining budget
+    3. Display budget left in total, per day and how much
+    credit is left to pay.
+    """
+
 def main():
     """
     A main function to call all functions of the program.
