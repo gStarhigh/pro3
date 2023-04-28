@@ -35,8 +35,10 @@ def get_account_details():
     appended to the google sheet.
     """
     print("Welcome to your Monthly budget application. \n")
-    print("If you are a first time user, choose an account name, it must be unique. \n")
-    print("If you are a returning user, please enter your existing account name below. \n")
+    print("If you are a first time user, choose an account name, "
+          "it must be unique. \n")
+    print("If you are a returning user, please enter your existing " 
+          "account name below. \n")
     account_name = input("Enter your account name: \n")
     print(f"Checking your account name '{account_name}'..")
     
@@ -44,13 +46,15 @@ def get_account_details():
     account_names = [row[0] for row in account_creds]
     saved_pin = None
     if account_name in account_names:
-        print(f"The account name {account_name} was matched against the database. Please continue")
+        print(f"The account name {account_name} was matched against " 
+              "the database. Please continue")
         for row in account_creds:
             if row[0] == account_name:
                 saved_pin = row[1]
                 break
     else:
-        print(f"The account name: {account_name} was not found, creating a new Account")
+        print(f"The account name: {account_name} was not found, " 
+              "creating a new Account")
         
         # Asks the user for the pincode and ensure the length is 4 numbers
         while True:
@@ -79,13 +83,15 @@ def get_account_details():
         if len(account_pin) == 4 and account_pin.isnumeric():
             account_pin = account_pin.encode("utf-8")
             if bcrypt.checkpw(account_pin, saved_pin.encode()):
-                print(f"Checking your account name: '{account_name}' with the pincode: '* * * *'..")
+                print(f"Checking your account name: '{account_name}' "
+                      "with the pincode: '* * * *'..")
                 print("Matched credentials successfully!")
                 break
             else:
                 print("Incorrect pincode. Please try again.")
         else:
-            print("The pincode must be 4 numbers, not letters. Please try again.")
+            print("The pincode must be 4 numbers, not letters. "
+                  "Please try again.")
                 
     return account_name, saved_pin
 
@@ -108,7 +114,8 @@ def get_budget(account_name, saved_pin):
             print(budget_month.capitalize())
             break
         else:
-            print(f"You can only choose from either {current_month} or {next_month}. Please try again.")
+            print(f"You can only choose from either {current_month} "
+                  "or {next_month}. Please try again.")
         
     while True:
         try:
@@ -117,7 +124,8 @@ def get_budget(account_name, saved_pin):
             break
         except ValueError:
             print("You must enter numbers.. Please try again")
-    print(f"The month for your budget is: {budget_month.capitalize()}, and your total budget is: {total_budget}$")
+    print(f"The month for your budget is: {budget_month.capitalize()}, "
+          "and your total budget is: {total_budget}$")
     return budget_month, total_budget    
 
 
@@ -162,7 +170,8 @@ def get_expenses(account_name, budget_month, total_budget):
             if selected_expense_type.isnumeric() and int(selected_expense_type) in range(1, len(expense_categories)+1):
                 break
             else:
-                print(f"You entered: {selected_expense_type}. Choose a number between 1 and {len(expense_categories)}.")
+                print(f"You entered: {selected_expense_type}. "
+                      "Choose a number between 1 and {len(expense_categories)}.")
         selected_expense_type = int(selected_expense_type)
         
         # Get the name of the expense from the user.
@@ -180,10 +189,13 @@ def get_expenses(account_name, budget_month, total_budget):
             elif trans_type == "credit":
                 break
             else:
-                print(f"You must enter the details exactly as follows: 'debit' or 'credit'. Please try again")
+                print(f"You must enter the details exactly as follows: "
+                      "'debit' or 'credit'. Please try again")
         
         # Prints the entered information for the user to see.
-        print(f"You have entered {expense_name.capitalize()} at {expense_amount}$, with {trans_type.capitalize()} and category {expense_categories[selected_expense_type-1]}")
+        print(f"You have entered {expense_name.capitalize()} at "
+              "{expense_amount}$, with {trans_type.capitalize()} and "
+              "category {expense_categories[selected_expense_type-1]}")
         
         # Saving the entered data to the worksheet. 
         # Get the number of rows in the worksheet
