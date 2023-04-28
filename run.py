@@ -108,9 +108,9 @@ def get_budget(account_name, saved_pin):
     today = datetime.date.today()
     next_month = (today + datetime.timedelta(days=31)).strftime("%B")
     valid_months = [current_month, next_month]
-    print(f"You can only choose from these options: {valid_months}")
     
     while True:
+        print(f"You can only choose from these options: {valid_months}")
         budget_month = input("Enter the month for the budget: \n")
         if budget_month.capitalize() in valid_months:
             print(budget_month.capitalize())
