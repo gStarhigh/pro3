@@ -5,6 +5,7 @@ import bcrypt
 import datetime
 import calendar
 import pyfiglet
+import emoji
 
 # Scope
 SCOPE = [
@@ -308,13 +309,27 @@ def calculate_budget(account_name, valid_months, budget_month):
         expense = row[3]
         amount = row[4]
         trans_type = row[5]
-        expenses.append((expense, amount, trans_type))
+        expense_type = row[7]
+        expenses.append((expense, amount, trans_type, expense_type))
 
     # Print the information to the user:
     print(f"Your Total Budget is: {total_budget:.2f}$.\n")
     print(f"Your different expenses for {display_month} are: \n")
     # Print out all the different expenses
-    for expense, amount, trans_type in expenses:
+    for expense, amount, trans_type, expense_type in expenses:
+        if expense_type == "1":
+            expense_char = "\U0001F3E1"
+        elif expense_type == "2":
+            expense_char = "\U0001F37D"
+        elif expense_type == "3":
+            expense_char = "\U0001F697"
+        elif expense_type == "4":
+            expense_char = "\U0001F195"
+        elif expense_type == "5":
+            expense_char = "\U0001F4B0"
+        else:
+            expense_char = ""
+
         print(f"{expense} - {amount}$ - {trans_type}")
     print("")
     print(f"Total Debit: {total_debit:.2f}$.\n")
