@@ -97,9 +97,9 @@ def get_account_details():
                 print("Matched credentials successfully!")
                 break
             else:
-                print("Incorrect pincode. Please try again.")
+                print("❗Incorrect pincode. Please try again.")
         else:
-            print("The pincode must be 4 numbers, not letters. "
+            print("❗The pincode must be 4 numbers, not letters. "
                   "Please try again.")
 
     return account_name, saved_pin
@@ -125,16 +125,16 @@ def get_budget(account_name, saved_pin):
             print(budget_month.capitalize())
             break
         else:
-            print(f"You can only choose from either {current_month} "
+            print(f"❗You can only choose from either {current_month} "
                   f" or {next_month}. Please try again.")
 
     while True:
         try:
-            total_budget = int(input("Enter your total budget: \n"))
+            total_budget = int(input("📈 Enter your total budget: \n"))
             print(total_budget)
             break
         except ValueError:
-            print("You must enter numbers.. Please try again")
+            print("❗You must enter numbers.. Please try again")
     print(f"The month for your budget is: {budget_month.capitalize()},")
     print(f"and your total budget is: {total_budget}$")
     return budget_month, total_budget, valid_months
@@ -184,7 +184,7 @@ def get_expenses(account_name, budget_month, total_budget):
                     in range(1, len(expense_categories)+1):
                 break
             else:
-                print(f"You entered: {selected_expense_type}. "
+                print(f"❗You entered: {selected_expense_type}. "
                       f"Choose a number between 1 and "
                       f"{len(expense_categories)}.")
 
@@ -206,7 +206,7 @@ def get_expenses(account_name, budget_month, total_budget):
             elif trans_type == "credit":
                 break
             else:
-                print(f"You must enter the details exactly as follows: "
+                print(f"❗You must enter the details exactly as follows: "
                       "'debit' or 'credit'. Please try again")
 
         # Prints the entered information for the user to see.
@@ -261,13 +261,13 @@ def calculate_budget(account_name, valid_months, budget_month):
                 if row[0] == account_name and
                     row[1] == display_month.capitalize()]
             if not valid_budget_rows:
-                print(f"Sorry, there is no data for {account_name} "
+                print(f"❗Sorry, there is no data for {account_name} "
                       f"in the month:{display_month}")
             else:
                 break
         else:
-            print(f"That month does not exist. Make sure you choose between "
-                f"{valid_months}")
+            print(f"❗That month does not exist. Make sure"
+                  f" you choose between {valid_months}")
             return
 
     # Set the total debit and Credit
