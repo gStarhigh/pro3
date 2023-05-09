@@ -366,6 +366,7 @@ def delete_data(budget_data, account_name, valid_months):
                 budget_data.delete_rows(i + 1 - deleted_rows)
                 deleted_rows += 1
         print(f"✅ {deleted_rows} rows have been successfully deleted.")
+        print("Program terminated❗")
 
 
 def main():
