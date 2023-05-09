@@ -295,12 +295,12 @@ def calculate_budget(account_name, valid_months, budget_month):
     left_per_day = total_left / remaining_days
     
     # Print the information to the user:
-    print(f"Your Total Budget is: {total_budget}$.\n")
-    print(f"You have a total of {total_left}$ left this month.\n")
-    print(f"Total Debit: {total_debit}$.\n")
-    print(f"Total Credit: {total_credit}$.\n")
-    print(f"You have {left_per_day}$ to spend per day this month calulating "
-          f"that you \n need to save {total_credit}$ to afford the credit\n")
+    print(f"Your Total Budget is: {total_budget:.2f}$.\n")
+    print(f"You have a total of {total_left:.2f}$ left this month.\n")
+    print(f"Total Debit: {total_debit:.2f}$.\n")
+    print(f"Total Credit: {total_credit:.2f}$.\n")
+    print(f"You have {left_per_day:.2f}$ to spend per day this month calulating "
+          f"that you\n need to save {total_credit:.2f}$ to afford the credit\n")
     
 
 def delete_data(budget_data, account_name, valid_months):
