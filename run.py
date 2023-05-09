@@ -104,7 +104,12 @@ def delete_data(budget_data, account_name, valid_months):
     If the user chooses a month to delete, it will loop through the google
     sheet and delete the matching rows.
     """
-    
+    delete_confirmation = input("Do you want to delete any saved data?"
+                                " Please answer 'Yes or No'\n")
+    if delete_confirmation.capitalize() == "No":
+        return None
+    elif delete_confirmation.capitalize() == "Yes":
+        
 
 
 # Get the budget amount from the user and validate the input
