@@ -117,7 +117,13 @@ def delete_data(budget_data, account_name, valid_months):
             else:
                 print(f"You chose {chosen_month}, please choose"
                       f" from {valid_months}.")
-                break
+        deleted_rows = 0
+        for i, row in enumerate(budget_data.get_all_values()):
+            if row[0] == account_name and row[1] == chosen_month.capitalize():
+                budget_data.delete_rows(i + 1 - deleted_rows)
+                deleted_rows += 1
+        print(f"{deleted_rows} rows have been successfully deleted.")
+
 
 
 # Get the budget amount from the user and validate the input
