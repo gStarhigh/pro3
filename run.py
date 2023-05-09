@@ -218,7 +218,7 @@ def get_expenses(account_name, budget_month, total_budget):
         row_count = len(budget_data.get_all_values())
         new_row = [account_name, budget_month.capitalize(), total_budget,
             expense_name.capitalize(), expense_amount,
-            trans_type.capitalize(), today_date]
+            trans_type.capitalize(), today_date, selected_expense_type]
         budget_data.append_row(new_row, value_input_option="USER_ENTERED")
 
         # Ask the user if they want to add another expense
@@ -227,7 +227,7 @@ def get_expenses(account_name, budget_month, total_budget):
             break
     return account_name, budget_month.capitalize(), total_budget,\
             expense_name.capitalize(), expense_amount, \
-            trans_type.capitalize(), today_date
+            trans_type.capitalize(), today_date, selected_expense_type
 
 
 def calculate_budget(account_name, valid_months, budget_month):
