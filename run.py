@@ -242,7 +242,7 @@ def calculate_budget(account_name, valid_months, budget_month):
     print(f"Choose the month you want to display your budget for:")
     print(f"You can choose between: {valid_months}\n")
     while True:
-        display_month = input("Enter the month you want to see "
+        display_month = input("Enter the month you want to see"
                             " or enter 'q' to exit: \n")
         if display_month == "q":
             print("Exiting program...")
@@ -269,9 +269,10 @@ def calculate_budget(account_name, valid_months, budget_month):
     left_per_day = 0
     
     # Loop through the valid_budget_rows and get the total budget.
-    for row in valid_budget_rows:
-            total_budget += float(row[2])
-            break
+    for row in reversed(valid_budget_rows):
+            if row[2]:
+                total_budget += float(row[2])
+                break
     
     # Loop through the valid_budget_rows and sum up all debit expense amounts.
     for row in valid_budget_rows:
@@ -299,8 +300,9 @@ def calculate_budget(account_name, valid_months, budget_month):
     print(f"You have a total of {total_left:.2f}$ left this month.\n")
     print(f"Total Debit: {total_debit:.2f}$.\n")
     print(f"Total Credit: {total_credit:.2f}$.\n")
-    print(f"You have {left_per_day:.2f}$ to spend per day this month calulating "
-          f"that you\n need to save {total_credit:.2f}$ to afford the credit\n")
+    print(f"You have {left_per_day:.2f}$ to spend per day"
+          f" this month calulating that you need to\nsave"
+          f" {total_credit:.2f}$ to afford the credit\n")
     
 
 def delete_data(budget_data, account_name, valid_months):
