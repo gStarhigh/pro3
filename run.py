@@ -55,7 +55,7 @@ def get_account_details():
     account_names = [row[0] for row in account_creds]
     saved_pin = None
     if account_name in account_names:
-        print(f"The account name {account_name} was matched against "
+        print(f"✅ The account name {account_name} was matched against "
               "the database. Please continue")
         for row in account_creds:
             if row[0] == account_name:
@@ -82,7 +82,7 @@ def get_account_details():
         # if the user does not already exist
         new_row = [account_name, hashed_pin.decode()]
         budget_accounts.append_row(new_row)
-        print(f"New account '{account_name}' was created successfully")
+        print(f"✅ New account '{account_name}' was created successfully")
         saved_pin = hashed_pin.decode()
         return account_name, saved_pin
 
@@ -94,7 +94,7 @@ def get_account_details():
             if bcrypt.checkpw(account_pin, saved_pin.encode()):
                 print(f"Checking your account name: '{account_name}' "
                       "with the pincode: '* * * *'..")
-                print("Matched credentials successfully!")
+                print("✅ Matched credentials successfully!")
                 break
             else:
                 print("❗Incorrect pincode. Please try again.")
@@ -365,7 +365,7 @@ def delete_data(budget_data, account_name, valid_months):
             if row[0] == account_name and row[1] == chosen_month.capitalize():
                 budget_data.delete_rows(i + 1 - deleted_rows)
                 deleted_rows += 1
-        print(f"{deleted_rows} rows have been successfully deleted.")
+        print(f"✅ {deleted_rows} rows have been successfully deleted.")
 
 
 def main():
