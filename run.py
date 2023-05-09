@@ -318,19 +318,19 @@ def calculate_budget(account_name, valid_months, budget_month):
     # Print out all the different expenses
     for expense, amount, trans_type, expense_type in expenses:
         if expense_type == "1":
-            expense_char = "\U0001F3E1"
+            expense_char = "🏡"
         elif expense_type == "2":
-            expense_char = "\U0001F37D"
+            expense_char = "🍔"
         elif expense_type == "3":
-            expense_char = "\U0001F697"
+            expense_char = "🚘"
         elif expense_type == "4":
-            expense_char = "\U0001F195"
+            expense_char = "🎉"
         elif expense_type == "5":
-            expense_char = "\U0001F4B0"
+            expense_char = "💰"
         else:
             expense_char = ""
 
-        print(f"{expense} - {amount}$ - {trans_type}")
+        print(f"{expense_char} {expense} - {amount}$ - {trans_type}")
     print("")
     print(f"Total Debit: {total_debit:.2f}$.\n")
     print(f"Total Credit: {total_credit:.2f}$.\n")
