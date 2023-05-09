@@ -5,7 +5,7 @@ import bcrypt
 import datetime
 import calendar
 
-#Scope
+# Scope
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -24,7 +24,7 @@ account_creds = budget_accounts.get_all_values()
 budget_info = budget_data.get_all_values()
 
 
-#Functions
+# Functions
 def get_account_details():
     """
     Gets the account name and pincode from the user and
@@ -95,6 +95,17 @@ def get_account_details():
                   "Please try again.")
                 
     return account_name, saved_pin
+
+
+def delete_data(budget_data, account_name, valid_months):
+    """
+    Asks the user if they want to delete any saved data. The user is presented
+    with the months from the valid months variable.
+    If the user chooses a month to delete, it will loop through the google
+    sheet and delete the matching rows.
+    """
+    
+
 
 # Get the budget amount from the user and validate the input
 def get_budget(account_name, saved_pin):
