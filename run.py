@@ -179,8 +179,8 @@ def get_expenses(account_name, budget_month, total_budget):
             selected_expense_type = input(f"Enter a Expense number "
                                           f"between {value_range}: \n")
             if selected_expense_type.isnumeric() and \
-            int(selected_expense_type) \
-                in range(1, len(expense_categories)+1):
+                int(selected_expense_type) \
+                    in range(1, len(expense_categories)+1):
                 break
             else:
                 print(f"You entered: {selected_expense_type}. "
@@ -216,8 +216,8 @@ def get_expenses(account_name, budget_month, total_budget):
         # Saving the entered data to the worksheet.
         # Get the number of rows in the worksheet
         row_count = len(budget_data.get_all_values())
-        new_row = [account_name, budget_month.capitalize(), total_budget,\
-            expense_name.capitalize(), expense_amount, \
+        new_row = [account_name, budget_month.capitalize(), total_budget,
+            expense_name.capitalize(), expense_amount,
             trans_type.capitalize(), today_date]
         budget_data.append_row(new_row, value_input_option="USER_ENTERED")
 
@@ -256,8 +256,8 @@ def calculate_budget(account_name, valid_months, budget_month):
             return
         elif display_month.capitalize() in valid_months:
             budget_rows = budget_data.get_all_values()
-            valid_budget_rows = [row for row in budget_rows \
-                if row[0] == account_name and \
+            valid_budget_rows = [row for row in budget_rows
+                if row[0] == account_name and
                     row[1] == display_month.capitalize()]
             if not valid_budget_rows:
                 print(f"Sorry, there is no data for {account_name} "
@@ -345,13 +345,15 @@ def main():
     A main function to call all functions of the program.
     """
     account_name, saved_pin = get_account_details()
-    budget_month, total_budget, valid_months = get_budget(account_name, saved_pin)
+    budget_month, total_budget, valid_months \
+        = get_budget(account_name, saved_pin)
     get_expenses(account_name, budget_month, total_budget)
     calculate_budget(account_name, valid_months, budget_month)
     delete_data(budget_data, account_name, valid_months)
 
 # Run the main function
 main()
+
 
 # New idea: Before the expenses, make the user choose to either enter
 # an expense, or see the budget. Maybe they only want to see earlier data and
