@@ -163,11 +163,11 @@ def get_expenses(account_name, budget_month, total_budget):
         # A list of the different expense categories for
         # the user to choose from.
         expense_categories = [
-            "Household",
-            "Food",
-            "Transportation",
-            "Other",
-            "Savings"
+            "🏡 Household",
+            "🍔 Food",
+            "🚘 Transportation",
+            "🎉 Other",
+            "💰 Savings"
         ]
 
         # Get the expense type from the user, using a while loop
@@ -330,7 +330,7 @@ def calculate_budget(account_name, valid_months, budget_month):
         else:
             expense_char = ""
 
-        print(f"{expense_char} {expense} - {amount}$ - {trans_type}")
+        print(f"{expense_char} {expense}: - {amount}$ - {trans_type}")
     print("")
     print(f"Total Debit: {total_debit:.2f}$.\n")
     print(f"Total Credit: {total_credit:.2f}$.\n")
