@@ -313,8 +313,8 @@ def calculate_budget(account_name, valid_months, budget_month):
         expenses.append((expense, amount, trans_type, expense_type))
 
     # Print the information to the user:
-    print(f"Your Total Budget is: {total_budget:.2f}$.\n")
-    print(f"Your different expenses for {display_month} are: \n")
+    print(f"✅ Your Total Budget is: {total_budget:.2f}$.\n")
+    print(f"📃 Your different expenses for {display_month} are: \n")
     # Print out all the different expenses
     for expense, amount, trans_type, expense_type in expenses:
         if expense_type == "1":
@@ -332,12 +332,12 @@ def calculate_budget(account_name, valid_months, budget_month):
 
         print(f"{expense_char} {expense}: - {amount}$ - {trans_type}")
     print("")
-    print(f"Total Debit: {total_debit:.2f}$.\n")
-    print(f"Total Credit: {total_credit:.2f}$.\n")
-    print(f"You have a total of {total_left:.2f}$ left this month.\n")
-    print(f"You have {left_per_day:.2f}$ to spend per day"
+    print(f"💴 Total Debit: {total_debit:.2f}$.\n")
+    print(f"💳 Total Credit: {total_credit:.2f}$.\n")
+    print(f"💶 You have a total of {total_left:.2f}$ left this month.\n")
+    print(f"📉 You have {left_per_day:.2f}$ to spend per day"
           f" this month calulating that you need to\nsave"
-          f" {total_credit:.2f}$ to afford the credit\n")
+          f" 💳 {total_credit:.2f}$ to afford the credit\n")
 
 
 def delete_data(budget_data, account_name, valid_months):
