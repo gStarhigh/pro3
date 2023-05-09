@@ -4,6 +4,7 @@ from google.oauth2.service_account import Credentials
 import bcrypt
 import datetime
 import calendar
+import pyfiglet
 
 # Scope
 SCOPE = [
