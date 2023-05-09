@@ -25,6 +25,12 @@ account_creds = budget_accounts.get_all_values()
 budget_info = budget_data.get_all_values()
 
 
+# Welcome print with Pyfiglet
+welcome_text = "Your budget app!"
+ascii_text = pyfiglet.figlet_format(welcome_text)
+print(ascii_text)
+
+
 # Functions
 def get_account_details():
     """
