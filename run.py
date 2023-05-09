@@ -332,7 +332,7 @@ def calculate_budget(account_name, valid_months, budget_month):
 
         print(f"{expense_char} {expense}: - {amount}$ - {trans_type}")
     print("")
-    print(f"💴 Total Debit: {total_debit:.2f}$.\n")
+    print(f"💵 Total Debit: {total_debit:.2f}$.\n")
     print(f"💳 Total Credit: {total_credit:.2f}$.\n")
     print(f"💶 You have a total of {total_left:.2f}$ left this month.\n")
     print(f"📉 You have {left_per_day:.2f}$ to spend per day"
