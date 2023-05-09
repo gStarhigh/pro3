@@ -109,7 +109,15 @@ def delete_data(budget_data, account_name, valid_months):
     if delete_confirmation.capitalize() == "No":
         return None
     elif delete_confirmation.capitalize() == "Yes":
-        
+        while True:
+            chosen_month = input(f"Which month's data do you want do delete,"
+                                 f"You must choose from {valid_months}.\n")
+            if chosen_month.capitalize() in valid_months:
+                break
+            else:
+                print(f"You chose {chosen_month}, please choose"
+                      f" from {valid_months}.")
+                break
 
 
 # Get the budget amount from the user and validate the input
@@ -326,6 +334,7 @@ def main():
     budget_month, total_budget, valid_months = get_budget(account_name, saved_pin)
     get_expenses(account_name, budget_month, total_budget)
     calculate_budget(account_name, valid_months, budget_month)
+    delete_data(budget_data, account_name, valid_months)
     
 # Run the main function
 main()
