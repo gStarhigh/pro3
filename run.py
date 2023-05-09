@@ -97,35 +97,6 @@ def get_account_details():
     return account_name, saved_pin
 
 
-def delete_data(budget_data, account_name, valid_months):
-    """
-    Asks the user if they want to delete any saved data. The user is presented
-    with the months from the valid months variable.
-    If the user chooses a month to delete, it will loop through the google
-    sheet and delete the matching rows.
-    """
-    delete_confirmation = input("Do you want to delete any saved data?"
-                                " Please answer 'Yes or No'\n")
-    if delete_confirmation.capitalize() == "No":
-        return None
-    elif delete_confirmation.capitalize() == "Yes":
-        while True:
-            chosen_month = input(f"Which month's data do you want do delete,"
-                                 f"You must choose from {valid_months}.\n")
-            if chosen_month.capitalize() in valid_months:
-                break
-            else:
-                print(f"You chose {chosen_month}, please choose"
-                      f" from {valid_months}.")
-        deleted_rows = 0
-        for i, row in enumerate(budget_data.get_all_values()):
-            if row[0] == account_name and row[1] == chosen_month.capitalize():
-                budget_data.delete_rows(i + 1 - deleted_rows)
-                deleted_rows += 1
-        print(f"{deleted_rows} rows have been successfully deleted.")
-
-
-
 # Get the budget amount from the user and validate the input
 def get_budget(account_name, saved_pin):
     """ 
@@ -329,7 +300,35 @@ def calculate_budget(account_name, valid_months, budget_month):
     print(f"Total Debit: {total_debit}$.\n")
     print(f"Total Credit: {total_credit}$.\n")
     print(f"You have {left_per_day}$ to spend per day this month calulating "
-          f"that you \n need to save {total_credit}$ to afford the credit")
+          f"that you \n need to save {total_credit}$ to afford the credit\n")
+    
+
+def delete_data(budget_data, account_name, valid_months):
+    """
+    Asks the user if they want to delete any saved data. The user is presented
+    with the months from the valid months variable.
+    If the user chooses a month to delete, it will loop through the google
+    sheet and delete the matching rows.
+    """
+    delete_confirmation = input("Do you want to delete any saved data?"
+                                " Please answer 'Yes or No'\n")
+    if delete_confirmation.capitalize() == "No":
+        return None
+    elif delete_confirmation.capitalize() == "Yes":
+        while True:
+            chosen_month = input(f"Which month's data do you want do delete,"
+                                 f"You must choose from {valid_months}.\n")
+            if chosen_month.capitalize() in valid_months:
+                break
+            else:
+                print(f"You chose {chosen_month}, please choose"
+                      f" from {valid_months}.")
+        deleted_rows = 0
+        for i, row in enumerate(budget_data.get_all_values()):
+            if row[0] == account_name and row[1] == chosen_month.capitalize():
+                budget_data.delete_rows(i + 1 - deleted_rows)
+                deleted_rows += 1
+        print(f"{deleted_rows} rows have been successfully deleted.")
 
     
 def main():
