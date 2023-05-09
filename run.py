@@ -302,11 +302,24 @@ def calculate_budget(account_name, valid_months, budget_month):
     # Calculate how much the user has each day
     left_per_day = total_left / remaining_days
 
+    # create a list of expenses
+    expenses = []
+    for row in valid_budget_rows:
+        expense = row[3]
+        amount = row[4]
+        trans_type = row[5]
+        expenses.append((expense, amount, trans_type))
+
     # Print the information to the user:
     print(f"Your Total Budget is: {total_budget:.2f}$.\n")
-    print(f"You have a total of {total_left:.2f}$ left this month.\n")
+    print(f"Your different expenses for {display_month} are: \n")
+    # Print out all the different expenses
+    for expense, amount, trans_type in expenses:
+        print(f"{expense} - {amount}$ - {trans_type}")
+    print("")
     print(f"Total Debit: {total_debit:.2f}$.\n")
     print(f"Total Credit: {total_credit:.2f}$.\n")
+    print(f"You have a total of {total_left:.2f}$ left this month.\n")
     print(f"You have {left_per_day:.2f}$ to spend per day"
           f" this month calulating that you need to\nsave"
           f" {total_credit:.2f}$ to afford the credit\n")
