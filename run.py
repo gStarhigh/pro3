@@ -70,8 +70,11 @@ def get_account_details():
             account_pin = input("Enter your pincode(4 numbers): \n")
             if len(account_pin) == 4 and account_pin.isnumeric():
                 break
+            elif account_pin.isnumeric() and len(account_pin) != 4:
+                print("❗The pincode must be 4 letters in length")
             else:
-                print("The pincode must be 4 numbers. Please try again")
+                print("❗The pincode must be 4 numbers, not letters. "
+                  "Please try again.")
 
         # Encode the pincode
         account_pin = account_pin.encode("utf-8")
