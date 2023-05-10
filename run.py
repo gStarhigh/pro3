@@ -238,9 +238,15 @@ def get_expenses(account_name, budget_month, total_budget):
         budget_data.append_row(new_row, value_input_option="USER_ENTERED")
 
         # Ask the user if they want to add another expense
-        add_another = input("Do you want to add another expense? (y/n)\n")
-        if add_another.lower() == "n":
-            break
+        # and ensure that the input is either "y" or "n"
+        while True:
+            add_another = input("Do you want to add another expense? (y/n)\n")
+            if add_another.lower() == "n":
+                return
+            elif add_another.lower() == "y":
+                break
+            else:
+                print("Invalidn input, try again.")
     return account_name, budget_month.capitalize(), total_budget,\
             expense_name.capitalize(), expense_amount, \
             trans_type.capitalize(), today_date, selected_expense_type
