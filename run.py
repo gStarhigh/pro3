@@ -303,20 +303,23 @@ def calculate_budget(account_name, valid_months, budget_month):
     # Calculate how much the user has each day
     left_per_day = total_left / remaining_days
 
-    # create a list of expenses
-    expenses = []
+    # create a dictionary of expenses grouped by expense_type
+    expenses_dict = {}
     for row in valid_budget_rows:
         expense = row[3]
         amount = row[4]
         trans_type = row[5]
         expense_type = row[7]
-        expenses.append((expense, amount, trans_type, expense_type))
+        if expense_type not in expenses_dict:
+            expenses_dict[expense_type] = []
+        expenses_dict[expense_type].append((expense, amount, trans_type))
 
     # Print the information to the user:
     print(f"✅ Your Total Budget is: {total_budget:.2f}$.\n")
     print(f"📃 Your different expenses for {display_month} are: \n")
-    # Print out all the different expenses
-    for expense, amount, trans_type, expense_type in expenses:
+
+    # Adding the emoji to the corresponding expense type.
+    for expense_type, expenses in expenses_dict.items():
         if expense_type == "1":
             expense_char = "🏡"
         elif expense_type == "2":
@@ -329,9 +332,12 @@ def calculate_budget(account_name, valid_months, budget_month):
             expense_char = "💰"
         else:
             expense_char = ""
+        # Print out the different expenses grouped by expense_type
+        print(f"{expense_char} Expenses:")
+        for expense, amount, trans_type in expenses:
+            print(f"{expense}: - {amount}$ - {trans_type}")
+        print("")
 
-        print(f"{expense_char} {expense}: - {amount}$ - {trans_type}")
-    print("")
     print(f"💵 Total Debit: {total_debit:.2f}$.\n")
     print(f"💳 Total Credit: {total_credit:.2f}$.\n")
 
