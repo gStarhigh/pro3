@@ -90,7 +90,8 @@ def get_account_details():
         return account_name, saved_pin
 
     while True:
-        # Compare the stored password with the entered password
+        # Compare the stored password with the entered password, 
+        # and ensures that the pincode is 4 numbers in length.
         account_pin = input("Enter your pincode(4 numbers): \n")
         if len(account_pin) == 4 and account_pin.isnumeric():
             account_pin = account_pin.encode("utf-8")
@@ -101,8 +102,12 @@ def get_account_details():
                 break
             else:
                 print("❗Incorrect pincode. Please try again.")
+        # If the pincode is numbers but not 4 numbers in length:
+        elif len(account_pin) != 4 and account_pin.isnumeric():
+            print("❗ The pincode must be 4 numbers in length. Try again.")
+        # If the pincode does not only contain numbers:
         else:
-            print("❗The pincode must be 4 numbers, not letters. "
+            print("❗ The pincode must be 4 numbers, not letters. "
                   "Please try again.")
 
     return account_name, saved_pin
