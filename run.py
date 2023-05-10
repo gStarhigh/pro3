@@ -334,6 +334,22 @@ def calculate_budget(account_name, valid_months, budget_month):
     print("")
     print(f"💵 Total Debit: {total_debit:.2f}$.\n")
     print(f"💳 Total Credit: {total_credit:.2f}$.\n")
+
+    # Check if the user has less left than the credit bill
+    # then print custom message.
+    if total_left < total_credit and total_credit != 0:
+        print(f"🔴 You don't have enough left to pay your credit:"
+              f"{total_left}$. You should adjust your\n expenses to make"
+              f" sure to have more money left\n to afford the"
+              f" credit bill of 💳 {total_credit}$.\n")
+
+    # Checks if the user has less than 0 left if so, prints a custom message.
+    if total_left < 0:
+        print(f"🔴 With these expenses you have exceeded your budget with:"
+              f" {total_left}$. You should change your expenses"
+              f" to make sure you don't zero out your balance.\n")
+
+
     print(f"💶 You have a total of {total_left:.2f}$ left this month.\n")
     print(f"📉 You have {left_per_day:.2f}$ to spend per day"
           f" this month calulating that you need to\nsave"
