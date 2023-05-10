@@ -283,13 +283,13 @@ def calculate_budget(account_name, valid_months, budget_month):
                     row[1] == display_month.capitalize()]
             if not valid_budget_rows:
                 print(f"❗Sorry, there is no data for {account_name} "
-                      f"in the month:{display_month}")
+                      f"in {display_month}")
             else:
                 break
         else:
             print(f"❗That month does not exist. Make sure"
                   f" you choose between {valid_months}")
-            return
+            continue
 
     # Set the total debit and Credit
     total_debit = 0
