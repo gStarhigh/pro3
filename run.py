@@ -194,7 +194,14 @@ def get_expenses(account_name, budget_month, total_budget):
         expense_name = input("Enter expense name: \n")
 
         # Get the amount of the expense from the user.
-        expense_amount = float(input("Enter expense amount: \n"))
+        # And ensure that the input are numbers.
+        while True:
+            expense_amount_str = input("Enter expense amount: \n")
+            if expense_amount_str.isnumeric():
+                expense_amount = float(expense_amount_str)
+                break
+            else:
+                print(f"❗ You can only use numbers, please try again.")
 
         # Get the transaction type from the user using a while loop to
         # ensure that the user enters a valid option.
