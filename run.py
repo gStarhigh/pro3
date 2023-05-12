@@ -62,11 +62,17 @@ def get_account_details():
     saved_pin = None
     if account_name in account_names:
         print(f"✅ The account name {account_name} was matched against "
-              "the database. Please continue")
+              "the database.")
         for row in account_creds:
             if row[0] == account_name:
                 saved_pin = row[1]
-                break
+                wrong_account = input(("Did you enter the wrong account name?"
+                                   " Type: 'restart' to start over or type:"
+                                   " continue to proceed \n"))
+                if wrong_account.lower() == "restart":
+                    restart_budget()
+                elif wrong_account.lower() == "continue":
+                    break
     else:
         print(f"The account name: {account_name} was not found, "
               "creating a new Account")
@@ -425,6 +431,7 @@ def restart_budget():
         
     elif restart.lower() == "exit":
         print ("Good bye!")
+        exit()
     
     elif restart.lower() != "restart" or "exit":
         print("Please enter a valid option")
