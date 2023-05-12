@@ -428,7 +428,8 @@ def main():
     delete_data(budget_data, account_name, valid_months)
 
 # Run the main function
-main()
+if __name__ == "__main__":
+    main()
 
 
 # New idea: Before the expenses, make the user choose to either enter
