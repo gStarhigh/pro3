@@ -122,8 +122,8 @@ def get_account_details():
 # Get the budget amount from the user and validate the input
 def get_budget(account_name, saved_pin, valid_months):
     """
-    Get the current date and month from datetime.
-    Get the budget month from the user and validate it against datetime.
+    Get the current date and month from valid_months.
+    Get the budget month from the user and validate it against valid_months.
     Get the budget amount from the user and validate the input.
     Saves the budget month and the budget amount to google sheets.
     """
