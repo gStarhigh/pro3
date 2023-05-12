@@ -104,23 +104,29 @@ def get_account_details():
     while True:
         # Compare the stored password with the entered password, 
         # and ensures that the pincode is 4 numbers in length.
-        account_pin = input("Enter your pincode(4 numbers): \n")
-        if len(account_pin) == 4 and account_pin.isnumeric():
-            account_pin = account_pin.encode("utf-8")
-            if bcrypt.checkpw(account_pin, saved_pin.encode()):
-                print(f"Checking your account name: '{account_name}' "
-                      "with the pincode: '* * * *'..")
-                print("✅ Matched credentials successfully!")
-                break
+        # The user has 3 tries, after that the program exits.
+        for i in range(3):
+            account_pin = input("Enter your pincode(4 numbers): "
+                                "You have 3 tries. \n")
+            if len(account_pin) == 4 and account_pin.isnumeric():
+                account_pin = account_pin.encode("utf-8")
+                if bcrypt.checkpw(account_pin, saved_pin.encode()):
+                    print(f"Checking your account name: '{account_name}' "
+                        "with the pincode: '* * * *'..")
+                    print("✅ Matched credentials successfully!")
+                    break
+                else:
+                    print("❗Incorrect pincode. Please try again.")
+            # If the pincode is numbers but not 4 numbers in length:
+            elif len(account_pin) != 4 and account_pin.isnumeric():
+                print("❗ The pincode must be 4 numbers in length. Try again.")
+            # If the pincode does not only contain numbers:
             else:
-                print("❗Incorrect pincode. Please try again.")
-        # If the pincode is numbers but not 4 numbers in length:
-        elif len(account_pin) != 4 and account_pin.isnumeric():
-            print("❗ The pincode must be 4 numbers in length. Try again.")
-        # If the pincode does not only contain numbers:
-        else:
-            print("❗ The pincode must be 4 numbers, not letters. "
-                  "Please try again.")
+                print("❗ The pincode must be 4 numbers, not letters. "
+                    "Please try again.")
+        if i == 2:
+            print("❗ Maximum of tries exceeded. Program shuts down..")
+            exit()
 
     return account_name, saved_pin
 
