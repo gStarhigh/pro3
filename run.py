@@ -80,13 +80,15 @@ def get_account_details():
         for row in account_creds:
             if row[0] == account_name:
                 saved_pin = row[1]
-                wrong_account = input(("Did you enter the wrong account name?"
-                                   " Type: 'restart' to start over or type:"
-                                   " continue to proceed \n"))
-                if wrong_account.lower() == "restart":
-                    restart_budget()
-                elif wrong_account.lower() == "continue":
-                    break
+                while True:
+                    wrong_account = input(("Did you enter the"
+                                    " wrong account name?"
+                                    " Type: 'restart' to start over or type:"
+                                    " continue to proceed \n"))
+                    if wrong_account.lower() == "restart":
+                        restart_budget()
+                    elif wrong_account.lower() == "continue":
+                        break
     else:
         print(f"The account name: {account_name} was not found, "
               "creating a new Account")
@@ -154,6 +156,22 @@ def get_account_details():
 
     return account_name, saved_pin
 
+
+def options(account_name):
+    """
+    Give the user the option to either see the existing data
+    or to delete data without entering any new data.
+    """    
+    user_option = input(f"{account_name}, Do you want to display or"
+                        f" delete data? Please answer 'yes' or 'no'\n")
+    if user_option == "yes":
+        delete_option = input("Do you want to 'display' or 'delete' data? \n")
+        if delete_option.lower() == "display":
+            get_expenses(account_name, budget_month, total_budget)
+        elif delete_option.lower() == "delete":
+            delete_data(budget_data, account_name, valid_months)
+    elif user_option == "no":
+        return
 
 def get_budget(valid_months):
     """
@@ -481,10 +499,12 @@ def main():
     # Functions
     valid_months, today = get_valid_months()
     account_name, saved_pin = get_account_details()
+    options(account_name)
     budget_month, total_budget, valid_months = get_budget(valid_months)
     get_expenses(account_name, budget_month, total_budget)
     calculate_budget(account_name, valid_months, budget_month)
     delete_data(budget_data, account_name, valid_months)
+
 
 # Run the main function
 if __name__ == "__main__":
