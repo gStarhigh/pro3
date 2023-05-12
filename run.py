@@ -26,10 +26,19 @@ account_creds = budget_accounts.get_all_values()
 budget_info = budget_data.get_all_values()
 
 
-
-
-
 # Functions
+def get_valid_months():
+    """
+    Get the current month current day and the next month to be able
+    to calculate data in the budget.
+    """    
+    current_month = datetime.date.today().strftime("%B")
+    today = datetime.date.today()
+    next_month = (today + datetime.timedelta(days=31)).strftime("%B")
+    valid_months = [current_month, next_month]
+    return valid_months, today
+    
+
 def get_account_details():
     """
     Gets the account name and pincode from the user and
@@ -111,17 +120,13 @@ def get_account_details():
 
 
 # Get the budget amount from the user and validate the input
-def get_budget(account_name, saved_pin):
+def get_budget(account_name, saved_pin, valid_months):
     """
     Get the current date and month from datetime.
     Get the budget month from the user and validate it against datetime.
     Get the budget amount from the user and validate the input.
     Saves the budget month and the budget amount to google sheets.
     """
-    current_month = datetime.date.today().strftime("%B")
-    today = datetime.date.today()
-    next_month = (today + datetime.timedelta(days=31)).strftime("%B")
-    valid_months = [current_month, next_month]
 
     while True:
         print(f"You can only choose from these options: {valid_months}")
@@ -420,9 +425,10 @@ def main():
     print(ascii_text)
     
     # Functions
+    valid_months, today = get_valid_months()
     account_name, saved_pin = get_account_details()
     budget_month, total_budget, valid_months \
-        = get_budget(account_name, saved_pin)
+        = get_budget(account_name, saved_pin, valid_months)
     get_expenses(account_name, budget_month, total_budget)
     calculate_budget(account_name, valid_months, budget_month)
     delete_data(budget_data, account_name, valid_months)
