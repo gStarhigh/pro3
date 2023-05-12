@@ -7,6 +7,18 @@ import calendar
 import pyfiglet
 from colorama import Fore, Back, Style
 
+# Colorama colors
+# Red background color
+red_back = Back.RED
+# Green background color
+green_back = Back.GREEN
+# Red text color
+red_text = Fore.RED
+# Green text color
+green_text = Fore.GREEN
+# Reset all inputs
+reset_all = Style.RESET_ALL
+
 # Scope
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
