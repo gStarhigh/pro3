@@ -411,6 +411,24 @@ def delete_data(budget_data, account_name, valid_months):
                 deleted_rows += 1
         print(f"✅ {deleted_rows} rows have been successfully deleted.")
         print("Program terminated❗")
+        
+
+def restart_budget():
+    """
+    Let the user choose between restarting and exiting the program.
+    """
+    restart = input("Do you want to restart or exit type: "
+                    "'restart' or 'exit' \n")
+    if restart.lower() == "restart":
+        print("Restarting...")
+        get_account_details()
+        
+    elif restart.lower() == "exit":
+        print ("Good bye!")
+    
+    elif restart.lower() != "restart" or "exit":
+        print("Please enter a valid option")
+        restart_budget()
 
 
 def main():
