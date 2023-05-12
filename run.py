@@ -5,6 +5,7 @@ import bcrypt
 import datetime
 import calendar
 import pyfiglet
+from colorama import Fore, Back, Style
 
 # Scope
 SCOPE = [
