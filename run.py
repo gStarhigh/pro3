@@ -150,6 +150,7 @@ def get_account_details():
             print(Style.BRIGHT + red_text + "Maximum of tries exceeded."
                   " Program shuts down.." + reset_all)
             exit()
+        break
 
     return account_name, saved_pin
 
