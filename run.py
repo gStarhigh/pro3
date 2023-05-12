@@ -5,7 +5,6 @@ import bcrypt
 import datetime
 import calendar
 import pyfiglet
-import emoji
 
 # Scope
 SCOPE = [
