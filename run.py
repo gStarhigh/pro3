@@ -109,10 +109,6 @@ def get_account_details():
         for i in range(3):
             account_pin = input("Enter your pincode(4 numbers):\n")
             tries_left -= 1
-            if tries_left == 1:
-                print(f"This is you last try!\n")
-            else:
-                print(f"You have '{tries_left}' tries left.\n")
             if len(account_pin) == 4 and account_pin.isnumeric():
                 account_pin = account_pin.encode("utf-8")
                 if bcrypt.checkpw(account_pin, saved_pin.encode()):
@@ -123,6 +119,7 @@ def get_account_details():
                 else:
                     if i != 2:
                         print("❗Incorrect pincode. Please try again.")
+                        print(f"You have '{tries_left}' tries left.\n")
             # If the pincode is numbers but not 4 numbers in length:
             elif len(account_pin) != 4 and account_pin.isnumeric():
                 print("❗ The pincode must be 4 numbers in length. Try again.")
@@ -130,6 +127,8 @@ def get_account_details():
             else:
                 print("❗ The pincode must be 4 numbers, not letters. "
                     "Please try again.")
+            if tries_left == 1:
+                print(f"❗ This is you last try! ❗\n")
         if i == 2:
             print("❗ Maximum of tries exceeded. Program shuts down..")
             exit()
