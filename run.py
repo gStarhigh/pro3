@@ -16,6 +16,8 @@ green_back = Back.GREEN
 red_text = Fore.RED
 # Green text color
 green_text = Fore.GREEN
+# Blue text color
+blue_text = Fore.BLUE
 # Reset all inputs
 reset_all = Style.RESET_ALL
 
@@ -131,18 +133,22 @@ def get_account_details():
                 else:
                     if i != 2:
                         print("❗Incorrect pincode. Please try again.")
-                        print(f"You have '{tries_left}' tries left.\n")
+                        print(f"You have {Style.BRIGHT}{red_text}{tries_left}"
+                              f"{reset_all} tries left.\n")
             # If the pincode is numbers but not 4 numbers in length:
             elif len(account_pin) != 4 and account_pin.isnumeric():
-                print("❗ The pincode must be 4 numbers in length. Try again.")
+                print("❗ The pincode must be 4 numbers in length."
+                      " Try again.")
             # If the pincode does not only contain numbers:
             else:
                 print("❗ The pincode must be 4 numbers, not letters. "
                     "Please try again.")
             if tries_left == 1:
-                print(f"❗ This is you last try! ❗\n")
+                print(Style.BRIGHT + red_back + f"This is you last try!"
+                      f"\n" + reset_all )
         if i == 2:
-            print("❗ Maximum of tries exceeded. Program shuts down..")
+            print(Style.BRIGHT + red_text + "Maximum of tries exceeded."
+                  " Program shuts down.." + reset_all)
             exit()
 
     return account_name, saved_pin
@@ -469,7 +475,7 @@ def main():
     # Welcome print with Pyfiglet
     welcome_text = "Your budget app!"
     ascii_text = pyfiglet.figlet_format(welcome_text)
-    print(ascii_text)
+    print(Style.BRIGHT + green_text + ascii_text + reset_all)
     
     # Functions
     valid_months, today = get_valid_months()
