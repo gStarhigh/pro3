@@ -26,10 +26,7 @@ account_creds = budget_accounts.get_all_values()
 budget_info = budget_data.get_all_values()
 
 
-# Welcome print with Pyfiglet
-welcome_text = "Your budget app!"
-ascii_text = pyfiglet.figlet_format(welcome_text)
-print(ascii_text)
+
 
 
 # Functions
@@ -416,6 +413,13 @@ def main():
     """
     A main function to call all functions of the program.
     """
+    
+    # Welcome print with Pyfiglet
+    welcome_text = "Your budget app!"
+    ascii_text = pyfiglet.figlet_format(welcome_text)
+    print(ascii_text)
+    
+    # Functions
     account_name, saved_pin = get_account_details()
     budget_month, total_budget, valid_months \
         = get_budget(account_name, saved_pin)
