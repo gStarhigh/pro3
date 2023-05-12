@@ -119,8 +119,7 @@ def get_account_details():
     return account_name, saved_pin
 
 
-# Get the budget amount from the user and validate the input
-def get_budget(account_name, saved_pin, valid_months):
+def get_budget(valid_months):
     """
     Get the current date and month from valid_months.
     Get the budget month from the user and validate it against valid_months.
@@ -427,8 +426,7 @@ def main():
     # Functions
     valid_months, today = get_valid_months()
     account_name, saved_pin = get_account_details()
-    budget_month, total_budget, valid_months \
-        = get_budget(account_name, saved_pin, valid_months)
+    budget_month, total_budget, valid_months = get_budget(valid_months)
     get_expenses(account_name, budget_month, total_budget)
     calculate_budget(account_name, valid_months, budget_month)
     delete_data(budget_data, account_name, valid_months)
