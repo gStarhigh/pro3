@@ -138,6 +138,7 @@ class budget_app:
             # and ensures that the pincode is 4 numbers in length.
             # The user has 3 tries, after that the program exits.
             tries_left = 3
+            correct = False
             for i in range(3):
                 account_pin = input("Enter your pincode(4 numbers):\n")
                 tries_left -= 1
@@ -149,6 +150,7 @@ class budget_app:
                               f"{self.account_name} {reset_all}"
                               f"with the pincode: '* * * *'..")
                         print("✅ Matched credentials successfully!")
+                        correct = True
                         break
                     else:
                         if i != 2:
@@ -166,7 +168,7 @@ class budget_app:
                 if tries_left == 1:
                     print(Style.BRIGHT + red_back + f"This is you last try!"
                                                     f"\n" + reset_all)
-            if i == 2:
+            if i == 2 and correct != True:
                 print(Style.BRIGHT + red_text + "Maximum of tries exceeded."
                                                 " Program shuts down.."
                                                 + reset_all)
