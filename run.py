@@ -552,6 +552,21 @@ class budget_app:
         elif restart.lower() != "restart" or "exit":
             print(f"{yellow_text}Please enter a valid option{reset_all}")
             self.restart_budget()
+            
+    def final_question(self):
+        """
+        Final question of the program that asks if the user wants to display
+        all options again, or to exit the program.
+        """
+        option_question = input("Do you want to see your options or exit? "
+                                "Enter: 'yes' or 'exit'\n")
+        while True:
+            if option_question.lower() == "yes":
+                self.options(self.account_name)
+            elif option_question.lower() == "exit":
+                exit()
+            else:
+                print("Invalid input. Please try again")
 
 
 def main():
@@ -573,9 +588,16 @@ def main():
     budget_month, total_budget, valid_months = app.get_budget(app.valid_months)
     app.get_expenses(account_name, budget_month, total_budget)
     app.calculate_budget(account_name, valid_months, budget_month)
-    app.delete_data(app.budget_data, account_name, valid_months,)
+    app.final_question()
 
 
 # Run the main function
 if __name__ == "__main__":
     main()
+
+
+
+# Last function, should it be a question:
+# Do you want to see all your options or exit? 
+# Yes - Go to options...
+# No - exit
