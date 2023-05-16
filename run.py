@@ -18,6 +18,8 @@ red_text = Fore.RED
 green_text = Fore.GREEN
 # Blue text color
 blue_text = Fore.BLUE
+# Yellow text color
+yellow_text = Fore.YELLOW
 # Reset all inputs
 reset_all = Style.RESET_ALL
 
@@ -523,17 +525,18 @@ class budget_app:
         Let the user choose between restarting and exiting the program.
         """
         restart = input("Do you want to restart or exit type: "
-                        "'restart' or 'exit' \n")
+                        f"{Style.BRIGHT}{green_text}restart{reset_all} or "
+                        f"{Style.BRIGHT}{red_text}exit{reset_all} \n")
         if restart.lower() == "restart":
-            print("Restarting...")
+            print(f"{Style.BRIGHT}{green_text}Restarting...{reset_all}")
             self.get_account_details()
 
         elif restart.lower() == "exit":
-            print("Good bye!")
+            print(f"{Style.BRIGHT}{green_text}Good bye!{reset_all}")
             exit()
 
         elif restart.lower() != "restart" or "exit":
-            print("Please enter a valid option")
+            print(f"{yellow_text}Please enter a valid option{reset_all}")
             self.restart_budget()
 
 
