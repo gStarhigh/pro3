@@ -56,7 +56,7 @@ class budget_app:
         self.current_month = datetime.date.today().strftime("%B")
         self.today = datetime.date.today()
         self.next_month = (self.today + datetime.timedelta(days=31)).strftime("%B")
-        self.valid_months = [current_month, next_month]
+        self.valid_months = [self.current_month, self.next_month]
         return self.valid_months, self.today
         
 
@@ -245,7 +245,7 @@ class budget_app:
             while True:
                 print("Select a expense type: ")
                 for i, self.expense_type in enumerate(self.expense_categories):
-                    print(f" {i + 1}. {expense_type}")
+                    print(f" {i + 1}. {self.expense_type}")
                 value_range = f"[1 - {len(self.expense_categories)}]"
                 self.selected_expense_type = input(f"Enter a Expense number "
                                             f"between {value_range}: \n")
@@ -293,7 +293,7 @@ class budget_app:
 
             # Saving the entered data to the worksheet.
             # Get the number of rows in the worksheet
-            row_count = len(budget_data.get_all_values())
+            row_count = len(self.budget_data.get_all_values())
             new_row = [self.account_name, self.budget_month.capitalize(), self.total_budget,
                 self.expense_name.capitalize(), self.expense_amount,
                 self.trans_type.capitalize(), self.today_date, self.selected_expense_type]
@@ -508,8 +508,8 @@ def main():
     # Functions
     app.get_valid_months()
     account_name, saved_pin = app.get_account_details()
-    options(account_name)
-    budget_month, total_budget, valid_months = app.get_budget()
+    app.options(account_name)
+    budget_month, total_budget, valid_months = app.get_budget(app.valid_months)
     app.get_expenses(account_name, budget_month, total_budget)
     app.calculate_budget(account_name, valid_months, budget_month)
     app.delete_data()
