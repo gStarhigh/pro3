@@ -45,6 +45,8 @@ class budget_app:
         self.budget_info = self.budget_data.get_all_values()
         self.valid_months = None
         self.account_name = None
+        self.budget_month = None
+        self.total_budget = None
 
 
     # Functions
@@ -174,9 +176,9 @@ class budget_app:
         if user_option == "yes":
             delete_option = input("Do you want to 'display' or 'delete' data? \n")
             if delete_option.lower() == "display":
-                self.get_expenses(account_name, budget_month, total_budget)
+                self.calculate_budget(self.account_name, self.valid_months, self.budget_month)
             elif delete_option.lower() == "delete":
-                self.delete_data(budget_data, account_name, valid_months)
+                self.delete_data(self.budget_data, self.account_name, self.valid_months)
         elif user_option == "no":
             return
 
