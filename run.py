@@ -103,7 +103,8 @@ class budget_app:
                         elif wrong_account.lower() == "no":
                             break
         else:
-            print(f"The account name: {self.account_name} was not found, "
+            print(f"The account name:{blue_text}{self.account_name}"
+                  f"{reset_all} was not found, "
                   "creating a new Account")
 
             # Asks the user for the pincode and ensure the length is 4 numbers
@@ -112,10 +113,12 @@ class budget_app:
                 if len(account_pin) == 4 and account_pin.isnumeric():
                     break
                 elif account_pin.isnumeric() and len(account_pin) != 4:
-                    print("❗The pincode must be 4 letters in length")
+                    print(f"❗The pincode must be"
+                          f"{Style.BRIGHT}{red_text} 4 {reset_all}"
+                          f"letters in length")
                 else:
-                    print("❗The pincode must be 4 numbers, not letters. "
-                          "Please try again.")
+                    print(f"❗{yellow_text} The pincode must be 4 numbers,"
+                          f"not letters. Please try again.{reset_all}")
 
             # Encode the pincode
             account_pin = account_pin.encode("utf-8")
