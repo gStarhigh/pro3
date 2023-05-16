@@ -90,9 +90,12 @@ class budget_app:
                     while True:
                         wrong_account = input(("Did you enter the"
                                                " wrong account name?\n"
-                                               "Type: 'yes' to start "
+                                               f"Type:{Style.BRIGHT}{red_text}"
+                                               f" yes{reset_all} to start "
                                                "over or type:"
-                                               " 'no' to proceed \n"))
+                                               f" {Style.BRIGHT}{green_text}"
+                                               f"no{reset_all}"
+                                               " to proceed\n"))
                         if wrong_account.lower() == "yes":
                             self.restart_budget()
                         elif wrong_account.lower() == "no":
