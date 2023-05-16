@@ -93,7 +93,7 @@ class budget_app:
                                         " Type: 'restart' to start over or type:"
                                         " continue to proceed \n"))
                         if wrong_account.lower() == "restart":
-                            restart_budget()
+                            self.restart_budget()
                         elif wrong_account.lower() == "continue":
                             break
         else:
@@ -459,22 +459,22 @@ class budget_app:
         elif delete_confirmation.capitalize() == "Yes":
             while True:
                 chosen_month = input(f"Which month's data do you want do delete,"
-                                    f"You must choose from {valid_months}.\n")
-                if chosen_month.capitalize() in valid_months:
+                                    f"You must choose from {self.valid_months}.\n")
+                if chosen_month.capitalize() in self.valid_months:
                     break
                 else:
                     print(f"You chose {chosen_month}, please choose"
-                        f" from {valid_months}.")
+                        f" from {self.valid_months}.")
             deleted_rows = 0
-            for i, row in enumerate(budget_data.get_all_values()):
-                if row[0] == account_name and row[1] == chosen_month.capitalize():
+            for i, row in enumerate(self.budget_data.get_all_values()):
+                if row[0] == self.account_name and row[1] == chosen_month.capitalize():
                     budget_data.delete_rows(i + 1 - deleted_rows)
                     deleted_rows += 1
             print(f"✅ {deleted_rows} rows have been successfully deleted.")
             print("Program terminated❗")
             
 
-    def restart_budget(self,):
+    def restart_budget(self):
         """
         Let the user choose between restarting and exiting the program.
         """
@@ -482,7 +482,7 @@ class budget_app:
                         "'restart' or 'exit' \n")
         if restart.lower() == "restart":
             print("Restarting...")
-            get_account_details()
+            self.get_account_details()
             
         elif restart.lower() == "exit":
             print ("Good bye!")
@@ -490,7 +490,7 @@ class budget_app:
         
         elif restart.lower() != "restart" or "exit":
             print("Please enter a valid option")
-            restart_budget()
+            self.restart_budget()
 
 
 def main():
@@ -512,7 +512,7 @@ def main():
     budget_month, total_budget, valid_months = app.get_budget(app.valid_months)
     app.get_expenses(account_name, budget_month, total_budget)
     app.calculate_budget(account_name, valid_months, budget_month)
-    app.delete_data()
+    app.delete_data(budget_data, account_name, valid_months,)
 
 
 # Run the main function
