@@ -34,10 +34,17 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 ACCOUNT_SHEET = GSPREAD_CLIENT.open("budget_accounts")
 DATA_SHEET = GSPREAD_CLIENT.open("budget_data")
 
-budget_accounts = ACCOUNT_SHEET.worksheet("tab1")
-budget_data = DATA_SHEET.worksheet("tab1")
-account_creds = budget_accounts.get_all_values()
-budget_info = budget_data.get_all_values()
+
+
+# Main budget class
+class budget_app:
+    def __init__(self):
+        budget_accounts = ACCOUNT_SHEET.worksheet("tab1")
+        budget_data = DATA_SHEET.worksheet("tab1")
+        account_creds = budget_accounts.get_all_values()
+        budget_info = budget_data.get_all_values()
+        self.valid_months = None
+        self.account_name = None
 
 
 # Functions
