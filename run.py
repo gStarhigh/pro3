@@ -164,23 +164,23 @@ class budget_app:
         return self.account_name, self.saved_pin
 
 
-    def options(account_name):
+    def options(self, account_name):
         """
         Give the user the option to either see the existing data
         or to delete data without entering any new data.
         """    
-        user_option = input(f"{account_name}, Do you want to display or"
+        user_option = input(f"{self.account_name}, Do you want to display or"
                             f" delete data? Please answer 'yes' or 'no'\n")
         if user_option == "yes":
             delete_option = input("Do you want to 'display' or 'delete' data? \n")
             if delete_option.lower() == "display":
-                get_expenses(account_name, budget_month, total_budget)
+                self.get_expenses(account_name, budget_month, total_budget)
             elif delete_option.lower() == "delete":
-                delete_data(budget_data, account_name, valid_months)
+                self.delete_data(budget_data, account_name, valid_months)
         elif user_option == "no":
             return
 
-    def get_budget(valid_months):
+    def get_budget(self, valid_months):
         """
         Get the current date and month from valid_months.
         Get the budget month from the user and validate it against valid_months.
@@ -210,7 +210,7 @@ class budget_app:
         return budget_month, total_budget, valid_months
 
 
-    def get_expenses(account_name, budget_month, total_budget):
+    def get_expenses(self, account_name, budget_month, total_budget):
         """
         Objective: Get the type, amount and transaction method
         from the user and save them all to the Google sheet.
@@ -314,7 +314,7 @@ class budget_app:
                 trans_type.capitalize(), today_date, selected_expense_type
 
 
-    def calculate_budget(account_name, valid_months, budget_month):
+    def calculate_budget(self, account_name, valid_months, budget_month):
         """
         Objective: Calculate the remaining budget for the user.
 
@@ -445,7 +445,7 @@ class budget_app:
             f" 💳 {total_credit:.2f}$ to afford the credit\n")
 
 
-    def delete_data(budget_data, account_name, valid_months):
+    def delete_data(self, budget_data, account_name, valid_months):
         """
         Asks the user if they want to delete any saved data. The user is presented
         with the months from the valid months variable.
@@ -474,7 +474,7 @@ class budget_app:
             print("Program terminated❗")
             
 
-    def restart_budget():
+    def restart_budget(self,):
         """
         Let the user choose between restarting and exiting the program.
         """
