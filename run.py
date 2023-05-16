@@ -349,7 +349,7 @@ class budget_app:
                 elif add_another.lower() == "y":
                     break
                 else:
-                    print("Invalidn input, try again.")
+                    print("Invalid input, try again.")
         return self.account_name, self.budget_month.capitalize(),\
             self.total_budget, self.expense_name.capitalize(), \
             self.expense_amount, self.trans_type.capitalize(), \
@@ -370,15 +370,17 @@ class budget_app:
         chooses to see, if not, loops until the user
         chooses a month with data or the user quits the program.
         """
-
-        print(f"All done {self.account_name}, "
+        print()
+        print(f"All done{Style.BRIGHT}{green_text} {self.account_name}"
+              f"{reset_all}, "
               f"You can now display your budget!\n")
         print(f"Choose the month you want to display your budget for:")
         print(f"You can choose between: {self.valid_months}\n")
         while True:
-            self.display_month = input("Enter the month you want to see"
-                                       " or enter 'q' to exit: \n")
-            if self.display_month == "q":
+            self.display_month = input(f"Enter the month you want to see"
+                                       " or type "
+                                       f"{red_text}q{reset_all} to exit: \n")
+            if self.display_month.lower() == "q":
                 print("Exiting program...")
                 exit()
             elif self.display_month.capitalize() in self.valid_months:
