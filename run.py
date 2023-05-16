@@ -329,120 +329,120 @@ class budget_app:
         # Check so that the account name has data in the month that the user
         # chooses to see, if not, loops until the user chooses a month with data
         # or the user quits the program.
-        print(f"All done {account_name}, You can now display your budget!\n")
+        print(f"All done {self.account_name}, You can now display your budget!\n")
         print(f"Choose the month you want to display your budget for:")
-        print(f"You can choose between: {valid_months}\n")
+        print(f"You can choose between: {self.valid_months}\n")
         while True:
-            display_month = input("Enter the month you want to see"
+            self.display_month = input("Enter the month you want to see"
                                 " or enter 'q' to exit: \n")
             if display_month == "q":
                 print("Exiting program...")
                 return
-            elif display_month.capitalize() in valid_months:
-                budget_rows = budget_data.get_all_values()
-                valid_budget_rows = [row for row in budget_rows
-                    if row[0] == account_name and
+            elif display_month.capitalize() in self.valid_months:
+                budget_rows = self.budget_data.get_all_values()
+                self.valid_budget_rows = [row for row in budget_rows
+                    if row[0] == self.account_name and
                         row[1] == display_month.capitalize()]
-                if not valid_budget_rows:
-                    print(f"❗Sorry, there is no data for {account_name} "
-                        f"in {display_month}")
+                if not self.valid_budget_rows:
+                    print(f"❗Sorry, there is no data for {self.account_name} "
+                        f"in {self.display_month}")
                 else:
                     break
             else:
                 print(f"❗That month does not exist. Make sure"
-                    f" you choose between {valid_months}")
+                    f" you choose between {self.valid_months}")
                 continue
 
         # Set the total debit and Credit
-        total_debit = 0
-        total_credit = 0
-        total_budget = 0
-        left_per_day = 0
+        self.total_debit = 0
+        self.total_credit = 0
+        self.total_budget = 0
+        self.left_per_day = 0
 
         # Loop through the valid_budget_rows and get the total budget.
-        for row in reversed(valid_budget_rows):
+        for row in reversed(self.valid_budget_rows):
             if row[2]:
-                total_budget += float(row[2])
+                self.total_budget += float(row[2])
                 break
 
         # Loop through the valid_budget_rows and sum up all debit expense amounts.
-        for row in valid_budget_rows:
+        for row in self.valid_budget_rows:
             if row[5] == "Debit":
-                total_debit += float(row[4])
+                self.total_debit += float(row[4])
 
         # Loop through the valid_budget_rows and sum up all credit expense amounts.
-        for row in valid_budget_rows:
+        for row in self.valid_budget_rows:
             if row[5] == "Credit":
-                total_credit += float(row[4])
+                self.total_credit += float(row[4])
 
         # Calculate how much the user has left
-        total_left = total_budget - total_debit
+        self.total_left = self.total_budget - self.total_debit
 
         # Get the number of days left in the month
-        today_date = datetime.date.today()
-        days_in_month = calendar.monthrange(today_date.year, today_date.month)[1]
-        remaining_days = days_in_month - today_date.day
+        self.today_date = datetime.date.today()
+        self.days_in_month = calendar.monthrange(today_date.year, today_date.month)[1]
+        self.remaining_days = days_in_month - today_date.day
 
         # Calculate how much the user has each day
-        left_per_day = total_left / remaining_days
+        self.left_per_day = self.total_left / self.remaining_days
 
         # create a dictionary of expenses grouped by expense_type
-        expenses_dict = {}
-        for row in valid_budget_rows:
-            expense = row[3]
-            amount = row[4]
-            trans_type = row[5]
-            expense_type = row[7]
-            if expense_type not in expenses_dict:
-                expenses_dict[expense_type] = []
-            expenses_dict[expense_type].append((expense, amount, trans_type))
+        self.expenses_dict = {}
+        for row in self.valid_budget_rows:
+            self.expense = row[3]
+            self.amount = row[4]
+            self.trans_type = row[5]
+            self.expense_type = row[7]
+            if self.expense_type not in self.expenses_dict:
+                self.expenses_dict[self.expense_type] = []
+            self.expenses_dict[self.expense_type].append((self.expense, self.amount, self.trans_type))
 
         # Print the information to the user:
-        print(f"✅ Your Total Budget is: {total_budget:.2f}$.\n")
-        print(f"📃 Your different expenses for {display_month} are: \n")
+        print(f"✅ Your Total Budget is: {self.total_budget:.2f}$.\n")
+        print(f"📃 Your different expenses for {self.display_month} are: \n")
 
         # Adding the emoji to the corresponding expense type.
-        for expense_type, expenses in expenses_dict.items():
-            if expense_type == "1":
-                expense_char = "🏡"
-            elif expense_type == "2":
-                expense_char = "🍔"
-            elif expense_type == "3":
-                expense_char = "🚘"
-            elif expense_type == "4":
-                expense_char = "🎉"
-            elif expense_type == "5":
-                expense_char = "💰"
+        for self.expense_type, self.expenses in self.expenses_dict.items():
+            if self.expense_type == "1":
+                self.expense_char = "🏡"
+            elif self.expense_type == "2":
+                self.expense_char = "🍔"
+            elif self.expense_type == "3":
+                self.expense_char = "🚘"
+            elif self.expense_type == "4":
+                self.expense_char = "🎉"
+            elif self.expense_type == "5":
+                self.expense_char = "💰"
             else:
-                expense_char = ""
+                self.expense_char = ""
             # Print out the different expenses grouped by expense_type
-            print(f"{expense_char} Expenses:")
-            for expense, amount, trans_type in expenses:
-                print(f"{expense}: - {amount}$ - {trans_type}")
+            print(f"{self.expense_char} Expenses:")
+            for self.expense, self.amount, self.trans_type in self.expenses:
+                print(f"{self.expense}: - {self.amount}$ - {self.trans_type}")
             print("")
 
-        print(f"💵 Total Debit: {total_debit:.2f}$.\n")
-        print(f"💳 Total Credit: {total_credit:.2f}$.\n")
+        print(f"💵 Total Debit: {self.total_debit:.2f}$.\n")
+        print(f"💳 Total Credit: {self.total_credit:.2f}$.\n")
 
         # Check if the user has less left than the credit bill
         # then print custom message.
-        if total_left < total_credit and total_credit != 0:
+        if self.total_left < self.total_credit and self.total_credit != 0:
             print(f"🔴 You don't have enough left to pay your credit:"
-                f"{total_left}$. You should adjust your\n expenses to make"
+                f"{self.total_left}$. You should adjust your\n expenses to make"
                 f" sure to have more money left\n to afford the"
-                f" credit bill of 💳 {total_credit}$.\n")
+                f" credit bill of 💳 {self.total_credit}$.\n")
 
         # Checks if the user has less than 0 left if so, prints a custom message.
-        if total_left < 0:
+        if self.total_left < 0:
             print(f"🔴 With these expenses you have exceeded your budget with:"
-                f" {total_left}$. You should change your expenses"
+                f" {self.total_left}$. You should change your expenses"
                 f" to make sure you don't zero out your balance.\n")
 
 
-        print(f"💶 You have a total of {total_left:.2f}$ left this month.\n")
-        print(f"📉 You have {left_per_day:.2f}$ to spend per day"
+        print(f"💶 You have a total of {self.total_left:.2f}$ left this month.\n")
+        print(f"📉 You have {self.left_per_day:.2f}$ to spend per day"
             f" this month calulating that you need to\nsave"
-            f" 💳 {total_credit:.2f}$ to afford the credit\n")
+            f" 💳 {self.total_credit:.2f}$ to afford the credit\n")
 
 
     def delete_data(self, budget_data, account_name, valid_months):
