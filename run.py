@@ -184,34 +184,30 @@ class budget_app:
         """
         while True:
             user_option = input(f"{self.account_name}, Do you want to"
-                                f" display or delete data? "
-                                f"Please answer: "
-                                f"{Style.BRIGHT}{red_text} yes {reset_all}"
-                                f"or"
-                                f"{Style.BRIGHT}{green_text} no{reset_all}\n")
-            if user_option == "yes":
-                delete_option = input("Do you want to 'display' or "
-                                      "'delete' data? \n")
-                if delete_option.lower() == "display":
-                    self.calculate_budget(self.account_name, self.valid_months,
+                                f" add, display, delete or exit?\n "
+                                f"Please answer:"
+                                f"{Style.BRIGHT}{green_text} add {reset_all}"
+                                f", "
+                                f"{Style.BRIGHT}{yellow_text}"
+                                f"display{reset_all}"
+                                f", "
+                                f"{Style.BRIGHT}{red_text}"
+                                f"delete {reset_all}"
+                                f"or: "
+                                f"{Style.BRIGHT}{blue_text}"
+                                f"exit{reset_all}\n")
+            if user_option.lower() == "add":
+                self.get_budget(self.valid_months)
+                break
+            elif user_option.lower() == "display":
+                self.calculate_budget(self.account_name, self.valid_months,
                                           self.budget_month)
-                    while True:
-                        add_option = input("Do you want to add "
-                                           "new data or exit?"
-                                           " Please answer 'add' or 'exit'\n")
-                        if add_option.lower() == "add":
-                            self.get_budget(self.valid_months)
-                            break
-                        elif add_option.lower() == "exit":
-                            print("Good bye!")
-                            exit()
-                        else:
-                            print("Invalid option. Please try again.")
-                elif delete_option.lower() == "delete":
+            elif user_option.lower() == "delete":
                     self.delete_data(self.budget_data, self.account_name,
                                      self.valid_months)
-            elif user_option == "no":
-                return
+            elif user_option.lower() == "exit":
+                print("Good bye!")
+                exit()
             else:
                 print("Invalid option. Please try again.")
 
