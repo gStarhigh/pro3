@@ -594,10 +594,3 @@ def main():
 # Run the main function
 if __name__ == "__main__":
     main()
-
-
-
-# Last function, should it be a question:
-# Do you want to see all your options or exit? 
-# Yes - Go to options...
-# No - exit
