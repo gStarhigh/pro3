@@ -480,23 +480,28 @@ class budget_app:
         # then print custom message.
         if self.total_left < self.total_credit and self.total_credit != 0:
             print(f"🔴 You don't have enough left to pay your credit:"
-                  f"{self.total_left}$. You should"
-                  f" adjust your\n expenses to make"
+                  f"{Style.BRIGHT}{red_back}{self.total_left}{reset_all}"
+                  f"$. You should adjust your\n expenses to make"
                   f" sure to have more money left\n to afford the"
-                  f" credit bill of 💳 {self.total_credit}$.\n")
+                  f" credit bill of 💳 "
+                  f"{yellow_text}{self.total_credit}{reset_all}$.\n")
 
         # Checks if the user has less than 0 left if so,
         # prints a custom message.
         if self.total_left < 0:
             print(f"🔴 With these expenses you have exceeded your budget with:"
-                  f" {self.total_left}$. You should change your expenses"
+                  f" {Style.BRIGHT}{red_back}{self.total_left}{reset_all}$."
+                  f" You should change your expenses"
                   f" to make sure you don't zero out your balance.\n")
 
-        print(f"💶 You have a total of {self.total_left:.2f}$ "
+        print(f"💶 You have a total of "
+              f"{Style.BRIGHT}{green_text}{self.total_left:.2f}{reset_all}$ "
               f"left this month.\n")
-        print(f"📉 You have {self.left_per_day:.2f}$ to spend per day"
-              f" this month calulating that you need to\nsave"
-              f" 💳 {self.total_credit:.2f}$ to afford the credit\n")
+        print(f"📉 You have {blue_text}{self.left_per_day:.2f}{reset_all}"
+              f"$ to spend per day this month calulating"
+              f" that you need to\nsave"
+              f" 💳 {yellow_text}{self.total_credit:.2f}{reset_all}"
+              f"$ to afford the credit\n")
 
     def delete_data(self, budget_data, account_name, valid_months):
         """
