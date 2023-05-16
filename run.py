@@ -199,7 +199,7 @@ class budget_app:
                                 f"{Style.BRIGHT}{blue_text}"
                                 f"exit{reset_all}\n")
             if user_option.lower() == "add":
-                break
+                self.add_option_function()
             elif user_option.lower() == "display":
                 self.calculate_budget(self.account_name, self.valid_months,
                                       self.budget_month)
@@ -211,6 +211,15 @@ class budget_app:
                 exit()
             else:
                 print("Invalid option. Please try again.")
+                
+    def add_option_function(self):
+        """
+        Functions to be run after the user chooses add in options.
+        """
+        budget_month, total_budget, valid_months = self.get_budget(self.valid_months)
+        self.get_expenses(self.account_name, budget_month, total_budget)
+        self.calculate_budget(self.account_name, valid_months, budget_month)
+        self.final_question()
 
     def get_budget(self, valid_months):
         """
