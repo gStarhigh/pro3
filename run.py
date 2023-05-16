@@ -164,13 +164,13 @@ class budget_app:
                 # If the pincode does not only contain numbers:
                 else:
                     print(f"You have {Style.BRIGHT}{red_text}"
-                                  f"{tries_left}{reset_all} tries left.\n")
+                          f"{tries_left}{reset_all} tries left.\n")
                     print("❗ The pincode must be 4 numbers, not letters. "
                           "Please try again.")
                 if tries_left == 1:
                     print(Style.BRIGHT + red_back + f"This is you last try!"
                                                     f"\n" + reset_all)
-            if i == 2 and correct != True:
+            if i == 2 and correct is not True:
                 print(Style.BRIGHT + red_text + "Maximum of tries exceeded."
                                                 " Program shuts down.."
                                                 + reset_all)
@@ -211,12 +211,13 @@ class budget_app:
                 exit()
             else:
                 print("Invalid option. Please try again.")
-                
+
     def add_option_function(self):
         """
         Functions to be run after the user chooses add in options.
         """
-        budget_month, total_budget, valid_months = self.get_budget(self.valid_months)
+        budget_month, total_budget, valid_months \
+            = self.get_budget(self.valid_months)
         self.get_expenses(self.account_name, budget_month, total_budget)
         self.calculate_budget(self.account_name, valid_months, budget_month)
         self.final_question()
@@ -563,7 +564,7 @@ class budget_app:
         elif restart.lower() != "restart" or "exit":
             print(f"{yellow_text}Please enter a valid option{reset_all}")
             self.restart_budget()
-            
+
     def final_question(self):
         """
         Final question of the program that asks if the user wants to display
