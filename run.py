@@ -129,7 +129,8 @@ class budget_app:
             # if the user does not already exist
             new_row = [self.account_name, hashed_pin.decode()]
             self.budget_accounts.append_row(new_row)
-            print(f"✅ New account '{self.account_name}' "
+            print(f"✅ New account '{Style.BRIGHT}{green_text}"
+                  f"{self.account_name}'{reset_all} "
                   f"was created successfully")
             self.saved_pin = hashed_pin.decode()
             return self.account_name, self.saved_pin
@@ -146,7 +147,8 @@ class budget_app:
                     account_pin = account_pin.encode("utf-8")
                     if bcrypt.checkpw(account_pin, self.saved_pin.encode()):
                         print(f"Checking your account name: "
-                              f"'{self.account_name}' "
+                              f"'{Style.BRIGHT}{green_text}"
+                              f"{self.account_name} {reset_all}"
                               f"with the pincode: '* * * *'..")
                         print("✅ Matched credentials successfully!")
                         break
@@ -183,7 +185,10 @@ class budget_app:
         while True:
             user_option = input(f"{self.account_name}, Do you want to"
                                 f" display or delete data? "
-                                f"Please answer 'yes' or 'no'\n")
+                                f"Please answer: "
+                                f"{Style.BRIGHT}{red_text} yes {reset_all}"
+                                f"or"
+                                f"{Style.BRIGHT}{green_text} no{reset_all}\n")
             if user_option == "yes":
                 delete_option = input("Do you want to 'display' or "
                                       "'delete' data? \n")
