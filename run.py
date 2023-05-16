@@ -318,9 +318,14 @@ class budget_app:
                           "'debit' or 'credit'. Please try again")
 
             # Prints the entered information for the user to see.
-            print(f"You have entered {self.expense_name.capitalize()} at "
-                  f"{self.expense_amount}$, with "
-                  f"{self.trans_type.capitalize()} and category"
+            print(f"You have added: "
+                  f"{Style.BRIGHT}{blue_text}"
+                  f"{self.expense_name.capitalize()}{reset_all}"
+                  f" at "
+                  f"{Style.BRIGHT}{green_text}{self.expense_amount}{reset_all}"
+                  f"$, paid with "
+                  f"{yellow_text}{self.trans_type.capitalize()}{reset_all}"
+                  f" and in the Category:"
                   f" {self.expense_categories[self.selected_expense_type-1]}")
 
             # Saving the entered data to the worksheet.
