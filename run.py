@@ -535,8 +535,3 @@ def main():
 # Run the main function
 if __name__ == "__main__":
     main()
-
-
-# New idea: Before the expenses, make the user choose to either enter
-# an expense, or see the budget. Maybe they only want to see earlier data and
-# not add new data.
