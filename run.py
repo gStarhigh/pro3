@@ -54,10 +54,10 @@ class budget_app:
         to calculate data in the budget.
         """    
         current_month = datetime.date.today().strftime("%B")
-        today = datetime.date.today()
+        self.today = datetime.date.today()
         next_month = (today + datetime.timedelta(days=31)).strftime("%B")
-        valid_months = [current_month, next_month]
-        return valid_months, today
+        self.valid_months = [current_month, next_month]
+        return self.valid_months, self.today
         
 
     def get_account_details(self):
