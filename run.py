@@ -39,10 +39,10 @@ DATA_SHEET = GSPREAD_CLIENT.open("budget_data")
 # Main budget class
 class budget_app:
     def __init__(self):
-        budget_accounts = ACCOUNT_SHEET.worksheet("tab1")
-        budget_data = DATA_SHEET.worksheet("tab1")
-        account_creds = budget_accounts.get_all_values()
-        budget_info = budget_data.get_all_values()
+        self.budget_accounts = ACCOUNT_SHEET.worksheet("tab1")
+        self.budget_data = DATA_SHEET.worksheet("tab1")
+        self.account_creds = self.budget_accounts.get_all_values()
+        self.budget_info = self.budget_data.get_all_values()
         self.valid_months = None
         self.account_name = None
 
@@ -55,7 +55,7 @@ class budget_app:
         """    
         current_month = datetime.date.today().strftime("%B")
         self.today = datetime.date.today()
-        next_month = (today + datetime.timedelta(days=31)).strftime("%B")
+        next_month = (self.today + datetime.timedelta(days=31)).strftime("%B")
         self.valid_months = [current_month, next_month]
         return self.valid_months, self.today
         
@@ -75,18 +75,18 @@ class budget_app:
             "it must be unique. \n")
         print("If you are a returning user, please enter your existing "
             "account name below. \n")
-        account_name = input("Enter your account name: \n")
-        print(f"Checking your account name '{account_name}'..")
+        self.account_name = input("Enter your account name: \n")
+        print(f"Checking your account name '{self.account_name}'..")
 
         # Check if the account name already exists in the sheet
-        account_names = [row[0] for row in account_creds]
-        saved_pin = None
-        if account_name in account_names:
-            print(f"✅ The account name {account_name} was matched against "
+        account_names = [row[0] for row in self.account_creds]
+        self.saved_pin = None
+        if self.account_name in account_names:
+            print(f"✅ The account name {self.account_name} was matched against "
                 "the database.\n")
-            for row in account_creds:
-                if row[0] == account_name:
-                    saved_pin = row[1]
+            for row in self.account_creds:
+                if row[0] == self.account_name:
+                    self.saved_pin = row[1]
                     while True:
                         wrong_account = input(("Did you enter the"
                                         " wrong account name?"
@@ -97,7 +97,7 @@ class budget_app:
                         elif wrong_account.lower() == "continue":
                             break
         else:
-            print(f"The account name: {account_name} was not found, "
+            print(f"The account name: {self.account_name} was not found, "
                 "creating a new Account")
 
             # Asks the user for the pincode and ensure the length is 4 numbers
@@ -118,11 +118,11 @@ class budget_app:
 
             # Append the account name and hashed pincode to the sheet
             # if the user does not already exist
-            new_row = [account_name, hashed_pin.decode()]
-            budget_accounts.append_row(new_row)
-            print(f"✅ New account '{account_name}' was created successfully")
-            saved_pin = hashed_pin.decode()
-            return account_name, saved_pin
+            new_row = [self.account_name, hashed_pin.decode()]
+            self.budget_accounts.append_row(new_row)
+            print(f"✅ New account '{self.account_name}' was created successfully")
+            self.saved_pin = hashed_pin.decode()
+            return self.account_name, self.saved_pin
 
         while True:
             # Compare the stored password with the entered password, 
@@ -134,8 +134,8 @@ class budget_app:
                 tries_left -= 1
                 if len(account_pin) == 4 and account_pin.isnumeric():
                     account_pin = account_pin.encode("utf-8")
-                    if bcrypt.checkpw(account_pin, saved_pin.encode()):
-                        print(f"Checking your account name: '{account_name}' "
+                    if bcrypt.checkpw(account_pin, self.saved_pin.encode()):
+                        print(f"Checking your account name: '{self.account_name}' "
                             "with the pincode: '* * * *'..")
                         print("✅ Matched credentials successfully!")
                         break
@@ -161,7 +161,7 @@ class budget_app:
                 exit()
             break
 
-        return account_name, saved_pin
+        return self.account_name, self.saved_pin
 
 
     def options(account_name):
