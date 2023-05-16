@@ -163,6 +163,8 @@ class budget_app:
                           " Try again.")
                 # If the pincode does not only contain numbers:
                 else:
+                    print(f"You have {Style.BRIGHT}{red_text}"
+                                  f"{tries_left}{reset_all} tries left.\n")
                     print("❗ The pincode must be 4 numbers, not letters. "
                           "Please try again.")
                 if tries_left == 1:
