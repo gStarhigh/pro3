@@ -222,7 +222,7 @@ class budget_app:
         4. Save the entered data to the worksheet: budget_data
         5. Ask the user if they want to add another expense.
         """
-        today_date = datetime.date.today().strftime("%Y-%m-%d")
+        self.today_date = datetime.date.today().strftime("%Y-%m-%d")
         # Expense types inputs
         print("Loading expense inputs...")
 
@@ -232,7 +232,7 @@ class budget_app:
 
             # A list of the different expense categories for
             # the user to choose from.
-            expense_categories = [
+            self.expense_categories = [
                 "🏡 Household",
                 "🍔 Food",
                 "🚘 Transportation",
@@ -244,31 +244,31 @@ class budget_app:
             # to make sure the input is correct.
             while True:
                 print("Select a expense type: ")
-                for i, expense_type in enumerate(expense_categories):
+                for i, self.expense_type in enumerate(self.expense_categories):
                     print(f" {i + 1}. {expense_type}")
-                value_range = f"[1 - {len(expense_categories)}]"
-                selected_expense_type = input(f"Enter a Expense number "
+                value_range = f"[1 - {len(self.expense_categories)}]"
+                self.selected_expense_type = input(f"Enter a Expense number "
                                             f"between {value_range}: \n")
-                if selected_expense_type.isnumeric() and \
-                    int(selected_expense_type) \
-                        in range(1, len(expense_categories)+1):
+                if self.selected_expense_type.isnumeric() and \
+                    int(self.selected_expense_type) \
+                        in range(1, len(self.expense_categories)+1):
                     break
                 else:
-                    print(f"❗You entered: {selected_expense_type}. "
+                    print(f"❗You entered: {self.selected_expense_type}. "
                         f"Choose a number between 1 and "
-                        f"{len(expense_categories)}.")
+                        f"{len(self.expense_categories)}.")
 
-            selected_expense_type = int(selected_expense_type)
+            self.selected_expense_type = int(self.selected_expense_type)
 
             # Get the name of the expense from the user.
-            expense_name = input("Enter expense name: \n")
+            self.expense_name = input("Enter expense name: \n")
 
             # Get the amount of the expense from the user.
             # And ensure that the input are numbers.
             while True:
                 expense_amount_str = input("Enter expense amount: \n")
                 if expense_amount_str.isnumeric():
-                    expense_amount = float(expense_amount_str)
+                    self.expense_amount = float(expense_amount_str)
                     break
                 else:
                     print(f"❗ You can only use numbers, please try again.")
@@ -276,28 +276,28 @@ class budget_app:
             # Get the transaction type from the user using a while loop to
             # ensure that the user enters a valid option.
             while True:
-                trans_type = input("Enter transaction type "
+                self.trans_type = input("Enter transaction type "
                                 "'debit' or 'credit': \n")
-                if trans_type == "debit":
+                if self.trans_type == "debit":
                     break
-                elif trans_type == "credit":
+                elif self.trans_type == "credit":
                     break
                 else:
                     print(f"❗You must enter the details exactly as follows: "
                         "'debit' or 'credit'. Please try again")
 
             # Prints the entered information for the user to see.
-            print(f"You have entered {expense_name.capitalize()} at "
-                f"{expense_amount}$, with {trans_type.capitalize()} and "
-                f"category {expense_categories[selected_expense_type-1]}")
+            print(f"You have entered {self.expense_name.capitalize()} at "
+                f"{self.expense_amount}$, with {self.trans_type.capitalize()} and "
+                f"category {self.expense_categories[self.selected_expense_type-1]}")
 
             # Saving the entered data to the worksheet.
             # Get the number of rows in the worksheet
             row_count = len(budget_data.get_all_values())
-            new_row = [account_name, budget_month.capitalize(), total_budget,
-                expense_name.capitalize(), expense_amount,
-                trans_type.capitalize(), today_date, selected_expense_type]
-            budget_data.append_row(new_row, value_input_option="USER_ENTERED")
+            new_row = [self.account_name, self.budget_month.capitalize(), self.total_budget,
+                self.expense_name.capitalize(), self.expense_amount,
+                self.trans_type.capitalize(), self.today_date, self.selected_expense_type]
+            self.budget_data.append_row(new_row, value_input_option="USER_ENTERED")
 
             # Ask the user if they want to add another expense
             # and ensure that the input is either "y" or "n"
@@ -309,9 +309,9 @@ class budget_app:
                     break
                 else:
                     print("Invalidn input, try again.")
-        return account_name, budget_month.capitalize(), total_budget,\
-                expense_name.capitalize(), expense_amount, \
-                trans_type.capitalize(), today_date, selected_expense_type
+        return self.account_name, self.budget_month.capitalize(), self.total_budget,\
+                self.expense_name.capitalize(), self.expense_amount, \
+                self.trans_type.capitalize(), self.today_date, self.selected_expense_type
 
 
     def calculate_budget(self, account_name, valid_months, budget_month):
