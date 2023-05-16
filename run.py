@@ -200,10 +200,10 @@ class budget_app:
                 break
             elif user_option.lower() == "display":
                 self.calculate_budget(self.account_name, self.valid_months,
-                                          self.budget_month)
+                                      self.budget_month)
             elif user_option.lower() == "delete":
-                    self.delete_data(self.budget_data, self.account_name,
-                                     self.valid_months)
+                self.delete_data(self.budget_data, self.account_name,
+                                 self.valid_months)
             elif user_option.lower() == "exit":
                 print("Good bye!")
                 exit()
