@@ -53,9 +53,9 @@ class budget_app:
         Get the current month current day and the next month to be able
         to calculate data in the budget.
         """    
-        current_month = datetime.date.today().strftime("%B")
+        self.current_month = datetime.date.today().strftime("%B")
         self.today = datetime.date.today()
-        next_month = (self.today + datetime.timedelta(days=31)).strftime("%B")
+        self.next_month = (self.today + datetime.timedelta(days=31)).strftime("%B")
         self.valid_months = [current_month, next_month]
         return self.valid_months, self.today
         
