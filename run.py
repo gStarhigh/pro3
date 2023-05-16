@@ -219,11 +219,9 @@ class budget_app:
         Saves the budget month and the budget amount to google sheets.
         """
         while True:
-            print(f"You can only choose from these options:"
-                  f" {self.valid_months}")
-            self.budget_month = input("Enter the month for the budget: \n")
+            self.budget_month = input(f"Enter the month for the budget, "
+                                      f"Choose between: {self.valid_months}\n")
             if self.budget_month.capitalize() in self.valid_months:
-                print(self.budget_month.capitalize())
                 break
             else:
                 print(f"❗You can only choose from either {self.current_month}"
@@ -231,14 +229,15 @@ class budget_app:
 
         while True:
             try:
-                self.total_budget = int(input("📈 Enter your total budget: \n"))
-                print(self.total_budget)
+                self.total_budget = int(input("📈 Enter your total budget:\n"))
                 break
             except ValueError:
                 print("❗You must enter numbers.. Please try again")
         print(f"The month for your budget is: "
-              f"{self.budget_month.capitalize()},")
-        print(f"and your total budget is: {self.total_budget}$")
+              f"{Style.BRIGHT}{blue_text}{self.budget_month.capitalize()},"
+              f"{reset_all}")
+        print(f"and your total budget is:"
+              f"{Style.BRIGHT}{green_text} {self.total_budget}$ {reset_all}\n")
         return self.budget_month, self.total_budget, self.valid_months
 
     def get_expenses(self, account_name, budget_month, total_budget):
