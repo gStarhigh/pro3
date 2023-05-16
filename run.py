@@ -189,25 +189,25 @@ class budget_app:
         """
 
         while True:
-            print(f"You can only choose from these options: {valid_months}")
-            budget_month = input("Enter the month for the budget: \n")
-            if budget_month.capitalize() in valid_months:
-                print(budget_month.capitalize())
+            print(f"You can only choose from these options: {self.valid_months}")
+            self.budget_month = input("Enter the month for the budget: \n")
+            if self.budget_month.capitalize() in self.valid_months:
+                print(self.budget_month.capitalize())
                 break
             else:
-                print(f"❗You can only choose from either {current_month} "
-                    f" or {next_month}. Please try again.")
+                print(f"❗You can only choose from either {self.current_month} "
+                    f" or {self.next_month}. Please try again.")
 
         while True:
             try:
-                total_budget = int(input("📈 Enter your total budget: \n"))
-                print(total_budget)
+                self.total_budget = int(input("📈 Enter your total budget: \n"))
+                print(self.total_budget)
                 break
             except ValueError:
                 print("❗You must enter numbers.. Please try again")
-        print(f"The month for your budget is: {budget_month.capitalize()},")
-        print(f"and your total budget is: {total_budget}$")
-        return budget_month, total_budget, valid_months
+        print(f"The month for your budget is: {self.budget_month.capitalize()},")
+        print(f"and your total budget is: {self.total_budget}$")
+        return self.budget_month, self.total_budget, self.valid_months
 
 
     def get_expenses(self, account_name, budget_month, total_budget):
