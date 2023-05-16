@@ -172,28 +172,26 @@ class budget_app:
         or to delete data without entering any new data.
         """
         user_option = input(f"{self.account_name}, Do you want to display or"
-                            f" delete data? Please answer 'yes' or 'no'\n")        
+                            f" delete data? Please answer 'yes' or 'no'\n")
         if user_option == "yes":
             delete_option = input("Do you want to 'display' or 'delete' data? \n")
             if delete_option.lower() == "display":
                 self.calculate_budget(self.account_name, self.valid_months, self.budget_month)
+                while True:
+                    add_option = input("Do you want to add new data or exit?"
+                                        "Please answer 'add' or 'exit'\n")
+                    if add_option.lower() == "add":
+                        self.get_budget(self.valid_months)
+                        break
+                    elif add_option.lower() == "exit":
+                        print("Good bye!")
+                        return
+                    else:
+                        print("Invalid option. Please try again.")
             elif delete_option.lower() == "delete":
                 self.delete_data(self.budget_data, self.account_name, self.valid_months)
         elif user_option == "no":
             return
-        while True:
-            add_option = input("Do you want to add new data or exit? "
-                                "Please answer 'add' or 'exit'\n")
-            if add_option.lower() == "add":
-                self.get_budget(self.valid_months)
-                break
-            elif add_option.lower() == "exit":
-                print("Good bye!")
-                exit()
-            else:
-                print("Invalid option. Please try again.")
-
-        
 
 
     def get_budget(self, valid_months):
@@ -353,7 +351,7 @@ class budget_app:
                                 " or enter 'q' to exit: \n")
             if self.display_month == "q":
                 print("Exiting program...")
-                return
+                exit()
             elif self.display_month.capitalize() in self.valid_months:
                 budget_rows = self.budget_data.get_all_values()
                 self.valid_budget_rows = [row for row in budget_rows
@@ -487,8 +485,8 @@ class budget_app:
                     budget_data.delete_rows(i + 1 - deleted_rows)
                     deleted_rows += 1
             print(f"✅ {deleted_rows} rows have been successfully deleted.")
-            print("Program terminated❗")
-            
+            self.options(self.account_name)
+
 
     def restart_budget(self):
         """
