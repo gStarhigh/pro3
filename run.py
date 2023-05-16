@@ -91,12 +91,12 @@ class budget_app:
                     self.saved_pin = row[1]
                     while True:
                         wrong_account = input(("Did you enter the"
-                                        " wrong account name?"
-                                        " Type: 'restart' to start over or type:"
-                                        " continue to proceed \n"))
-                        if wrong_account.lower() == "restart":
+                                        " wrong account name?\n"
+                                        "Type: 'yes' to start over or type:"
+                                        " 'no' to proceed \n"))
+                        if wrong_account.lower() == "yes":
                             self.restart_budget()
-                        elif wrong_account.lower() == "continue":
+                        elif wrong_account.lower() == "no":
                             break
         else:
             print(f"The account name: {self.account_name} was not found, "
