@@ -380,8 +380,8 @@ class budget_app:
 
         # Get the number of days left in the month
         self.today_date = datetime.date.today()
-        self.days_in_month = calendar.monthrange(today_date.year, today_date.month)[1]
-        self.remaining_days = days_in_month - today_date.day
+        self.days_in_month = calendar.monthrange(self.today_date.year, self.today_date.month)[1]
+        self.remaining_days = self.days_in_month - self.today_date.day
 
         # Calculate how much the user has each day
         self.left_per_day = self.total_left / self.remaining_days
