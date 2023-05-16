@@ -497,6 +497,8 @@ def main():
     """
     A main function to call all functions of the program.
     """
+    # Create an instance of the budget_app class
+    app = budget_app()
     
     # Welcome print with Pyfiglet
     welcome_text = "Your budget app!"
@@ -504,13 +506,13 @@ def main():
     print(Style.BRIGHT + green_text + ascii_text + reset_all)
     
     # Functions
-    valid_months, today = get_valid_months()
-    account_name, saved_pin = get_account_details()
+    app.get_valid_months()
+    account_name, saved_pin = app.get_account_details()
     options(account_name)
-    budget_month, total_budget, valid_months = get_budget(valid_months)
-    get_expenses(account_name, budget_month, total_budget)
-    calculate_budget(account_name, valid_months, budget_month)
-    delete_data(budget_data, account_name, valid_months)
+    budget_month, total_budget, valid_months = app.get_budget()
+    app.get_expenses(account_name, budget_month, total_budget)
+    app.calculate_budget(account_name, valid_months, budget_month)
+    app.delete_data()
 
 
 # Run the main function
