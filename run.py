@@ -335,14 +335,14 @@ class budget_app:
         while True:
             self.display_month = input("Enter the month you want to see"
                                 " or enter 'q' to exit: \n")
-            if display_month == "q":
+            if self.display_month == "q":
                 print("Exiting program...")
                 return
-            elif display_month.capitalize() in self.valid_months:
+            elif self.display_month.capitalize() in self.valid_months:
                 budget_rows = self.budget_data.get_all_values()
                 self.valid_budget_rows = [row for row in budget_rows
                     if row[0] == self.account_name and
-                        row[1] == display_month.capitalize()]
+                        row[1] == self.display_month.capitalize()]
                 if not self.valid_budget_rows:
                     print(f"❗Sorry, there is no data for {self.account_name} "
                         f"in {self.display_month}")
