@@ -10,8 +10,6 @@ from colorama import Fore, Back, Style
 # Colorama colors
 # Red background color
 red_back = Back.RED
-# Green background color
-green_back = Back.GREEN
 # Red text color
 red_text = Fore.RED
 # Green text color
