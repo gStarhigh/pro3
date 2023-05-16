@@ -563,7 +563,7 @@ def main():
     budget_month, total_budget, valid_months = app.get_budget(app.valid_months)
     app.get_expenses(account_name, budget_month, total_budget)
     app.calculate_budget(account_name, valid_months, budget_month)
-    app.delete_data(budget_data, account_name, valid_months,)
+    app.delete_data(app.budget_data, account_name, valid_months,)
 
 
 # Run the main function
