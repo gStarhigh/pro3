@@ -35,7 +35,6 @@ ACCOUNT_SHEET = GSPREAD_CLIENT.open("budget_accounts")
 DATA_SHEET = GSPREAD_CLIENT.open("budget_data")
 
 
-
 # Main budget class
 class budget_app:
     def __init__(self):
@@ -48,19 +47,18 @@ class budget_app:
         self.budget_month = None
         self.total_budget = None
 
-
     # Functions
     def get_valid_months(self):
         """
         Get the current month current day and the next month to be able
         to calculate data in the budget.
-        """    
+        """
         self.current_month = datetime.date.today().strftime("%B")
         self.today = datetime.date.today()
-        self.next_month = (self.today + datetime.timedelta(days=31)).strftime("%B")
+        self.next_month = (self.today +
+                           datetime.timedelta(days=31)).strftime("%B")
         self.valid_months = [self.current_month, self.next_month]
         return self.valid_months, self.today
-        
 
     def get_account_details(self):
         """
@@ -74,9 +72,9 @@ class budget_app:
         """
         print("Welcome to your Monthly budget application. \n")
         print("If you are a first time user, choose an account name, "
-            "it must be unique. \n")
+              "it must be unique. \n")
         print("If you are a returning user, please enter your existing "
-            "account name below. \n")
+              "account name below. \n")
         self.account_name = input("Enter your account name: \n")
         print(f"Checking your account name '{self.account_name}'..")
 
@@ -84,23 +82,24 @@ class budget_app:
         account_names = [row[0] for row in self.account_creds]
         self.saved_pin = None
         if self.account_name in account_names:
-            print(f"✅ The account name {self.account_name} was matched against "
-                "the database.\n")
+            print(f"✅ The account name {self.account_name} "
+                  f"was matched against the database.\n")
             for row in self.account_creds:
                 if row[0] == self.account_name:
                     self.saved_pin = row[1]
                     while True:
                         wrong_account = input(("Did you enter the"
-                                        " wrong account name?\n"
-                                        "Type: 'yes' to start over or type:"
-                                        " 'no' to proceed \n"))
+                                               " wrong account name?\n"
+                                               "Type: 'yes' to start "
+                                               "over or type:"
+                                               " 'no' to proceed \n"))
                         if wrong_account.lower() == "yes":
                             self.restart_budget()
                         elif wrong_account.lower() == "no":
                             break
         else:
             print(f"The account name: {self.account_name} was not found, "
-                "creating a new Account")
+                  "creating a new Account")
 
             # Asks the user for the pincode and ensure the length is 4 numbers
             while True:
@@ -111,7 +110,7 @@ class budget_app:
                     print("❗The pincode must be 4 letters in length")
                 else:
                     print("❗The pincode must be 4 numbers, not letters. "
-                    "Please try again.")
+                          "Please try again.")
 
             # Encode the pincode
             account_pin = account_pin.encode("utf-8")
@@ -122,12 +121,13 @@ class budget_app:
             # if the user does not already exist
             new_row = [self.account_name, hashed_pin.decode()]
             self.budget_accounts.append_row(new_row)
-            print(f"✅ New account '{self.account_name}' was created successfully")
+            print(f"✅ New account '{self.account_name}' "
+                  f"was created successfully")
             self.saved_pin = hashed_pin.decode()
             return self.account_name, self.saved_pin
 
         while True:
-            # Compare the stored password with the entered password, 
+            # Compare the stored password with the entered password,
             # and ensures that the pincode is 4 numbers in length.
             # The user has 3 tries, after that the program exits.
             tries_left = 3
@@ -137,34 +137,35 @@ class budget_app:
                 if len(account_pin) == 4 and account_pin.isnumeric():
                     account_pin = account_pin.encode("utf-8")
                     if bcrypt.checkpw(account_pin, self.saved_pin.encode()):
-                        print(f"Checking your account name: '{self.account_name}' "
-                            "with the pincode: '* * * *'..")
+                        print(f"Checking your account name: "
+                              f"'{self.account_name}' "
+                              f"with the pincode: '* * * *'..")
                         print("✅ Matched credentials successfully!")
                         break
                     else:
                         if i != 2:
                             print("❗Incorrect pincode. Please try again.")
-                            print(f"You have {Style.BRIGHT}{red_text}{tries_left}"
-                                f"{reset_all} tries left.\n")
+                            print(f"You have {Style.BRIGHT}{red_text}"
+                                  f"{tries_left}{reset_all} tries left.\n")
                 # If the pincode is numbers but not 4 numbers in length:
                 elif len(account_pin) != 4 and account_pin.isnumeric():
                     print("❗ The pincode must be 4 numbers in length."
-                        " Try again.")
+                          " Try again.")
                 # If the pincode does not only contain numbers:
                 else:
                     print("❗ The pincode must be 4 numbers, not letters. "
-                        "Please try again.")
+                          "Please try again.")
                 if tries_left == 1:
                     print(Style.BRIGHT + red_back + f"This is you last try!"
-                        f"\n" + reset_all )
+                                                    f"\n" + reset_all)
             if i == 2:
                 print(Style.BRIGHT + red_text + "Maximum of tries exceeded."
-                    " Program shuts down.." + reset_all)
+                                                " Program shuts down.."
+                                                + reset_all)
                 exit()
             break
 
         return self.account_name, self.saved_pin
-
 
     def options(self, account_name):
         """
@@ -172,15 +173,19 @@ class budget_app:
         or to delete data without entering any new data.
         """
         while True:
-            user_option = input(f"{self.account_name}, Do you want to display or"
-                                f" delete data? Please answer 'yes' or 'no'\n")
+            user_option = input(f"{self.account_name}, Do you want to"
+                                f" display or delete data? "
+                                f"Please answer 'yes' or 'no'\n")
             if user_option == "yes":
-                delete_option = input("Do you want to 'display' or 'delete' data? \n")
+                delete_option = input("Do you want to 'display' or "
+                                      "'delete' data? \n")
                 if delete_option.lower() == "display":
-                    self.calculate_budget(self.account_name, self.valid_months, self.budget_month)
+                    self.calculate_budget(self.account_name, self.valid_months,
+                                          self.budget_month)
                     while True:
-                        add_option = input("Do you want to add new data or exit?"
-                                            " Please answer 'add' or 'exit'\n")
+                        add_option = input("Do you want to add "
+                                           "new data or exit?"
+                                           " Please answer 'add' or 'exit'\n")
                         if add_option.lower() == "add":
                             self.get_budget(self.valid_months)
                             break
@@ -190,30 +195,32 @@ class budget_app:
                         else:
                             print("Invalid option. Please try again.")
                 elif delete_option.lower() == "delete":
-                    self.delete_data(self.budget_data, self.account_name, self.valid_months)
+                    self.delete_data(self.budget_data, self.account_name,
+                                     self.valid_months)
             elif user_option == "no":
                 return
             else:
                 print("Invalid option. Please try again.")
 
-
     def get_budget(self, valid_months):
         """
         Get the current date and month from valid_months.
-        Get the budget month from the user and validate it against valid_months.
+        Get the budget month from the user and validates
+        it against valid_months.
         Get the budget amount from the user and validate the input.
         Saves the budget month and the budget amount to google sheets.
         """
 
         while True:
-            print(f"You can only choose from these options: {self.valid_months}")
+            print(f"You can only choose from these options:"
+                  f" {self.valid_months}")
             self.budget_month = input("Enter the month for the budget: \n")
             if self.budget_month.capitalize() in self.valid_months:
                 print(self.budget_month.capitalize())
                 break
             else:
-                print(f"❗You can only choose from either {self.current_month} "
-                    f" or {self.next_month}. Please try again.")
+                print(f"❗You can only choose from either {self.current_month}"
+                      f" or {self.next_month}. Please try again.")
 
         while True:
             try:
@@ -222,10 +229,10 @@ class budget_app:
                 break
             except ValueError:
                 print("❗You must enter numbers.. Please try again")
-        print(f"The month for your budget is: {self.budget_month.capitalize()},")
+        print(f"The month for your budget is: "
+              f"{self.budget_month.capitalize()},")
         print(f"and your total budget is: {self.total_budget}$")
         return self.budget_month, self.total_budget, self.valid_months
-
 
     def get_expenses(self, account_name, budget_month, total_budget):
         """
@@ -265,15 +272,15 @@ class budget_app:
                     print(f" {i + 1}. {self.expense_type}")
                 value_range = f"[1 - {len(self.expense_categories)}]"
                 self.selected_expense_type = input(f"Enter a Expense number "
-                                            f"between {value_range}: \n")
+                                                   f"between {value_range}:\n")
                 if self.selected_expense_type.isnumeric() and \
                     int(self.selected_expense_type) \
                         in range(1, len(self.expense_categories)+1):
                     break
                 else:
                     print(f"❗You entered: {self.selected_expense_type}. "
-                        f"Choose a number between 1 and "
-                        f"{len(self.expense_categories)}.")
+                          f"Choose a number between 1 and "
+                          f"{len(self.expense_categories)}.")
 
             self.selected_expense_type = int(self.selected_expense_type)
 
@@ -294,42 +301,47 @@ class budget_app:
             # ensure that the user enters a valid option.
             while True:
                 self.trans_type = input("Enter transaction type "
-                                "'debit' or 'credit': \n")
+                                        "'debit' or 'credit': \n")
                 if self.trans_type == "debit":
                     break
                 elif self.trans_type == "credit":
                     break
                 else:
                     print(f"❗You must enter the details exactly as follows: "
-                        "'debit' or 'credit'. Please try again")
+                          "'debit' or 'credit'. Please try again")
 
             # Prints the entered information for the user to see.
             print(f"You have entered {self.expense_name.capitalize()} at "
-                f"{self.expense_amount}$, with {self.trans_type.capitalize()} and "
-                f"category {self.expense_categories[self.selected_expense_type-1]}")
+                  f"{self.expense_amount}$, with "
+                  f"{self.trans_type.capitalize()} and category"
+                  f" {self.expense_categories[self.selected_expense_type-1]}")
 
             # Saving the entered data to the worksheet.
             # Get the number of rows in the worksheet
             row_count = len(self.budget_data.get_all_values())
-            new_row = [self.account_name, self.budget_month.capitalize(), self.total_budget,
-                self.expense_name.capitalize(), self.expense_amount,
-                self.trans_type.capitalize(), self.today_date, self.selected_expense_type]
-            self.budget_data.append_row(new_row, value_input_option="USER_ENTERED")
+            new_row = [self.account_name, self.budget_month.capitalize(),
+                       self.total_budget,
+                       self.expense_name.capitalize(), self.expense_amount,
+                       self.trans_type.capitalize(), self.today_date,
+                       self.selected_expense_type]
+            self.budget_data.append_row(new_row,
+                                        value_input_option="USER_ENTERED")
 
             # Ask the user if they want to add another expense
             # and ensure that the input is either "y" or "n"
             while True:
-                add_another = input("Do you want to add another expense? (y/n)\n")
+                add_another = input("Do you want to add "
+                                    "another expense? (y/n)\n")
                 if add_another.lower() == "n":
                     return
                 elif add_another.lower() == "y":
                     break
                 else:
                     print("Invalidn input, try again.")
-        return self.account_name, self.budget_month.capitalize(), self.total_budget,\
-                self.expense_name.capitalize(), self.expense_amount, \
-                self.trans_type.capitalize(), self.today_date, self.selected_expense_type
-
+        return self.account_name, self.budget_month.capitalize(),\
+            self.total_budget, self.expense_name.capitalize(), \
+            self.expense_amount, self.trans_type.capitalize(), \
+            self.today_date, self.selected_expense_type
 
     def calculate_budget(self, account_name, valid_months, budget_month):
         """
@@ -340,34 +352,37 @@ class budget_app:
         2. Calculate the remaining budget
         3. Display budget left in total, per day and how much
         credit is left to pay.
+
+        Get the user to choose a month to view their budget for.
+        Check so that the account name has data in the month that the user
+        chooses to see, if not, loops until the user
+        chooses a month with data or the user quits the program.
         """
 
-        # Get the user to choose a month to view their budget for.
-        # Check so that the account name has data in the month that the user
-        # chooses to see, if not, loops until the user chooses a month with data
-        # or the user quits the program.
-        print(f"All done {self.account_name}, You can now display your budget!\n")
+        print(f"All done {self.account_name}, "
+              f"You can now display your budget!\n")
         print(f"Choose the month you want to display your budget for:")
         print(f"You can choose between: {self.valid_months}\n")
         while True:
             self.display_month = input("Enter the month you want to see"
-                                " or enter 'q' to exit: \n")
+                                       " or enter 'q' to exit: \n")
             if self.display_month == "q":
                 print("Exiting program...")
                 exit()
             elif self.display_month.capitalize() in self.valid_months:
                 budget_rows = self.budget_data.get_all_values()
                 self.valid_budget_rows = [row for row in budget_rows
-                    if row[0] == self.account_name and
-                        row[1] == self.display_month.capitalize()]
+                                          if row[0] == self.account_name and
+                                          row[1] ==
+                                          self.display_month.capitalize()]
                 if not self.valid_budget_rows:
-                    print(f"❗Sorry, there is no data for {self.account_name} "
-                        f"in {self.display_month}")
+                    print(f"❗Sorry, there is no data for {self.account_name}"
+                          f" in {self.display_month}")
                 else:
                     break
             else:
                 print(f"❗That month does not exist. Make sure"
-                    f" you choose between {self.valid_months}")
+                      f" you choose between {self.valid_months}")
                 continue
 
         # Set the total debit and Credit
@@ -382,12 +397,14 @@ class budget_app:
                 self.total_budget += float(row[2])
                 break
 
-        # Loop through the valid_budget_rows and sum up all debit expense amounts.
+        # Loop through the valid_budget_rows and
+        # sum up all debit expense amounts.
         for row in self.valid_budget_rows:
             if row[5] == "Debit":
                 self.total_debit += float(row[4])
 
-        # Loop through the valid_budget_rows and sum up all credit expense amounts.
+        # Loop through the valid_budget_rows and
+        # sum up all credit expense amounts.
         for row in self.valid_budget_rows:
             if row[5] == "Credit":
                 self.total_credit += float(row[4])
@@ -397,7 +414,9 @@ class budget_app:
 
         # Get the number of days left in the month
         self.today_date = datetime.date.today()
-        self.days_in_month = calendar.monthrange(self.today_date.year, self.today_date.month)[1]
+        self.days_in_month = calendar.monthrange(self.today_date.year,
+                                                 self.today_date.month)[1]
+
         self.remaining_days = self.days_in_month - self.today_date.day
 
         # Calculate how much the user has each day
@@ -412,7 +431,9 @@ class budget_app:
             self.expense_type = row[7]
             if self.expense_type not in self.expenses_dict:
                 self.expenses_dict[self.expense_type] = []
-            self.expenses_dict[self.expense_type].append((self.expense, self.amount, self.trans_type))
+            self.expenses_dict[self.expense_type].append((self.expense,
+                                                          self.amount,
+                                                          self.trans_type))
 
         # Print the information to the user:
         print(f"✅ Your Total Budget is: {self.total_budget:.2f}$.\n")
@@ -445,27 +466,28 @@ class budget_app:
         # then print custom message.
         if self.total_left < self.total_credit and self.total_credit != 0:
             print(f"🔴 You don't have enough left to pay your credit:"
-                f"{self.total_left}$. You should adjust your\n expenses to make"
-                f" sure to have more money left\n to afford the"
-                f" credit bill of 💳 {self.total_credit}$.\n")
+                  f"{self.total_left}$. You should"
+                  f" adjust your\n expenses to make"
+                  f" sure to have more money left\n to afford the"
+                  f" credit bill of 💳 {self.total_credit}$.\n")
 
-        # Checks if the user has less than 0 left if so, prints a custom message.
+        # Checks if the user has less than 0 left if so,
+        # prints a custom message.
         if self.total_left < 0:
             print(f"🔴 With these expenses you have exceeded your budget with:"
-                f" {self.total_left}$. You should change your expenses"
-                f" to make sure you don't zero out your balance.\n")
+                  f" {self.total_left}$. You should change your expenses"
+                  f" to make sure you don't zero out your balance.\n")
 
-
-        print(f"💶 You have a total of {self.total_left:.2f}$ left this month.\n")
+        print(f"💶 You have a total of {self.total_left:.2f}$ "
+              f"left this month.\n")
         print(f"📉 You have {self.left_per_day:.2f}$ to spend per day"
-            f" this month calulating that you need to\nsave"
-            f" 💳 {self.total_credit:.2f}$ to afford the credit\n")
-
+              f" this month calulating that you need to\nsave"
+              f" 💳 {self.total_credit:.2f}$ to afford the credit\n")
 
     def delete_data(self, budget_data, account_name, valid_months):
         """
-        Asks the user if they want to delete any saved data. The user is presented
-        with the months from the valid months variable.
+        Asks the user if they want to delete any saved data.
+        The user is presented with the months from the valid months variable.
         If the user chooses a month to delete, it will loop through the google
         sheet and delete the matching rows.
         """
@@ -475,21 +497,23 @@ class budget_app:
             return None
         elif delete_confirmation.capitalize() == "Yes":
             while True:
-                chosen_month = input(f"Which month's data do you want do delete,"
-                                    f"You must choose from {self.valid_months}.\n")
+                chosen_month = input(f"Which month's data do you"
+                                     f" want do delete, You must choose"
+                                     f" from {self.valid_months}.\n")
                 if chosen_month.capitalize() in self.valid_months:
                     break
                 else:
                     print(f"You chose {chosen_month}, please choose"
-                        f" from {self.valid_months}.")
+                          f" from {self.valid_months}.")
             deleted_rows = 0
             for i, row in enumerate(self.budget_data.get_all_values()):
-                if row[0] == self.account_name and row[1] == chosen_month.capitalize():
+                if row[0] == self.account_name and \
+                        row[1] == chosen_month.capitalize():
+
                     budget_data.delete_rows(i + 1 - deleted_rows)
                     deleted_rows += 1
             print(f"✅ {deleted_rows} rows have been successfully deleted.")
             self.options(self.account_name)
-
 
     def restart_budget(self):
         """
@@ -500,11 +524,11 @@ class budget_app:
         if restart.lower() == "restart":
             print("Restarting...")
             self.get_account_details()
-            
+
         elif restart.lower() == "exit":
-            print ("Good bye!")
+            print("Good bye!")
             exit()
-        
+
         elif restart.lower() != "restart" or "exit":
             print("Please enter a valid option")
             self.restart_budget()
@@ -516,12 +540,12 @@ def main():
     """
     # Create an instance of the budget_app class
     app = budget_app()
-    
+
     # Welcome print with Pyfiglet
     welcome_text = "Your budget app!"
     ascii_text = pyfiglet.figlet_format(welcome_text)
     print(Style.BRIGHT + green_text + ascii_text + reset_all)
-    
+
     # Functions
     app.get_valid_months()
     account_name, saved_pin = app.get_account_details()
