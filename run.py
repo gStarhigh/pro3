@@ -197,7 +197,6 @@ class budget_app:
                                 f"{Style.BRIGHT}{blue_text}"
                                 f"exit{reset_all}\n")
             if user_option.lower() == "add":
-                self.get_budget(self.valid_months)
                 break
             elif user_option.lower() == "display":
                 self.calculate_budget(self.account_name, self.valid_months,
@@ -219,7 +218,6 @@ class budget_app:
         Get the budget amount from the user and validate the input.
         Saves the budget month and the budget amount to google sheets.
         """
-
         while True:
             print(f"You can only choose from these options:"
                   f" {self.valid_months}")
