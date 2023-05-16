@@ -238,6 +238,7 @@ class budget_app:
               f"{reset_all}")
         print(f"and your total budget is:"
               f"{Style.BRIGHT}{green_text} {self.total_budget}$ {reset_all}\n")
+        print()
         return self.budget_month, self.total_budget, self.valid_months
 
     def get_expenses(self, account_name, budget_month, total_budget):
@@ -254,7 +255,7 @@ class budget_app:
         """
         self.today_date = datetime.date.today().strftime("%Y-%m-%d")
         # Expense types inputs
-        print("Loading expense inputs...")
+        print("Loading expense inputs...\n")
 
         # Using a while loop to ask the user to add expenses until
         # they no longer want to add more.
