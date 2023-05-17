@@ -591,11 +591,12 @@ class budget_app:
         Final question of the program that asks if the user wants to display
         all options again, or to exit the program.
         """
-        option_question = input("Do you want to see your options or exit? "
-                                "Enter: 'yes' or 'exit'\n")
         while True:
+            option_question = input("Do you want to see your options or exit? "
+                                    "Enter: 'yes' or 'exit'\n")
             if option_question.lower() == "yes":
                 self.options(self.account_name)
+                break
             elif option_question.lower() == "exit":
                 exit()
             else:
