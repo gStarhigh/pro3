@@ -543,8 +543,9 @@ class budget_app:
         If the user chooses a month to delete, it will loop through the google
         sheet and delete the matching rows.
         """
-        delete_confirmation = input("Do you want to delete any saved data?"
-                                    " Please answer 'Yes or No'\n")
+        delete_confirmation = input("Do you want to delete any saved data"
+                                    " or your account? "
+                                    "Please answer 'data' 'account' or 'no'\n")
         if delete_confirmation.capitalize() == "No":
             return None
         elif delete_confirmation.capitalize() == "Yes":
@@ -572,7 +573,6 @@ class budget_app:
         If the user in delete_data chooses to delete the account, this
         method will delete the account data from the budget_accounts sheet.
         """
-        
 
     def restart_budget(self):
         """
