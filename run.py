@@ -543,30 +543,54 @@ class budget_app:
         If the user chooses a month to delete, it will loop through the google
         sheet and delete the matching rows.
         """
-        delete_confirmation = input("Do you want to delete any saved data"
-                                    " or your account? "
-                                    "Please answer 'data' 'account' or 'no'\n")
-        if delete_confirmation.capitalize() == "No":
-            return None
-        elif delete_confirmation.capitalize() == "Yes":
-            while True:
-                chosen_month = input(f"Which month's data do you"
-                                     f" want do delete, You must choose"
-                                     f" from {self.valid_months}.\n")
-                if chosen_month.capitalize() in self.valid_months:
-                    break
-                else:
-                    print(f"You chose {chosen_month}, please choose"
-                          f" from {self.valid_months}.")
-            deleted_rows = 0
-            for i, row in enumerate(self.budget_data.get_all_values()):
-                if row[0] == self.account_name and \
-                        row[1] == chosen_month.capitalize():
+        while True:
+            delete_confirmation = input("Do you want to delete any saved data"
+                                        " or your account? "
+                                        "Please answer 'Data'"
+                                        " 'Account' or 'No'\n")
+            if delete_confirmation.capitalize() == "No":
+                return None
+            elif delete_confirmation.capitalize() == "Data":
+                while True:
+                    chosen_month = input(f"Which month's data do you"
+                                         f" want do delete, You must choose"
+                                         f" from {self.valid_months}.\n")
+                    if chosen_month.capitalize() in self.valid_months:
+                        break
+                    else:
+                        print(f"You chose {chosen_month}, please choose"
+                              f" from {self.valid_months}.")
+                deleted_rows = 0
+                for i, row in enumerate(self.budget_data.get_all_values()):
+                    if row[0] == self.account_name and \
+                            row[1] == chosen_month.capitalize():
 
-                    budget_data.delete_rows(i + 1 - deleted_rows)
-                    deleted_rows += 1
-            print(f"✅ {deleted_rows} rows have been successfully deleted.")
-            self.options(self.account_name)
+                        budget_data.delete_rows(i + 1 - deleted_rows)
+                        deleted_rows += 1
+                print(f"✅ {deleted_rows} rows have been successfully deleted.")
+                self.options(self.account_name)
+            # If the user Chooses account, validate the answer one more time
+            # Then delete all data and call the delete account function.
+            elif delete_confirmation.capitalize() == "Account":
+                while True:
+                    true_confirmation = input("Are you sure you want"
+                                              "to delete your account? This "
+                                              "action cannot be reversed! "
+                                              "Answer 'Yes' or 'No'\n")
+                    if true_confirmation.capitalize() == "Yes":
+                        deleted_rows = 0
+                        for i, row in\
+                                enumerate(self.budget_data.get_all_values()):
+                            if row[0] == self.account_name:
+                                budget_data.delete_rows(i + 1 - deleted_rows)
+                                deleted_rows += 1
+                        self.delete_account(budget_data, account_name)
+                    elif true_confirmation.capitalize() == "No":
+                        self.options(self.account_name)
+                    else:
+                        print("Invalid input, try again.")
+            else:
+                print("Invalid input, try again.")
 
     def delete_account(self, budget_data, account_name):
         """
