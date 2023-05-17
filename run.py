@@ -37,6 +37,25 @@ DATA_SHEET = GSPREAD_CLIENT.open("budget_data")
 
 # Main budget class
 class budget_app:
+    """ The budget application class.
+    This class represents the budget application and provides
+    methods for managing the budget accounts and data.
+
+    Methods:
+    __init__(self): Placeholder and data holding attributes.
+    get_valid_months: Gets the valid months for the user
+    get_account_details: Gets the account name and pincode from the user.
+    options: Presents the user with different options, like add och display.
+    add_option_function: Tells the program what methods to run after a
+        user has chosen "add" in the options.
+    get_budget: Gets the budget from the user.
+    get_expenses: Gets the different type of expenses from the user.
+    calculate_budget: Calculates the budget from the inputs of the user.
+    delete_data: Deletes the users chosen data from the worksheet.
+    restart_budget: Restarts the application from the beginning.
+    final_question: Asks the user if they want to see the options or exit.
+
+    """
     def __init__(self):
         self.budget_accounts = ACCOUNT_SHEET.worksheet("tab1")
         self.budget_data = DATA_SHEET.worksheet("tab1")
