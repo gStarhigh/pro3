@@ -573,7 +573,7 @@ class budget_app:
             # Then delete all data and call the delete account function.
             elif delete_confirmation.capitalize() == "Account":
                 while True:
-                    true_confirmation = input("Are you sure you want"
+                    true_confirmation = input("Are you sure you want "
                                               "to delete your account? This "
                                               "action cannot be reversed! "
                                               "Answer 'Yes' or 'No'\n")
@@ -584,7 +584,7 @@ class budget_app:
                             if row[0] == self.account_name:
                                 budget_data.delete_rows(i + 1 - deleted_rows)
                                 deleted_rows += 1
-                        self.delete_account(budget_data, account_name)
+                        self.delete_account(self.budget_accounts, account_name)
                     elif true_confirmation.capitalize() == "No":
                         self.options(self.account_name)
                     else:
@@ -592,11 +592,21 @@ class budget_app:
             else:
                 print("Invalid input, try again.")
 
-    def delete_account(self, budget_data, account_name):
+    def delete_account(self, budget_accounts, account_name):
         """
         If the user in delete_data chooses to delete the account, this
         method will delete the account data from the budget_accounts sheet.
         """
+        deleted_rows = 0
+        data = self.budget_accounts.get_all_values()
+        for i, row in enumerate(data):
+            if row[0] == account_name:
+                self.budget_accounts.delete_rows(i + 1 - deleted_rows)
+                deleted_rows += 1
+        print(f"✅ Your account {account_name} and all your data "
+            f"has been deleted. You are welcome to return anytime!")
+        exit()
+
 
     def restart_budget(self):
         """
