@@ -567,6 +567,13 @@ class budget_app:
             print(f"✅ {deleted_rows} rows have been successfully deleted.")
             self.options(self.account_name)
 
+    def delete_account(self, budget_data, account_name):
+        """
+        If the user in delete_data chooses to delete the account, this
+        method will delete the account data from the budget_accounts sheet.
+        """
+        
+
     def restart_budget(self):
         """
         Let the user choose between restarting and exiting the program.
