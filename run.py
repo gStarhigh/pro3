@@ -111,16 +111,16 @@ class budget_app:
                     self.saved_pin = row[1]
                     while True:
                         wrong_account = input(("Did you enter the"
-                                               " wrong account name?\n"
+                                               " correct account name?\n"
                                                f"Type:{Style.BRIGHT}{red_text}"
-                                               f" yes{reset_all} to start "
+                                               f" no{reset_all} to start "
                                                "over or type:"
                                                f" {Style.BRIGHT}{green_text}"
-                                               f"no{reset_all}"
+                                               f"yes{reset_all}"
                                                " to proceed\n"))
-                        if wrong_account.lower() == "yes":
+                        if wrong_account.lower() == "no":
                             self.restart_budget()
-                        elif wrong_account.lower() == "no":
+                        elif wrong_account.lower() == "yes":
                             break
         else:
             print(f"The account name:{blue_text}{self.account_name}"
