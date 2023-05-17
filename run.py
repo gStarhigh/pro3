@@ -604,9 +604,8 @@ class budget_app:
                 self.budget_accounts.delete_rows(i + 1 - deleted_rows)
                 deleted_rows += 1
         print(f"✅ Your account {account_name} and all your data "
-            f"has been deleted. You are welcome to return anytime!")
+              f"has been deleted. \n You are welcome to return anytime!")
         exit()
-
 
     def restart_budget(self):
         """
