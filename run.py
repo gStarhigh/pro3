@@ -190,8 +190,7 @@ class budget_app:
                     print("❗ The pincode must be 4 numbers, not letters. "
                           "Please try again.")
                 if tries_left == 1:
-                    print(Style.BRIGHT + red_back + f"This is you last try!"
-                                                    f"\n" + reset_all)
+                    print(red_back + f"This is you last try!" + reset_all)
             if i == 2 and correct is not True:
                 print(Style.BRIGHT + red_text + "Maximum of tries exceeded."
                                                 " Program shuts down.."
