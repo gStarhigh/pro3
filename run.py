@@ -57,6 +57,9 @@ class budget_app:
 
     """
     def __init__(self):
+        """
+        Gets worksheet data and placeholder attributes.
+        """
         self.budget_accounts = ACCOUNT_SHEET.worksheet("tab1")
         self.budget_data = DATA_SHEET.worksheet("tab1")
         self.account_creds = self.budget_accounts.get_all_values()
