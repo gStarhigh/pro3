@@ -546,8 +546,8 @@ class budget_app:
         while True:
             delete_confirmation = input("Do you want to delete any saved data"
                                         " or your account? "
-                                        "Please answer 'Data'"
-                                        " 'Account' or 'No'\n")
+                                        "\nPlease answer 'Data'"
+                                        " 'Account' or 'No'.\n")
             if delete_confirmation.capitalize() == "No":
                 return None
             elif delete_confirmation.capitalize() == "Data":
@@ -574,9 +574,9 @@ class budget_app:
             elif delete_confirmation.capitalize() == "Account":
                 while True:
                     true_confirmation = input("Are you sure you want "
-                                              "to delete your account? This "
+                                              "to delete your account? \nThis "
                                               "action cannot be reversed! "
-                                              "Answer 'Yes' or 'No'\n")
+                                              "Answer 'Yes' or 'No'.\n")
                     if true_confirmation.capitalize() == "Yes":
                         deleted_rows = 0
                         for i, row in\
