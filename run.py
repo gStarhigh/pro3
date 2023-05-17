@@ -611,7 +611,7 @@ def main():
     app = budget_app()
 
     # Welcome print with Pyfiglet
-    welcome_text = "YOUR BUDGET APPLICATION!"
+    welcome_text = "Your budget app!"
     ascii_text = pyfiglet.figlet_format(welcome_text, width=80)
     print(Style.BRIGHT + green_text + ascii_text + reset_all)
 
