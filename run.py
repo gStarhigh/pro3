@@ -612,7 +612,7 @@ def main():
 
     # Welcome print with Pyfiglet
     welcome_text = "Your budget app!"
-    ascii_text = pyfiglet.figlet_format(welcome_text, font="starwars")
+    ascii_text = pyfiglet.figlet_format(welcome_text, font="slant")
     print(Style.BRIGHT + yellow_text + ascii_text + reset_all)
 
     # Functions
