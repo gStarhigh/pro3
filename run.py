@@ -612,8 +612,8 @@ def main():
 
     # Welcome print with Pyfiglet
     welcome_text = "Your budget app!"
-    ascii_text = pyfiglet.figlet_format(welcome_text, font="slant")
-    print(Style.BRIGHT + yellow_text + ascii_text + reset_all)
+    ascii_text = pyfiglet.figlet_format(welcome_text)
+    print(Style.BRIGHT + green_text + ascii_text + reset_all)
 
     # Functions
     app.get_valid_months()
