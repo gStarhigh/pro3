@@ -342,9 +342,7 @@ class BudgetApp:
             while True:
                 self.trans_type = input("Enter transaction type "
                                         "'debit' or 'credit': \n")
-                if self.trans_type == "debit":
-                    break
-                elif self.trans_type == "credit":
+                if self.trans_type in ["debit", "credit"]:
                     break
                 else:
                     print(f"❗You must enter the details exactly as follows: "
