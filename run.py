@@ -36,7 +36,7 @@ DATA_SHEET = GSPREAD_CLIENT.open("budget_data")
 
 
 # Main budget class
-class budget_app:
+class BudgetApp:
     """ The budget application class.
     This class represents the budget application and provides
     methods for managing the budget accounts and data.
@@ -69,7 +69,7 @@ class budget_app:
         self.budget_month = None
         self.total_budget = None
 
-    # Functions
+    
     def get_valid_months(self):
         """
         Get the current month current day and the next month to be able
@@ -647,8 +647,8 @@ def main():
     """
     A main function to call all functions of the program.
     """
-    # Create an instance of the budget_app class
-    app = budget_app()
+    # Create an instance of the BudgetApp class
+    app = BudgetApp()
 
     # Welcome print with Pyfiglet
     welcome_text = "Your budget app!"
