@@ -46,7 +46,7 @@ class BudgetApp:
     get_valid_months: Gets the valid months for the user
     get_account_details: Gets the account name and pincode from the user.
     options: Presents the user with different options, like add och display.
-    add_option_function: Tells the program what methods to run after a
+    add_option_method: Tells the program what methods to run after a
         user has chosen "add" in the options.
     get_budget: Gets the budget from the user.
     get_expenses: Gets the different type of expenses from the user.
@@ -220,7 +220,7 @@ class BudgetApp:
                                 f"{Style.BRIGHT}{blue_text}"
                                 f"exit{reset_all}\n")
             if user_option.lower() == "add":
-                self.add_option_function()
+                self.add_option()
             elif user_option.lower() == "display":
                 self.calculate_budget(self.account_name, self.valid_months,
                                       self.budget_month)
@@ -233,9 +233,9 @@ class BudgetApp:
             else:
                 print("Invalid option. Please try again.")
 
-    def add_option_function(self):
+    def add_option(self):
         """
-        Functions to be run after the user chooses add in options.
+        Methods to be run after the user chooses add in options.
         """
         budget_month, total_budget, valid_months \
             = self.get_budget(self.valid_months)
@@ -570,7 +570,7 @@ class BudgetApp:
                 print(f"✅ {deleted_rows} rows have been successfully deleted.")
                 self.options(self.account_name)
             # If the user Chooses account, validate the answer one more time
-            # Then delete all data and call the delete account function.
+            # Then delete all data and call the delete account method.
             elif delete_confirmation.capitalize() == "Account":
                 while True:
                     true_confirmation = input("Are you sure you want "
@@ -645,7 +645,7 @@ class BudgetApp:
 
 def main():
     """
-    A main function to call all functions of the program.
+    A main method to call all methods of the program.
     """
     # Create an instance of the BudgetApp class
     app = BudgetApp()
@@ -655,7 +655,7 @@ def main():
     ascii_text = pyfiglet.figlet_format(welcome_text)
     print(Style.BRIGHT + green_text + ascii_text + reset_all)
 
-    # Functions
+    # Methods
     app.get_valid_months()
     account_name, saved_pin = app.get_account_details()
     app.options(account_name)
@@ -665,6 +665,6 @@ def main():
     app.final_question()
 
 
-# Run the main function
+# Run the main Method
 if __name__ == "__main__":
     main()
