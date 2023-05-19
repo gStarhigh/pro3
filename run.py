@@ -427,8 +427,8 @@ class BudgetApp:
                 else:
                     break
             else:
-                print(f"❗That month does not exist. Make sure"
-                      f" you choose between {self.valid_months}")
+                print(f"❗That month does not exist. Make sure you choose "
+                      f"between {blue_text}{self.valid_months}{reset_all}")
                 continue
 
         # Set the total debit and Credit
