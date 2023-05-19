@@ -421,8 +421,9 @@ class BudgetApp:
                                           row[1] ==
                                           self.display_month.capitalize()]
                 if not self.valid_budget_rows:
-                    print(f"❗Sorry, there is no data for {self.account_name}"
-                          f" in {self.display_month}")
+                    print(f"❗Sorry, there is no data for "
+                          f"{green_text}{self.account_name}{reset_all}"
+                          f" in {blue_text}{self.display_month}{reset_all}")
                 else:
                     break
             else:
