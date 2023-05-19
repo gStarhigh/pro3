@@ -617,7 +617,9 @@ class BudgetApp:
                         f"{Style.BRIGHT}{red_text}exit{reset_all} \n")
         if restart.lower() == "restart":
             print(f"{Style.BRIGHT}{green_text}Restarting...{reset_all}")
-            self.get_account_details()
+            self.account_name = None
+            self.saved_pin = None
+            main()
 
         elif restart.lower() == "exit":
             print(f"{Style.BRIGHT}{green_text}Good bye!{reset_all}")
