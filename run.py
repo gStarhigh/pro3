@@ -207,7 +207,7 @@ class BudgetApp:
         """
         while True:
             user_option = input(f"{self.account_name}, Do you want to"
-                                f" add, display, delete or exit?\n "
+                                f" add, display, delete or exit?\n"
                                 f"Please answer:"
                                 f"{Style.BRIGHT}{green_text} add {reset_all}"
                                 f", "
