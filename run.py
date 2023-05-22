@@ -175,7 +175,8 @@ class BudgetApp:
                         break
                     else:
                         if i != 2:
-                            print("❗Incorrect pincode. Please try again.")
+                            print(f"{yellow_text}Incorrect pincode."
+                                  f"Please try again. {reset_all}")
                             print(f"You have {Style.BRIGHT}{red_text}"
                                   f"{tries_left}{reset_all} tries left.\n")
                 # If the pincode is numbers but not 4 numbers in length:
@@ -186,8 +187,8 @@ class BudgetApp:
                 else:
                     print(f"You have {Style.BRIGHT}{red_text}"
                           f"{tries_left}{reset_all} tries left.\n")
-                    print("❗ The pincode must be 4 numbers, not letters. "
-                          "Please try again.")
+                    print(f"{yellow_text}The pincode must be 4 numbers,"
+                          f"not letters. Please try again.{reset_all}")
                 if tries_left == 1:
                     print(red_back + f"This is you last try!" + reset_all)
             if i == 2 and correct is not True:
