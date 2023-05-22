@@ -121,6 +121,9 @@ class BudgetApp:
                             self.restart_budget()
                         elif wrong_account.lower() == "yes":
                             break
+                        else:
+                            print(f"{yellow_text}Invalid input. "
+                                  f"Please try again{reset_all}.")
         else:
             print(f"The account name:{blue_text}{self.account_name}"
                   f"{reset_all} was not found, "
