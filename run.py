@@ -258,15 +258,19 @@ class BudgetApp:
             if self.budget_month.capitalize() in self.valid_months:
                 break
             else:
-                print(f"❗You can only choose from either {self.current_month}"
-                      f" or {self.next_month}. Please try again.")
+                print("You can only choose from either"
+                      f" {blue_text}{self.current_month}{reset_all}"
+                      f" or {blue_text}{self.next_month}{reset_all}."
+                      " Please try again.")
 
         while True:
             try:
                 self.total_budget = int(input("📈 Enter your total budget:\n"))
                 break
             except ValueError:
-                print("❗You must enter numbers.. Please try again")
+                print(f"{yellow_text}You must enter numbers... "
+                      f"Please try again {reset_all}")
+
         print(f"The month for your budget is: "
               f"{Style.BRIGHT}{blue_text}{self.budget_month.capitalize()},"
               f"{reset_all}")
@@ -336,7 +340,8 @@ class BudgetApp:
                     self.expense_amount = float(expense_amount_str)
                     break
                 else:
-                    print(f"❗ You can only use numbers, please try again.")
+                    print(f"{yellow_text}You can only use numbers, "
+                          f"please try again.{reset_all}")
 
             # Get the transaction type from the user using a while loop to
             # ensure that the user enters a valid option.
@@ -381,7 +386,7 @@ class BudgetApp:
                 elif add_another.lower() == "y":
                     break
                 else:
-                    print("Invalid input, try again.")
+                    print(f"{yellow_text}Invalid input, try again.{reset_all}")
         return self.account_name, self.budget_month.capitalize(),\
             self.total_budget, self.expense_name.capitalize(), \
             self.expense_amount, self.trans_type.capitalize(), \
