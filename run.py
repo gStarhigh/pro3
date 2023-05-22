@@ -491,8 +491,8 @@ class BudgetApp:
                                                           self.trans_type))
 
         # Print the information to the user:
-        print(f"✅ Your Total Budget is: {self.total_budget:.2f}$.\n")
-        print(f"📃 Your different expenses for {self.display_month} are: \n")
+        print(f"✅  Your Total Budget is: {self.total_budget:.2f}$.\n")
+        print(f"📃  Your different expenses for {self.display_month} are: \n")
 
         # Adding the emoji to the corresponding expense type.
         for self.expense_type, self.expenses in self.expenses_dict.items():
@@ -509,19 +509,19 @@ class BudgetApp:
             else:
                 self.expense_char = ""
             # Print out the different expenses grouped by expense_type
-            print(f"{self.expense_char} Expenses:")
+            print(f"{self.expense_char}  Expenses:")
             for self.expense, self.amount, self.trans_type in self.expenses:
                 print(f"{self.expense}: - {self.amount}$ - {self.trans_type}")
             print("")
 
-        print(f"💵 Total Debit: {self.total_debit:.2f}$.\n")
-        print(f"💳 Total Credit: {self.total_credit:.2f}$.\n")
+        print(f"💵  Total Debit: {self.total_debit:.2f}$.\n")
+        print(f"💳  Total Credit: {self.total_credit:.2f}$.\n")
 
         # Check if the user has less left than the credit bill
         # then print custom message.
         if self.total_left < self.total_credit and self.total_credit != 0:
             print(f"🔴 You don't have enough left to pay your credit:"
-                  f"{Style.BRIGHT}{red_back}{self.total_left}{reset_all}"
+                  f"{Style.BRIGHT}{red_text}{self.total_left}{reset_all}"
                   f"$. You should adjust your\n expenses to make"
                   f" sure to have more money left\n to afford the"
                   f" credit bill of 💳 "
@@ -531,7 +531,7 @@ class BudgetApp:
         # prints a custom message.
         if self.total_left < 0:
             print(f"🔴 With these expenses you have exceeded your budget with:"
-                  f" {Style.BRIGHT}{red_back}{self.total_left}{reset_all}$."
+                  f" {Style.BRIGHT}{red_text}{self.total_left}{reset_all}$."
                   f" You should change your expenses"
                   f" to make sure you don't zero out your balance.\n")
 
