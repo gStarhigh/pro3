@@ -522,7 +522,7 @@ class BudgetApp:
         if self.total_left < self.total_credit and self.total_credit != 0:
             print(f"🔴 You don't have enough left to pay your credit:"
                   f"{Style.BRIGHT}{red_text}{self.total_left}{reset_all}"
-                  f"$. You should adjust your\n expenses to make"
+                  f"$.\n You should adjust your expenses to make"
                   f" sure to have more money left\n to afford the"
                   f" credit bill of 💳 "
                   f"{yellow_text}{self.total_credit}{reset_all}$.\n")
