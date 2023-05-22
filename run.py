@@ -69,7 +69,6 @@ class BudgetApp:
         self.budget_month = None
         self.total_budget = None
 
-    
     def get_valid_months(self):
         """
         Get the current month current day and the next month to be able
