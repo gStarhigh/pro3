@@ -231,7 +231,8 @@ class BudgetApp:
                 print("Good bye!")
                 exit()
             else:
-                print("Invalid option. Please try again.")
+                print(f"{yellow_text}Invalid option. "
+                      f"Please try again.{reset_all}")
 
     def add_option(self):
         """
