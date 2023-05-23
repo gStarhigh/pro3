@@ -95,10 +95,11 @@ In planning this project I started out with making a flowchart for what I wanted
 
 I first made a flowchart in Lucidchart, however, I was not able to open it later again, even though it was visible in my account. So I created a new flowchart using https://miro.com/.
 
-The flowchart can be found here:
 
-![BudgetApp](/documentation/flowchart/flowchart.png)
-
+<details>
+<summary>Click here to see the flowchart</summary>
+<img src="documentation/flowchart/flowchart.png">
+</details>
 (The flowchart does not represent the finished project)
 
 ---
