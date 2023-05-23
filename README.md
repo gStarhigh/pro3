@@ -1,7 +1,17 @@
 # Python project in a mock terminal for Code Institute
 
+## General information
 
+This is a project for a course in Python, Project Portfolio 3, for Code Institute by Gustaf Starhög.
+The purpose of this project is to promote myself and show my skills in Python.
 
+This project is a budget application that runs in a mock terminal in Heroku where you get to do the following things:
+1. Create an account and a pincode.
+2. Enter different expenses and their costs.
+3. See your budget with calculations showing how much you have left to spend in total & per day of the remaining days of the month.
+4. You can at anytime delete any data, or your entire account if you chose.
+
+---
 ## Creating the Heroku app
 
 Steps:
