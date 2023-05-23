@@ -578,8 +578,9 @@ class BudgetApp:
                 if deleted_rows == 0:
                     print(f"{chosen_month.capitalize()} does not contain"
                           " any data.\nNo data has been deleted.")
-                else: 
-                    print(f"✅ {deleted_rows} rows have been successfully deleted.")
+                else:
+                    print(f"✅ {deleted_rows} rows have been successfully"
+                          " deleted.")
                 self.options(self.account_name)
             # If the user Chooses account, validate the answer one more time
             # Then delete all data and call the delete account method.
