@@ -42,7 +42,7 @@ Disclaimer: I could not get the pyfiglet print to look the way I wanted it in th
 - ## [Testing](#testing-1)
     - ## [Code Validation](#code-validation-1)
     - ## [Testing User Stories](#testing-user-stories-1)
-    - ## [Future improvements](#possible-future-implementations)
+    - ## [Future improvements](#Future-improvements-1)
 - ## [Bugs](#bugs-and-fixes)
 
 - ## [Final Result](#final-result-1)
@@ -328,9 +328,10 @@ Depending on your choice different things will happen.
 
 ---
 
-### Testing User Stories
+## Testing User Stories
 
-### Future improvements
+---
+## Future improvements
 
 ---
 ## Bugs
@@ -338,6 +339,7 @@ Depending on your choice different things will happen.
 ---
 ## Final Result
 
+---
 ## Deployment
 Creating the Heroku app
 
