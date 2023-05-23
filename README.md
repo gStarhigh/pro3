@@ -17,10 +17,39 @@ Image of the application: ![Welcome Message](/documentation/testing/welcome-mess
 Disclaimer: I could not get the pyfiglet print to look the way I wanted it in the deployed terminal. I tried different fonts, sizes, widths and printing the words one by one on different lines without success. This is how it looks in the terminal on Gitpod:
 ![Budget app in Gitpod](/documentation/testing/welcome-vscode.png)
 
----
-## Creating the Heroku app
 
-Steps:
+## Table of Contents
+---
+ - ## [General Information](#general-information)
+
+ - ## [Table of Contents](#table-of-contents-1)
+
+ - ## [Project Goals](#project-goals-1)
+
+ - ## [User Stories](#user-stories-1)
+
+ - ## [Flowchart (Flowchart)](#Flowchart)
+
+ - ## [General features](#general-features-1)
+    
+- ## [Testing](#testing-1)
+    - ## [Code Validation](#code-validation-1)
+    - ## [Testing User Stories](#testing-user-stories-1)
+    - ## [Future improvements](#possible-future-implementations)
+- ## [Bugs](#bugs-and-fixes)
+
+- ## [Final Result](#final-result-1)
+
+- ## [Deployment](#deployment-1)
+
+- ## [Github Pages](#github-pages-1)
+
+- ## [Credits](#credits-1)
+---
+## Deployment
+Creating the Heroku app
+
+Steps (It's very important that these steps are followed in the correct order):
 1.	Create an account on https://id.heroku.com/login
 2.	If you have inputs in your code, you must insert the new line code for each input at the end for the mock terminal to display your inputs correctly. The code is “\n”.
 3.	You need to enter information to your credentials.txt file, as Heroku uses this file to seach for dependencies when building your application in the mock terminal. You need to enter the following command in the command terminal: “pip3 freeze > requirements.txt” Be sure to spell the command exactly like this, and make sure that the requirements.txt file is named the same way. 
