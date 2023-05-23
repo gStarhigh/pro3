@@ -186,6 +186,31 @@ Depending on your choice different things will happen.
 
 --- 
 ## Testing
+- I have tested all inputs to make sure that only the desired inputs are allowed to be input by the user. 
+- If you are a new user and creates an account that does not exist, you can choose your pincode and your account is correctly saved to the google sheet. 
+    <details>
+    <summary>Printscreen of new user</summary>
+    <img src="documentation/testing/new_account.png">
+    </details>
+    <details>
+    <summary>Printscreen of a returning user</summary>
+    <img src="documentation/testing/returning_user.png">
+    </details>
+    <details>
+    <summary>Printscreen of the Google sheet</summary>
+    <img src="documentation/testing/budget_accounts.png">
+    </details>
+- The pincode is saved with a different salt each time. Which means that if someone was to be able to crack the pincode of one user, it would not mean that all pincodes are leaked.
+
+- To view a month in the program, the choosen month must have data. If you choose a month without any data, it will show an error and you can either choose another month, or exit the program. You cannot view historically entered data for past months. Only the current and next months are available.
+    <details>
+    <summary>Printscreen of the months without data</summary>
+    <img src="documentation/testing/no_data.png">
+    </details>
+
+
+
+
 
 ### Code Validation
 - The code has been passed trough the Code Institue python linter(PEP8) without any errors or warnings:
