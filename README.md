@@ -122,6 +122,14 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
     - Selected expense category(ex, Household or Transportation)
 - If the user is a returning user and enters a new total budget amount, that amount will be the one used to do all calculations. I wanted the latest input of Total budget to be the one to use because there might be a change in the income since last time.
 
+## Welcome section
+- When you start the program you are greeted with a pyfiglet print that says "Your budget app!".
+- You are prompted to enter an Account name. If you are a returning user, you can choose your old Account name. If you are a new user, you can enter your Account name. If the Account name already exists, you will be told and you have the chance to restart and try another name. 
+- If you are a returning user you enter your pincode, that is then matched against the google sheet's saved pincode and decrypts it and you can proceed.
+- If you are a new user you must choose a pincode before proceeding. 
+- If you enter a wrong pincode 3 times, the program shuts down as a precaution against bots trying to hack the pincode. 
+
+
 
 
 --- 
