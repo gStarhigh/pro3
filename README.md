@@ -129,10 +129,11 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
 - If you are a new user you must choose a pincode before proceeding. 
 - If you enter a wrong pincode 3 times, the program shuts down as a precaution against bots trying to hack the pincode. 
 
-    <details>
-    <summary>Printscreen of the Welcome Section</summary>
-    <img src="documentation/testing/welcome-message.png">
-    </details>
+<details>
+<summary>Printscreen of the Welcome Section</summary>
+<img src="documentation/testing/welcome-message.png">
+</details>
+
 ---
 ### Total budget and month for the budget
 - After your account has either been matched or created, you will see the options you have to choose from. You can either:
@@ -163,10 +164,10 @@ Depending on your choice different things will happen.
 - After all of these inputs have been correctly filled, you can choose to enter more expenses if you want, or to proceed. If you choose to enter a new expense, the same inputs will be prompted until you don't want to add any more. 
 - If you choose to not enter any more expenses, you can choose to either see your calculated budget for one of the valid months, or to exit the program.
 
-    <details>
-    <summary>Printscreen of the Expense types</summary>
-    <img src="documentation/testing/total_budget.png">
-    </details>
+<details>
+<summary>Printscreen of the Expense types</summary>
+<img src="documentation/testing/total_budget.png">
+</details>
 
 ---
 ### Viewing your budget. 
@@ -175,14 +176,14 @@ Depending on your choice different things will happen.
 - You will see how much money you have left in total, calulation in if you have paid anything by credit, that you need to save that money until the end of the month to afford the credit payment. 
 - You will also see how much money you have to spend for each day that remains of the month. Therefore if you do your budget the 1st of the month, you will get a different result than if you do it on the 20th. 
 - After you have viewed your budget, you can choose to either see the options again, or to exit the program. 
-    <details>
-    <summary>Printscreen of the budget 1</summary>
-    <img src="documentation/testing/month1.png">
-    </details>
-    <details>
-    <summary>Printscreen of the budget 2</summary>
-    <img src="documentation/testing/month2.png">
-    </details>
+<details>
+<summary>Printscreen of the budget 1</summary>
+<img src="documentation/testing/month1.png">
+</details>
+<details>
+<summary>Printscreen of the budget 2</summary>
+<img src="documentation/testing/month2.png">
+</details>
 
 --- 
 ## Testing
@@ -201,17 +202,30 @@ Depending on your choice different things will happen.
     <img src="documentation/testing/budget_accounts.png">
     </details>
 - The pincode is saved with a different salt each time. Which means that if someone was to be able to crack the pincode of one user, it would not mean that all pincodes are leaked.
+- The user has 3 tries to enter their pincode. Only 4 numbers are allowed, any other input will result in an error, and show the remaining tries
+
+<details>
+<summary>Printscreen of wrong pincode</summary>
+<img src="documentation/testing/pincode_validation.png">
+</details>
 
 - To view a month in the program, the choosen month must have data. If you choose a month without any data, it will show an error and you can either choose another month, or exit the program. You cannot view historically entered data for past months. Only the current and next months are available.
-    <details>
-    <summary>Printscreen of the months without data</summary>
-    <img src="documentation/testing/no_data.png">
-    </details>
+<details>
+<summary>Printscreen of the months without data</summary>
+<img src="documentation/testing/no_data.png">
+</details>
+<details>
+<summary>Printscreen of a month with data</summary>
+<img src="documentation/testing/month1.png">
+</details>
+<details>
+<summary>Printscreen of a month with data</summary>
+<img src="documentation/testing/month2.png">
+</details>
 
 
 
-
-
+---
 ### Code Validation
 - The code has been passed trough the Code Institue python linter(PEP8) without any errors or warnings:
 <details>
