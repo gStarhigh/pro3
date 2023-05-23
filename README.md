@@ -164,6 +164,13 @@ Depending on your choice different things will happen.
 ## Testing
 
 ### Code Validation
+- The code has been passed trough the Code Institue python linter(PEP8) without any errors or warnings:
+<details>
+<summary>Click here to see the validation</summary>
+<img src="documentation/testing/python_linter.png">
+</details>
+
+---
 
 ### Testing User Stories
 
