@@ -365,7 +365,7 @@ class BudgetApp:
                   f"{Style.BRIGHT}{green_text}{self.expense_amount}{reset_all}"
                   f"$, paid with "
                   f"{yellow_text}{self.trans_type.capitalize()}{reset_all}"
-                  f" and in the Category:"
+                  f" and \n in the Category:"
                   f" {self.expense_categories[self.selected_expense_type-1]}")
 
             # Saving the entered data to the worksheet.
