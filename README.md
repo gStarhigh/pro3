@@ -11,6 +11,12 @@ This project is a budget application that runs in a mock terminal in Heroku wher
 3. See your budget with calculations showing how much you have left to spend in total & per day of the remaining days of the month.
 4. You can at anytime delete any data, or your entire account if you chose.
 
+Link to the application: [BudgetApp](https://star-pro3.herokuapp.com/)
+
+Image of the application: ![Welcome Message](/documentation/testing/welcome-message.png)
+Disclaimer: I could not get the pyfiglet print to look the way I wanted it in the deployed terminal. I tried different fonts, sizes, widths and printing the words one by one on different lines without success. This is how it looks in the terminal on Gitpod:
+![Budget app in Gitpod](/documentation/testing/welcome-vscode.png)
+
 ---
 ## Creating the Heroku app
 
