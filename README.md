@@ -141,6 +141,12 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
     - Delete data and/or your account
     - Exit the program
 Depending on your choice different things will happen. 
+
+    <details>
+    <summary>Printscreen of the Options Section</summary>
+    <img src="documentation/testing/returning_user.png">
+    </details>
+
 ---
 ### Adding new data:
 - If you choose to add new data, the following inputs must be filled:
@@ -156,6 +162,12 @@ Depending on your choice different things will happen.
     - Transaction type (Debit or Credit)
 - After all of these inputs have been correctly filled, you can choose to enter more expenses if you want, or to proceed. If you choose to enter a new expense, the same inputs will be prompted until you don't want to add any more. 
 - If you choose to not enter any more expenses, you can choose to either see your calculated budget for one of the valid months, or to exit the program.
+
+    <details>
+    <summary>Printscreen of the Expense types</summary>
+    <img src="documentation/testing/total_budget.png">
+    </details>
+
 ---
 ### Viewing your budget. 
 - When you choose to see your budget, you can choose from one of the 2 valid months (This or the next month).
