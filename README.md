@@ -209,6 +209,13 @@ Depending on your choice different things will happen.
 <img src="documentation/testing/pincode_validation.png">
 </details>
 
+- The options for the program contains 4 different choices for the user, Add, Display, Delete or Exit.
+- Any other input from the user will result in an error until the user enters valid information.
+<details>
+<summary>Printscreen of wrong input</summary>
+<img src="documentation/testing/options_validation.png">
+</details>
+
 - To view a month in the program, the choosen month must have data. If you choose a month without any data, it will show an error and you can either choose another month, or exit the program. You cannot view historically entered data for past months. Only the current and next months are available.
 <details>
 <summary>Printscreen of the months without data</summary>
