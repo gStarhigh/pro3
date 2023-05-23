@@ -274,6 +274,19 @@ Depending on your choice different things will happen.
 <img src="documentation/testing/expense_type_validation.png">
 </details>
 
+### Add another expense
+- After adding an expense, the user has the option to either add another expense or to proceed and view the budget. If the user enters the wrong input, an error will appear and the user has to try again. 
+<details>
+<summary>Printscreen of wrong input for another expense</summary>
+<img src="documentation/testing/another_expense_validation.png">
+</details>
+
+
+### Delete data
+
+
+### Delete account
+
 
 
 ---
