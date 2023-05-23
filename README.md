@@ -288,7 +288,10 @@ Depending on your choice different things will happen.
 <summary>Printscreen of deleted rows</summary>
 <img src="documentation/testing/delete_data.png">
 </details>
-
+<details>
+<summary>Printscreen of no deleted data</summary>
+<img src="documentation/testing/no_deleted_data.png">
+</details>
 
 ### Delete account
 
