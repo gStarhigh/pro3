@@ -149,4 +149,15 @@ Steps (It's very important that these steps are followed in the correct order):
 ---
 ## Credits
 
+- I want to thank my mentor Jack at Code Institute for continuing to push me in my projects and for his continued support. 
+
+- Encrypt passwords in python:
+https://www.makeuseof.com/encrypt-password-in-python-bcrypt/
+
+- The flowchart was made at:
+https://www.Miro.com/
+
+- Information seaching:
+https://www.google.com/ and https://www.w3schools.com/python/
+
 ---
