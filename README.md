@@ -70,6 +70,20 @@ The welcome message in the start of the program was used with pyfiglet, and alth
 
 ---
 # User Stories
+### As a first time user:
+- As a first time user I want to directly understand how the program works and what I need to fill in. 
+- As a first time user I want to choose my own Account name. 
+- As a first time user, I should get the possibility to start over if the account name was already taken.
+- As a first time I want to choose my own pincode. 
+- As a first time user I want to be able to set my total budget.
+- As a first time user I want to be able to choose the month for my budget. 
+- As a first time user I want to be able to add multiple expenses.
+- As a first time user I want to be able to see my finished budget. 
+- As a first time user I want to be able to delete data from my budget. 
+- As a first time user I want to be able to delete my account, should I desire. 
+
+### As a returning user:
+- 
 
 ---
 ## Flowchart
