@@ -283,6 +283,11 @@ Depending on your choice different things will happen.
 
 
 ### Delete data
+- The user has the option to delete an entire month, if they so choose. They can only delete data in the valid months span. After the program has looped through and checked the google sheet for data for the specific month, it will display the amount of rows that were deleted. Depending of the amount of rows that the user has in the specific month, the number of rows deleted will differ.
+<details>
+<summary>Printscreen of deleted rows</summary>
+<img src="documentation/testing/delete_data.png">
+</details>
 
 
 ### Delete account
