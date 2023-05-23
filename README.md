@@ -175,6 +175,15 @@ Depending on your choice different things will happen.
 - You will see how much money you have left in total, calulation in if you have paid anything by credit, that you need to save that money until the end of the month to afford the credit payment. 
 - You will also see how much money you have to spend for each day that remains of the month. Therefore if you do your budget the 1st of the month, you will get a different result than if you do it on the 20th. 
 - After you have viewed your budget, you can choose to either see the options again, or to exit the program. 
+    <details>
+    <summary>Printscreen of the budget 1</summary>
+    <img src="documentation/testing/month1.png">
+    </details>
+    <details>
+    <summary>Printscreen of the budget 2</summary>
+    <img src="documentation/testing/month2.png">
+    </details>
+
 --- 
 ## Testing
 
