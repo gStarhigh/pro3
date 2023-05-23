@@ -138,7 +138,21 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
 Depending on your choice different things will happen. 
 
 ### Adding new data:
+- If you choose to add new data, the following inputs must be filled:
+    - Month for the budget(You can only choose from the month you are currently in, or the next month. For example: "May" or "June")
+    - Your total budget (For example "1000")
+    - The expense type 1-5
+        - 1 = Household
+        - 2 = Food
+        - 3 = Transportation
+        - 4 = Other
+        - 5 = Savings
+    - The expense name (For example: Carpet)
+    - Transaction type (Debit or Credit)
+- After all of these inputs have been correctly filled, you can choose to enter more expenses if you want, or to proceed. If you choose to enter a new expense, the same inputs will be prompted until you don't want to add any more. 
+- If you choose to not enter any more expenses, you can choose to either see your calculated budget for one of the valid months, or to exit the program.
 
+### Viewing your budget. 
 
 
 
