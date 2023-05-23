@@ -17,11 +17,14 @@ Image of the application: ![Welcome Message](/documentation/testing/welcome-mess
 
 Disclaimer: I could not get the pyfiglet print to look the way I wanted it in the deployed terminal. I tried different fonts, sizes, widths and printing the words one by one on different lines without success. This is how it looks in the terminal on Gitpod:
 
-![Budget app in Gitpod](/documentation/testing/welcome-vscode.png)
+<details>
+<summary>Click here to see the image</summary>
+<img src="documentation/testing/welcome-vscode.png">
+</details>
 
-
-## Table of Contents
 ---
+## Table of Contents
+
  - ## [General Information](#general-information)
 
  - ## [Table of Contents](#table-of-contents-1)
