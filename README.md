@@ -56,6 +56,17 @@ The welcome message in the start of the program was used with pyfiglet, and alth
 
 --- 
 ## Project Goals
+- Create a Budget app that showcases my skills in Python.
+- Create a Budget app that is easy to understand and interact with.
+- Create a Budget app that has real world usage for the user.
+- Create a Budget app where the user has to choose a unique account name and pincode. 
+- Create a budget app where the user can choose to only display saved data. 
+- Create a Budget app where the user can delete data. 
+- Create a Budget app where the user can delete their account. 
+- Create a Budget app where all expenses are shown in a simple and understandable way.
+- Create a Budget app that calculates how much money the user has left per day and in total for the rest of the month.
+- Create a Budget app that saves all data to an external source.
+- Create a Budget app that shows no errors.
 
 ---
 # User Stories
