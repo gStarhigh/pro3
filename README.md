@@ -294,7 +294,27 @@ Depending on your choice different things will happen.
 </details>
 
 ### Delete account
+- If the user chooses to delete their account. All saved data will be deleted, along with the account name and pincode. The user will be asked one more time if they are certain that the account should be deleted. The action cannot be reversed. 
+<details>
+<summary>Printscreen of questions to delete account</summary>
+<img src="documentation/testing/delete_account.png">
+</details>
+<details>
+<summary>Printscreen of google sheet deleted data</summary>
+<img src="documentation/testing/deleted_data.png">
+</details>
+<details>
+<summary>Printscreen of google sheet deleted account</summary>
+<img src="documentation/testing/deleted_account.png">
+</details>
 
+### Restart or exit
+- After the user has deleted information, they can choose to either restart the program or exit. 
+- If the user enters wrong input, an error will occur and they will have to try again. 
+<details>
+<summary>Printscreen of wrong restart or exit input</summary>
+<img src="documentation/testing/restart_exit.png">
+</details>
 
 
 ---
