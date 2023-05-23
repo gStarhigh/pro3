@@ -107,6 +107,22 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
 
 ---
 ## General features
+- I thought of making a budget application due to the economic instability in the world right now. I wanted to make a simple budget app that works and shows how much you would have left after your expenses each month. 
+- The budget app is linked with two google sheets through an API. 
+    - The account name and pincode are saved together in a google sheet. 
+    - The pincode is encrypted when saved to the google sheet. 
+- In the data sheet, the following data is saved:
+    - Account Name
+    - Budget Month
+    - Total Budget
+    - Expense name
+    - Expense amount
+    - Transition type(Debit or Credit)
+    - Todays date
+    - Selected expense category(ex, Household or Transportation)
+- If the user is a returning user and enters a new total budget amount, that amount will be the one used to do all calculations. I wanted the latest input of Total budget to be the one to use because there might be a change in the income since last time.
+
+
 
 --- 
 ## Testing
