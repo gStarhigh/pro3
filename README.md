@@ -188,6 +188,8 @@ Depending on your choice different things will happen.
 --- 
 ## Testing
 - I have tested all inputs to make sure that only the desired inputs are allowed to be input by the user. 
+
+### Account name
 - If you are a new user and creates an account that does not exist, you can choose your pincode and your account is correctly saved to the google sheet. 
     <details>
     <summary>Printscreen of new user</summary>
@@ -201,14 +203,17 @@ Depending on your choice different things will happen.
     <summary>Printscreen of the Google sheet</summary>
     <img src="documentation/testing/budget_accounts.png">
     </details>
+
+### Pincode
 - The pincode is saved with a different salt each time. Which means that if someone was to be able to crack the pincode of one user, it would not mean that all pincodes are leaked.
-- The user has 3 tries to enter their pincode. Only 4 numbers are allowed, any other input will result in an error, and show the remaining tries
+- The user has 3 tries to enter their pincode. Only 4 numbers are allowed, any other input will result in an error, and show the remaining tries.
 
 <details>
 <summary>Printscreen of wrong pincode</summary>
 <img src="documentation/testing/pincode_validation.png">
 </details>
 
+### Options
 - The options for the program contains 4 different choices for the user, Add, Display, Delete or Exit.
 - Any other input from the user will result in an error until the user enters valid information.
 <details>
@@ -216,6 +221,7 @@ Depending on your choice different things will happen.
 <img src="documentation/testing/options_validation.png">
 </details>
 
+### Valid Months
 - To view a month in the program, the choosen month must have data. If you choose a month without any data, it will show an error and you can either choose another month, or exit the program. You cannot view historically entered data for past months. Only the current and next months are available.
 <details>
 <summary>Printscreen of the months without data</summary>
@@ -229,6 +235,11 @@ Depending on your choice different things will happen.
 <summary>Printscreen of a month with data</summary>
 <img src="documentation/testing/month2.png">
 </details>
+<details>
+<summary>Printscreen of wrong input for the months</summary>
+<img src="documentation/testing/month_validation.png">
+</details>
+
 
 
 
