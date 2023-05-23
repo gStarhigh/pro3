@@ -32,7 +32,7 @@ Disclaimer: I could not get the pyfiglet print to look the way I wanted it in th
 
  - ## [User Stories](#user-stories-1)
 
- - ## [Flowchart (Flowchart)](#Flowchart)
+ - ## [Flowchart](#Flowchart)
 
  - ## [General features](#general-features-1)
     
@@ -55,6 +55,32 @@ The UX is very limited due to the program running inside the mock terminal. Howe
 The welcome message in the start of the program was used with pyfiglet, and although I did not manage to make it look the same on Heroku as in the gitpod terminal, I decided to leave it in the program.
 
 --- 
+## Project Goals
+
+---
+# User Stories
+
+---
+## Flowchart
+
+---
+## General features
+
+--- 
+## Testing
+
+### Code Validation
+
+### Testing User Stories
+
+### Future improvements
+
+---
+## Bugs
+
+---
+## Final Result
+
 ## Deployment
 Creating the Heroku app
 
@@ -88,4 +114,10 @@ Steps (It's very important that these steps are followed in the correct order):
 27.	When it’s done, you should see a message that says “Your app was successfully deployed” and you can click “view” to see your deployed app in the mock terminal. 
 28.	You are all done and your project should now be uploaded to Heroku. 
 
+---
+## Github Pages
 
+---
+## Credits
+
+---
