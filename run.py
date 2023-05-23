@@ -170,7 +170,7 @@ class BudgetApp:
                     account_pin = account_pin.encode("utf-8")
                     if bcrypt.checkpw(account_pin, self.saved_pin.encode()):
                         print(f"Checking your account name: "
-                              f"'{Style.BRIGHT}{green_text}"
+                              f"{Style.BRIGHT}{green_text}"
                               f"{self.account_name} {reset_all}"
                               f"with the pincode: '* * * *'..")
                         print("✅ Matched credentials successfully!")
