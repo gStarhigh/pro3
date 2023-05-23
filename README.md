@@ -258,6 +258,15 @@ Depending on your choice different things will happen.
 <img src="documentation/testing/expense_validation2.png">
 </details>
 
+### Expense name and amount
+- The expense input do allow both numbers and letters, as some items do have numbers in their name, for example "iPhone 14".
+- The expense amount does only allow for whole numbers.
+<summary>Printscreen of wrong input for the expense amount</summary>
+<img src="documentation/testing/expense_amount_validation.png">
+</details>
+
+### Transaction type
+
 
 
 ---
