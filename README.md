@@ -188,6 +188,7 @@ Depending on your choice different things will happen.
 --- 
 ## Testing
 - I have tested all inputs to make sure that only the desired inputs are allowed to be input by the user. 
+- All testing printscreens can be found [here](https://github.com/gStarhigh/pro3/tree/main/documentation/testing)
 
 ### Account name
 - If you are a new user and creates an account that does not exist, you can choose your pincode and your account is correctly saved to the google sheet. 
