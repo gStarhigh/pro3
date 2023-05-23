@@ -91,6 +91,15 @@ The welcome message in the start of the program was used with pyfiglet, and alth
 
 ---
 ## Flowchart
+In planning this project I started out with making a flowchart for what I wanted the project to contain. When making the project this was very helpfull on knowing where to start and what I needed to do.
+
+I first made a flowchart in Lucidchart, however, I was not able to open it later again, even though it was visible in my account. So I created a new flowchart using https://miro.com/.
+
+The flowchart can be found here:
+
+![BudgetApp](/documentation/flowchart/flowchart.png)
+
+(The flowchart does not represent the finished project)
 
 ---
 ## General features
