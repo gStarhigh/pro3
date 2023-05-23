@@ -121,7 +121,7 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
     - Todays date
     - Selected expense category(ex, Household or Transportation)
 - If the user is a returning user and enters a new total budget amount, that amount will be the one used to do all calculations. I wanted the latest input of Total budget to be the one to use because there might be a change in the income since last time.
-
+---
 ### Welcome section
 - When you start the program you are greeted with a pyfiglet print that says "Your budget app!".
 - You are prompted to enter an Account name. If you are a returning user, you can choose your old Account name. If you are a new user, you can enter your Account name. If the Account name already exists, you will be told and you have the chance to restart and try another name. 
@@ -129,6 +129,11 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
 - If you are a new user you must choose a pincode before proceeding. 
 - If you enter a wrong pincode 3 times, the program shuts down as a precaution against bots trying to hack the pincode. 
 
+    <details>
+    <summary>Printscreen of the Welcome Section</summary>
+    <img src="documentation/testing/welcome-message.png">
+    </details>
+---
 ### Total budget and month for the budget
 - After your account has either been matched or created, you will see the options you have to choose from. You can either:
     - Add new data
@@ -136,7 +141,7 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
     - Delete data and/or your account
     - Exit the program
 Depending on your choice different things will happen. 
-
+---
 ### Adding new data:
 - If you choose to add new data, the following inputs must be filled:
     - Month for the budget(You can only choose from the month you are currently in, or the next month. For example: "May" or "June")
@@ -151,15 +156,13 @@ Depending on your choice different things will happen.
     - Transaction type (Debit or Credit)
 - After all of these inputs have been correctly filled, you can choose to enter more expenses if you want, or to proceed. If you choose to enter a new expense, the same inputs will be prompted until you don't want to add any more. 
 - If you choose to not enter any more expenses, you can choose to either see your calculated budget for one of the valid months, or to exit the program.
-
+---
 ### Viewing your budget. 
 - When you choose to see your budget, you can choose from one of the 2 valid months (This or the next month).
 - You will then see your Total budget and all expenses grouped together by expense type. The total budget used for the calulations, is the latest entered by the user.
 - You will see how much money you have left in total, calulation in if you have paid anything by credit, that you need to save that money until the end of the month to afford the credit payment. 
 - You will also see how much money you have to spend for each day that remains of the month. Therefore if you do your budget the 1st of the month, you will get a different result than if you do it on the 20th. 
 - After you have viewed your budget, you can choose to either see the options again, or to exit the program. 
-
-
 --- 
 ## Testing
 
