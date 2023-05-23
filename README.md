@@ -153,8 +153,11 @@ Depending on your choice different things will happen.
 - If you choose to not enter any more expenses, you can choose to either see your calculated budget for one of the valid months, or to exit the program.
 
 ### Viewing your budget. 
-
-
+- When you choose to see your budget, you can choose from one of the 2 valid months (This or the next month).
+- You will then see your Total budget and all expenses grouped together by expense type. The total budget used for the calulations, is the latest entered by the user.
+- You will see how much money you have left in total, calulation in if you have paid anything by credit, that you need to save that money until the end of the month to afford the credit payment. 
+- You will also see how much money you have to spend for each day that remains of the month. Therefore if you do your budget the 1st of the month, you will get a different result than if you do it on the 20th. 
+- After you have viewed your budget, you can choose to either see the options again, or to exit the program. 
 
 
 --- 
