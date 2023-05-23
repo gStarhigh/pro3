@@ -84,7 +84,10 @@ The welcome message in the start of the program was used with pyfiglet, and alth
 
 ### As a returning user:
 - I want to be able to login to my old account.
-- 
+- I want to be able to see my existing data without entering new data.
+- I want to be able to add new data to my budget.
+- I want to be able to delete old data from my budget. 
+- I want to be able to delete my account, should I desire. 
 
 ---
 ## Flowchart
