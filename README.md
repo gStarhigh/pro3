@@ -240,6 +240,23 @@ Depending on your choice different things will happen.
 <img src="documentation/testing/month_validation.png">
 </details>
 
+### Total budget
+- The user must enter a total budget amount when adding new data. If the user has already entered a budget for the same month, the new total budget amount will override the old. The total budget can only contain numbers. 
+<details>
+<summary>Printscreen of wrong input for the budget</summary>
+<img src="documentation/testing/budget_validation.png">
+</details>
+
+### Expense type
+- The user can choose between 5 different expense types and these correspond with the users input 1 to 5. Any other number or letter by the user will result in an error and prompt the user to try again.
+<details>
+<summary>Printscreen of letter input for the expense type</summary>
+<img src="documentation/testing/expense_validation1.png">
+</details>
+<details>
+<summary>Printscreen of wrong numeric input for the expense type</summary>
+<img src="documentation/testing/expense_validation2.png">
+</details>
 
 
 
