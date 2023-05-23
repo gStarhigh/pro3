@@ -129,6 +129,17 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
 - If you are a new user you must choose a pincode before proceeding. 
 - If you enter a wrong pincode 3 times, the program shuts down as a precaution against bots trying to hack the pincode. 
 
+## Total budget and month for the budget
+- After your account has either been matched or created, you will see the options you have to choose from. You can either:
+    - Add new data
+    - Display old saved data
+    - Delete data and/or your account
+    - Exit the program
+Depending on your choice different things will happen. 
+
+### Adding new data:
+
+
 
 
 
