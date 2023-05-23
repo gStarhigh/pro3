@@ -14,7 +14,9 @@ This project is a budget application that runs in a mock terminal in Heroku wher
 Link to the application: [BudgetApp](https://star-pro3.herokuapp.com/)
 
 Image of the application: ![Welcome Message](/documentation/testing/welcome-message.png)
+
 Disclaimer: I could not get the pyfiglet print to look the way I wanted it in the deployed terminal. I tried different fonts, sizes, widths and printing the words one by one on different lines without success. This is how it looks in the terminal on Gitpod:
+
 ![Budget app in Gitpod](/documentation/testing/welcome-vscode.png)
 
 
@@ -23,6 +25,8 @@ Disclaimer: I could not get the pyfiglet print to look the way I wanted it in th
  - ## [General Information](#general-information)
 
  - ## [Table of Contents](#table-of-contents-1)
+
+ - ## [UX](#UX-1)
 
  - ## [Project Goals](#project-goals-1)
 
@@ -46,6 +50,11 @@ Disclaimer: I could not get the pyfiglet print to look the way I wanted it in th
 
 - ## [Credits](#credits-1)
 ---
+## UX
+The UX is very limited due to the program running inside the mock terminal. However, some colors and icons were used to highlight certain information throughout the program to make it a little more pleasing to see and engage with.
+The welcome message in the start of the program was used with pyfiglet, and although I did not manage to make it look the same on Heroku as in the gitpod terminal, I decided to leave it in the program.
+
+--- 
 ## Deployment
 Creating the Heroku app
 
