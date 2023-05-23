@@ -261,11 +261,18 @@ Depending on your choice different things will happen.
 ### Expense name and amount
 - The expense input do allow both numbers and letters, as some items do have numbers in their name, for example "iPhone 14".
 - The expense amount does only allow for whole numbers.
+<details>
 <summary>Printscreen of wrong input for the expense amount</summary>
 <img src="documentation/testing/expense_amount_validation.png">
 </details>
 
 ### Transaction type
+- The transaction type the user can choose is either "Debit" or "Credit". Depending on what the user has paid with, the calculations for the remaining of the budget differs as the user must save enough money to the end of the month to afford to pay the credit bill. 
+- Any other input will result in an error.
+<details>
+<summary>Printscreen of wrong input for the transaction type</summary>
+<img src="documentation/testing/expense_type_validation.png">
+</details>
 
 
 
