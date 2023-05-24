@@ -122,6 +122,12 @@ I first made a flowchart in Lucidchart, however, I was not able to open it later
     - Todays date
     - Selected expense category(ex, Household or Transportation)
 - If the user is a returning user and enters a new total budget amount, that amount will be the one used to do all calculations. I wanted the latest input of Total budget to be the one to use because there might be a change in the income since last time.
+- The majority of the program is inbedded in a class called "BudgetApp", for me to be able to access and call different methods and information throughout the program.
+<details>
+<summary>Printscreen of the Class and docstring</summary>
+<img src="documentation/testing/budgetapp-class.png">
+</details>
+
 ---
 ### Welcome section
 - When you start the program you are greeted with a pyfiglet print that says "Your budget app!".
