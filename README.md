@@ -437,7 +437,39 @@ Returning user:
 - Link to the google sheets used to save all data and account information:
     - [Budget-Accounts](https://docs.google.com/spreadsheets/d/1mVIPszionmMB-rSFpCsI2O_zBnZJ-Dl0-9gJ68gOWtM/edit?usp=sharing)
     - [Budget-Data](https://docs.google.com/spreadsheets/d/1655jy4Ak4xUSzDcBgSW2vrKvznYpzRGiudOnwmD6pDY/edit?usp=sharing)
-    
+
+### Sample printscreens of the finished program below:
+
+(All images can be found [Here](https://github.com/gStarhigh/pro3/tree/main/documentation/testing))
+
+<details>
+<summary>Printscreen 1</summary>
+<img src="documentation/testing/welcome-message.png">
+</details>
+<details>
+<summary>Printscreen 2</summary>
+<img src="documentation/testing/new_account.png">
+</details>
+<details>
+<summary>Printscreen 3</summary>
+<img src="documentation/testing/returning_user.png">
+</details>
+<details>
+<summary>Printscreen 4</summary>
+<img src="documentation/testing/total_budget.png">
+</details>
+<details>
+<summary>Printscreen 5</summary>
+<img src="documentation/testing/added_expense.png">
+</details>
+<details>
+<summary>Printscreen 6</summary>
+<img src="documentation/testing/month1.png">
+</details>
+<details>
+<summary>Printscreen 7</summary>
+<img src="documentation/testing/month2.png">
+</details>
 
 ---
 ## Deployment
