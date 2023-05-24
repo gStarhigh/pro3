@@ -192,6 +192,21 @@ Depending on your choice different things will happen.
 <img src="documentation/testing/month2.png">
 </details>
 
+---
+### Zero balance or not enough for the credit bill 
+- If you have money left in your account, but not enough to pay the credit bill, a custom message will be printed:
+
+    <details>
+    <summary>Printscreen of no money for the credit bill</summary>
+    <img src="documentation/testing/credit_bill.png">
+    </details>
+
+ - If you zero out your balance, a custom message will be printed:
+    <details>
+    <summary>Printscreen of zero balance</summary>
+    <img src="documentation/testing/zero_balance.png">
+    </details>
+
 --- 
 ## Testing
 - I have tested all inputs to make sure that only the desired inputs are allowed to be input by the user. 
