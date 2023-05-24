@@ -370,6 +370,19 @@ First time user:
 
 | **Feature** | **Action** | **Expected result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
+| Exit program | Enter "q" to exit | The program should exit | The program exited |
+| Choose budget month | Enter numbers | Display error message and valid months | Error message occured |
+| Choose budget month | Choose a invalid month | Display error message and valid months | Error message occured |
+| Choose budget month | Choose a invalid month | Display error message and valid months | Error message occured |
+| Choose budget month | Choose a month without data | Display error message and let user choose another month | Error message occured and user could choose another month |
+| Choose budget month | Choose a month with data | Display the total budget, all expenses, total credit/debit and all calulations correctly | All expenses and calulations of the budget appeared correctly |
+
+4. Delete data and account
+
+| **Feature** | **Action** | **Expected result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+
+
 
 
 ---
