@@ -43,7 +43,7 @@ Disclaimer: I could not get the pyfiglet print to look the way I wanted it in th
     - ## [Code Validation](#code-validation-1)
     - ## [Testing User Stories](#testing-user-stories-1)
     - ## [Future improvements](#Future-improvements-1)
-- ## [Bugs](#bugs-and-fixes)
+- ## [Bugs](#Bugs-1)
 
 - ## [Final Result](#final-result-1)
 
