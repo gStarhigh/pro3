@@ -373,7 +373,6 @@ First time user:
 | Exit program | Enter "q" to exit | The program should exit | The program exited |
 | Choose budget month | Enter numbers | Display error message and valid months | Error message occured |
 | Choose budget month | Choose a invalid month | Display error message and valid months | Error message occured |
-| Choose budget month | Choose a invalid month | Display error message and valid months | Error message occured |
 | Choose budget month | Choose a month without data | Display error message and let user choose another month | Error message occured and user could choose another month |
 | Choose budget month | Choose a month with data | Display the total budget, all expenses, total credit/debit and all calulations correctly | All expenses and calulations of the budget appeared correctly |
 
@@ -394,7 +393,26 @@ Returning user:
 
 | **Feature** | **Action** | **Expected result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
+| Login to existing account  | Enter your saved username | Username should be matched with the database | The username was found and matched |
+| Login to existing account  | Enter 4 numbers | The pincode and account name should be matched and program continue | The pincode and account name was matched, program continued |
 
+2. Display saved data
+
+| **Feature** | **Action** | **Expected result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Display saved data | Choose a month without data | Display error message and let user choose another month | Error message occured and user could choose another month |
+| Display saved data | Choose a month with data | Display the total budget, all expenses, total credit/debit and all calulations correctly | All expenses and calulations of the budget appeared correctly |
+
+3. Delete data and account
+
+| **Feature** | **Action** | **Expected result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Delete data | Delete data in month without data | Display that no data has been deleted and display all options | Displayed message correctly and options was displayed |
+| Delete data | Delete data in month with data | Display the amount of rows deleted display all options | Displayed amount of deleted rows and options was displayed |
+| Delete account | Enter numbers instead of "yes" or "no" | Display error message | Error message occured |
+| Delete account | Enter any letters instead of "yes" or "no" | Display error message | Error message occured |
+| Delete account | Enter "no" | No data or account should be deleted and options displayed | No data or account was deleted and options were displayed |
+| Delete account | Enter "yes" | All saved data to the account, and the account and pincode should be deleted | All saved data to the account and the account and pincode were deleted |
 
 
 ---
