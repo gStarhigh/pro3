@@ -381,7 +381,19 @@ First time user:
 
 | **Feature** | **Action** | **Expected result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
+| Delete data | Delete data in month without data | Display that no data has been deleted and display all options | Displayed message correctly and options was displayed |
+| Delete data | Delete data in month with data | Display the amount of rows deleted display all options | Displayed amount of deleted rows and options was displayed |
+| Delete account | Enter numbers instead of "yes" or "no" | Display error message | Error message occured |
+| Delete account | Enter any letters instead of "yes" or "no" | Display error message | Error message occured |
+| Delete account | Enter "no" | No data or account should be deleted and options displayed | No data or account was deleted and options were displayed |
+| Delete account | Enter "yes" | All saved data to the account, and the account and pincode should be deleted | All saved data to the account and the account and pincode were deleted |
 
+
+Returning user:
+1. Login to existing account
+
+| **Feature** | **Action** | **Expected result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
 
 
 
