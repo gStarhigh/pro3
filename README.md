@@ -35,7 +35,7 @@ Disclaimer: I could not get the pyfiglet print to look the way I wanted it in th
 
  - ## [User Stories](#user-stories-1)
 
- - ## [Flowchart](#Flowchart)
+ - ## [Flowchart](#Flowchart-1)
 
  - ## [General features](#general-features-1)
     
@@ -347,7 +347,7 @@ Steps (It's very important that these steps are followed in the correct order):
 1.	Create an account on https://id.heroku.com/login
 2.	If you have inputs in your code, you must insert the new line code for each input at the end for the mock terminal to display your inputs correctly. The code is “\n”.
 3.	You need to enter information to your credentials.txt file, as Heroku uses this file to seach for dependencies when building your application in the mock terminal. You need to enter the following command in the command terminal: “pip3 freeze > requirements.txt” Be sure to spell the command exactly like this, and make sure that the requirements.txt file is named the same way. 
-4.	Make sure to commit and push theses changes before moving on.
+4.	Make sure to commit and push these changes before moving on.(See the "Github pages" for information about setting up your repository.)
 5.	Go to Heroku’s daschboard.
 6.	Click “Create a new app”
 7.	Name your app (The app’s name must be unique) and choose a region
