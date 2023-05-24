@@ -529,20 +529,20 @@ class BudgetApp:
 
         # Checks if the user has less than 0 left if so,
         # prints a custom message.
-        if self.total_left < 0:
+        elif self.total_left < 0:
             print(f"🔴 With these expenses you have exceeded your budget with:"
                   f" {Style.BRIGHT}{red_text}{self.total_left}{reset_all}$."
-                  f" You should change your expenses"
-                  f" to make sure you don't zero out your balance.\n")
-
-        print(f"💶 You have a total of "
-              f"{Style.BRIGHT}{green_text}{self.total_left:.2f}{reset_all}$ "
-              f"left this month.\n")
-        print(f"📉 You have {blue_text}{self.left_per_day:.2f}{reset_all}"
-              f"$ to spend per day this month calulating"
-              f" that you need to\nsave"
-              f" 💳 {yellow_text}{self.total_credit:.2f}{reset_all}"
-              f"$ to afford the credit\n")
+                  f" \nYou should change your expenses"
+                  f" to make sure you don't\nzero out your balance.\n")
+        else:
+            print(f"💶 You have a total of "
+                f"{Style.BRIGHT}{green_text}{self.total_left:.2f}{reset_all}$ "
+                f"left this month.\n")
+            print(f"📉 You have {blue_text}{self.left_per_day:.2f}{reset_all}"
+                f"$ to spend per day this month calulating"
+                f" that you need to\nsave"
+                f" 💳 {yellow_text}{self.total_credit:.2f}{reset_all}"
+                f"$ to afford the credit\n")
 
     def delete_data(self, budget_data, account_name, valid_months):
         """
