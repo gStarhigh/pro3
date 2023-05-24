@@ -351,7 +351,14 @@ First time user:
 | Choose budget month | Enter a valid month | No error should appear | No error occured |
 | Set a total budget | Enter letters instead of numbers | Display error message that only numbers are allowed | Error message was displayed |
 | Set a total budget | Enter only numbers | No error should appear | No error occured |
-
+| Choose a category | Enter only letters | Display error message that you can only choose numbers: 1-5 | Error message was displayed |
+| Choose a category | Enter numbers other than 1-5 | Display error message that you can only choose numbers: 1-5 | Error message was displayed |
+| Choose a category | Enter numbers 1-5 | No error should appear | No error occured |
+| Choose a expense name| Enter numbers as name | No error should appear | No error occured |
+| Choose a expense name| Enter letters as name | No error should appear | No error occured |
+| Choose a expense amount| Enter letters as amount | Display error message that only numbers are allowed | Error message was displayed |
+| Choose a expense amount| Enter numbers and "," or "." as amount(Ex: 9,99) | Display error message that only numbers are allowed | Error message was displayed |
+| Choose a expense amount| Enter only numbers| No error should appear | No error occured |
 
 
 
