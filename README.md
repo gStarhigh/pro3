@@ -417,6 +417,9 @@ Returning user:
 
 ---
 ## Future improvements
+- Be able to delete only a single expense from their budget. 
+- Be able to view old budgets that contains data and not be restricted to valid months. 
+- Be able to change information about an added expense, for example, from debit to credit.
 
 ---
 ## Bugs
