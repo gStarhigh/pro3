@@ -81,6 +81,7 @@ The welcome message in the start of the program was used with pyfiglet, and alth
 - I want to be able to set my total budget.
 - I want to be able to choose the month for my budget. 
 - I want to be able to add multiple expenses.
+- I want to be able to categorize the expenses.
 - I want to be able to see my finished budget. 
 - I want to be able to delete data from my budget. 
 - I want to be able to delete my account, should I desire. 
@@ -349,6 +350,8 @@ First time user:
 | Choose budget month | Enter wrong month | Display error message that only the valid months are allowed | Error message was displayed |
 | Choose budget month | Enter a valid month | No error should appear | No error occured |
 | Set a total budget | Enter letters instead of numbers | Display error message that only numbers are allowed | Error message was displayed |
+| Set a total budget | Enter only numbers | No error should appear | No error occured |
+
 
 
 
