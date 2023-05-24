@@ -535,14 +535,14 @@ class BudgetApp:
                   f" \nYou should change your expenses"
                   f" to make sure you don't\nzero out your balance.\n")
         else:
-            print(f"💶 You have a total of "
-                f"{Style.BRIGHT}{green_text}{self.total_left:.2f}{reset_all}$ "
-                f"left this month.\n")
+            print(f"💶 You have a total of {Style.BRIGHT}{green_text}"
+                  f"{self.total_left:.2f}{reset_all}$ "
+                  f"left this month.\n")
             print(f"📉 You have {blue_text}{self.left_per_day:.2f}{reset_all}"
-                f"$ to spend per day this month calulating"
-                f" that you need to\nsave"
-                f" 💳 {yellow_text}{self.total_credit:.2f}{reset_all}"
-                f"$ to afford the credit\n")
+                  f"$ to spend per day this month calulating"
+                  f" that you need to\nsave"
+                  f" 💳 {yellow_text}{self.total_credit:.2f}{reset_all}"
+                  f"$ to afford the credit\n")
 
     def delete_data(self, budget_data, account_name, valid_months):
         """
