@@ -423,9 +423,12 @@ Returning user:
 
 ---
 ## Bugs
+- No known bugs exist in the project.
 
 ---
 ## Final Result
+The final deployed project can be found [here.](https://star-pro3.herokuapp.com/)
+
 
 ---
 ## Deployment
