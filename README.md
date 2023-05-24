@@ -329,6 +329,29 @@ Depending on your choice different things will happen.
 ---
 
 ## Testing User Stories
+First time user:
+1. Account name and pincode
+
+| **Feature** | **Action** | **Expected result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Choose a username | Enter a username that does not exist | Check if the username exists | The username does not exist |
+| Restart if username exist | Enter an existing username | Be able to start over | You can restart. |
+| Enter a wrong pincode | Enter 4 letters | Error message should appear to tell the user to enter 4 letters  | Error message appeared and told the user to enter a 4 letters |
+| Enter a wrong pincode  | Enter more or less than 4 numbers | Error message should appear to tell the user to enter 4 numbers  | Error message appeared and told the user to enter a 4 numbers |
+| Enter a wrong pincode 3 times | Enter wrong pincode 3 times | Error message should appear and program shut down  | Error message appeared and program shut down |
+| Enter a correct pincode  | Enter 4 numbers | The pincode and account name should be saved to the google sheet and program continue | The pincode and account name was saved, program continued |
+
+2. Enter budget data
+
+| **Feature** | **Action** | **Expected result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Choose budget month | Enter numbers instead of a month | Display error message that only the valid months are allowed | Error message was displayed |
+| Choose budget month | Enter wrong month | Display error message that only the valid months are allowed | Error message was displayed |
+| Choose budget month | Enter a valid month | No error should appear | No error occured |
+| Set a total budget | Enter letters instead of numbers | Display error message that only numbers are allowed | Error message was displayed |
+
+
+
 
 ---
 ## Future improvements
