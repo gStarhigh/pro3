@@ -359,8 +359,17 @@ First time user:
 | Choose a expense amount| Enter letters as amount | Display error message that only numbers are allowed | Error message was displayed |
 | Choose a expense amount| Enter numbers and "," or "." as amount(Ex: 9,99) | Display error message that only numbers are allowed | Error message was displayed |
 | Choose a expense amount| Enter only numbers| No error should appear | No error occured |
+| Choose transaction type| Enter only numbers| Display error message with accepted inputs | Error message was displayed |
+| Choose transaction type| Enter correct input | Display saved expense and ask if the user wants to add another expense | Expense was saved to google sheet and next question was provided |
+| Add another expense | Enter numbers | Display error message | Error message was displayed |
+| Add another expense | Enter letters but not correct input | Display error message | Error message was displayed |
+| Add another expense | Enter "n" | Ask what month the user wants to display | The user was asked what month to display |
+| Add another expense | Enter "y" | The user should be returned and can now add another expense | The user was returned and can now add another expense |
 
+3. Display budget
 
+| **Feature** | **Action** | **Expected result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
 
 
 ---
