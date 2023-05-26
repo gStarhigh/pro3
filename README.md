@@ -45,6 +45,8 @@ Disclaimer: I could not get the pyfiglet print to look the way I wanted it in th
     - ## [Future improvements](#Future-improvements-1)
 - ## [Bugs](#Bugs-1)
 
+- ## [Libraries and Software](#Libraries-and-Software-1)
+
 - ## [Final Result](#final-result-1)
 
 - ## [Deployment](#deployment-1)
@@ -453,6 +455,21 @@ Returning user:
 ---
 ## Bugs
 - No known bugs exist in the project.
+
+---
+## Libraries and Software
+
+### Libraries used:
+- gspread - Used to control Google Sheets API by python.
+- OAuthlib - Required to manage HTTP request and authenticate to Google Sheets API.
+- bcrypt - Used to encrypt and decrypt the pincode.
+- Datetime - Used to get the dates from the user. 
+- Calendar - Used to get todays date from the user. 
+- pyfiglet - Used to print ASCII welcome text.
+- Colorama - Used to color terminal output text.
+
+### Software used:
+
 
 ---
 ## Final Result
