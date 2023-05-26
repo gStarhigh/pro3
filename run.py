@@ -97,6 +97,13 @@ class BudgetApp:
         print("If you are a returning user, please enter your existing "
               "account name below. \n")
         self.account_name = input("Enter your account name: \n")
+        while not self.account_name.strip() or self.account_name.isdigit():
+            if not self.account_name.strip():
+                print(f"{red_text}Account name cannot be empty.{reset_all}")
+            else:
+                print(f"{red_text}Account name cannot only contain numbers."
+                      f"{reset_all}")
+            self.account_name = input("Enter your account name: \n")
         print(f"Checking your account name '{self.account_name}'..")
 
         # Check if the account name already exists in the sheet
