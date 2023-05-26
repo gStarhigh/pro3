@@ -469,7 +469,10 @@ Returning user:
 - Colorama - Used to color terminal output text.
 
 ### Software used:
-
+- Gitpod - Used for version control and to commit and push code to github.
+- Github - Github is used to store the projects code after being pushed from gitpod. 
+- Heroku - Used to deploy the project online.
+- Miro.com - Used to create the flowchart.
 
 ---
 ## Final Result
