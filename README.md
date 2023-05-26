@@ -235,6 +235,10 @@ Depending on your choice different things will happen.
 <summary>Printscreen of wrong pincode</summary>
 <img src="documentation/testing/pincode_validation.png">
 </details>
+<details>
+<summary>Printscreen of maximum tries</summary>
+<img src="documentation/testing/maximum_tries.png">
+</details>
 
 ### Options
 - The options for the program contains 4 different choices for the user, Add, Display, Delete or Exit.
