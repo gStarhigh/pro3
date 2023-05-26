@@ -213,7 +213,7 @@ Depending on your choice different things will happen.
 - All testing printscreens can be found [here](https://github.com/gStarhigh/pro3/tree/main/documentation/testing)
 
 ### Account name
-- If you are a new user and creates an account that does not exist, you can choose your pincode and your account is correctly saved to the google sheet. 
+- If you are a new user and creates an account that does not exist, you can choose your pincode and your account is correctly saved to the google sheet. The account name cannot be empty or only contain numbers.
     <details>
     <summary>Printscreen of new user</summary>
     <img src="documentation/testing/new_account.png">
@@ -221,6 +221,10 @@ Depending on your choice different things will happen.
     <details>
     <summary>Printscreen of a returning user</summary>
     <img src="documentation/testing/returning_user.png">
+    </details>
+    <details>
+    <summary>Printscreen of the wrong inputs</summary>
+    <img src="documentation/testing/account_validation.png">
     </details>
     <details>
     <summary>Printscreen of the Google sheet</summary>
