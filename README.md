@@ -454,7 +454,7 @@ Returning user:
 
 ---
 ## Bugs
-- No known bugs exist in the project.
+- One problem that I haven't solved is the pyfiglet print with the welcome text. I could not get the pyfiglet print to look the way I wanted it in the deployed terminal. I tried different fonts, sizes, widths and printing the words one by one on different lines without success.
 
 ---
 ## Libraries and Software
